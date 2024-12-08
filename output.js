@@ -1,4 +1,4 @@
-//Sun Dec 08 2024 06:28:07 GMT+0000 (Coordinated Universal Time)
+//Sun Dec 08 2024 22:53:21 GMT+0000 (Coordinated Universal Time)
 //Base:https://github.com/echo094/decode-js
 //Modify:https://github.com/smallfawn/decode_action
 const _0x49dfef = _0x5370a4("电信营业厅");
