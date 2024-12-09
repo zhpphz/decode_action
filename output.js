@@ -1,1992 +1,250 @@
-//Sun Dec 08 2024 22:53:21 GMT+0000 (Coordinated Universal Time)
+//Mon Dec 09 2024 03:08:25 GMT+0000 (Coordinated Universal Time)
 //Base:https://github.com/echo094/decode-js
 //Modify:https://github.com/smallfawn/decode_action
-const _0x49dfef = _0x5370a4("电信营业厅");
-const _0x8e0885 = require("got");
-const _0x203c4a = require("path");
-const {
-  exec: _0x3898d1
-} = require("child_process");
-const {
-  CookieJar: _0x4f58d7
-} = require("tough-cookie");
-const _0x5336b3 = require("fs");
-const _0x5e650c = require("crypto-js");
-const _0x22f09c = "chinaTelecom";
-const _0x1876a7 = /[\n\&\@]/;
-const _0x4aec53 = [_0x22f09c + "Account"];
-const _0x128624 = 30000;
-const _0x5a04a9 = 3;
-const _0x1736e2 = _0x22f09c + "Rpc";
-const _0x16d3ea = process.env[_0x1736e2];
-const _0xf4231c = 6.02;
-const _0x14f289 = "chinaTelecom";
-const _0x100b57 = "https://leafxcy.coding.net/api/user/leafxcy/project/validcode/shared-depot/validCode/git/blob/master/code.json";
-const _0x344953 = "JinDouMall";
-let _0x1d3d6d = {};
-const _0x5370da = "./chinaTelecom_cache.json";
-const _0x3ed712 = "Mozilla/5.0 (Linux; U; Android 12; zh-cn; ONEPLUS A9000 Build/QKQ1.190716.003) AppleWebKit/533.1 (KHTML, like Gecko) Version/5.0 Mobile Safari/533.1";
-const _0x75a069 = "34d7cb0bcdf07523";
-const _0x2304b1 = "1234567`90koiuyhgtfrdewsaqaqsqde";
-const _0x1110eb = "\0\0\0\0\0\0\0\0";
-const _0x3c561e = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDBkLT15ThVgz6/NOl6s8GNPofdWzWbCkWnkaAm7O2LjkM1H7dMvzkiqdxU02jamGRHLX/ZNMCXHnPcW/sDhiFCBN18qFvy8g6VYb9QtroI09e176s+ZCtiv7hbin2cCTj99iUpnEloZm19lwHyo69u5UMiPMpq0/XKBO8lYhN/gwIDAQAB";
-const _0x1e9565 = "-----BEGIN PUBLIC KEY-----\n" + _0x3c561e + "\n-----END PUBLIC KEY-----";
-const _0x516f15 = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC+ugG5A8cZ3FqUKDwM57GM4io6JGcStivT8UdGt67PEOihLZTw3P7371+N47PrmsCpnTRzbTgcupKtUv8ImZalYk65dU8rjC/ridwhw9ffW2LBwvkEnDkkKKRi2liWIItDftJVBiWOh17o6gfbPoNrWORcAdcbpk2L+udld5kZNwIDAQAB";
-const _0x4995b7 = "-----BEGIN PUBLIC KEY-----\n" + _0x516f15 + "\n-----END PUBLIC KEY-----";
-const _0x51cf70 = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDIPOHtjs6p4sTlpFvrx+ESsYkEvyT4JB/dcEbU6C8+yclpcmWEvwZFymqlKQq89laSH4IxUsPJHKIOiYAMzNibhED1swzecH5XLKEAJclopJqoO95o8W63Euq6K+AKMzyZt1SEqtZ0mXsN8UPnuN/5aoB3kbPLYpfEwBbhto6yrwIDAQAB";
-const _0x2e5ddf = "-----BEGIN PUBLIC KEY-----\n" + _0x51cf70 + "\n-----END PUBLIC KEY-----";
-const _0xc38e90 = require("node-rsa");
-let _0x13a631 = new _0xc38e90(_0x1e9565);
-const _0x4386dc = {
-  encryptionScheme: "pkcs1"
-};
-_0x13a631.setOptions(_0x4386dc);
-let _0x47bb4b = new _0xc38e90(_0x4995b7);
-const _0xe2cacf = {
-  encryptionScheme: "pkcs1"
-};
-_0x47bb4b.setOptions(_0xe2cacf);
-let _0x5b4189 = new _0xc38e90(_0x2e5ddf);
-const _0x3ab892 = {
-  encryptionScheme: "pkcs1"
-};
-_0x5b4189.setOptions(_0x3ab892);
-const _0x131d2d = [202201, 202202, 202203];
-const _0x3c685e = 5;
-function _0x1519a6(_0xa8ae5c, _0x459aac, _0x58d61f, _0xa81bc3, _0x5af061, _0x3eaf32) {
-  return _0x5e650c[_0xa8ae5c].encrypt(_0x5e650c.enc.Utf8.parse(_0xa81bc3), _0x5e650c.enc.Utf8.parse(_0x5af061), {
-    mode: _0x5e650c.mode[_0x459aac],
-    padding: _0x5e650c.pad[_0x58d61f],
-    iv: _0x5e650c.enc.Utf8.parse(_0x3eaf32)
-  }).ciphertext.toString(_0x5e650c.enc.Hex);
-}
-function _0x436a1e(_0x5007ed, _0x18814d, _0x38ebb6, _0x4281ff, _0x1bafc9, _0x3aac70) {
-  return _0x5e650c[_0x5007ed].decrypt({
-    ciphertext: _0x5e650c.enc.Hex.parse(_0x4281ff)
-  }, _0x5e650c.enc.Utf8.parse(_0x1bafc9), {
-    mode: _0x5e650c.mode[_0x18814d],
-    padding: _0x5e650c.pad[_0x38ebb6],
-    iv: _0x5e650c.enc.Utf8.parse(_0x3aac70)
-  }).toString(_0x5e650c.enc.Utf8);
-}
-function _0x4e4355() {
-  try {
-    _0x5336b3.writeFileSync(_0x5370da, JSON.stringify(_0x1d3d6d, null, 4), "utf-8");
-  } catch (_0x1c3791) {
-    console.log("保存缓存出错");
-  }
-}
-function _0xa0ff1b() {
-  try {
-    _0x1d3d6d = JSON.parse(_0x5336b3.readFileSync(_0x5370da, "utf-8"));
-  } catch (_0x125821) {
-    console.log("读取缓存出错, 新建一个token缓存");
-    _0x4e4355();
-  }
-}
-let _0x300c8e = 0;
-let _0xdb6efe = 0;
-function _0x11cae0() {
-  _0xdb6efe = 1;
-  process.on("SIGTERM", () => {
-    _0xdb6efe = 2;
-    process.exit(0);
-  });
-  const _0x377b8a = _0x203c4a.basename(process.argv[1]);
-  const _0x39bc5b = ["bash", "timeout", "grep"];
-  let _0x4fe84e = ["ps afx"];
-  _0x4fe84e.push("grep " + _0x377b8a);
-  _0x4fe84e = _0x4fe84e.concat(_0x39bc5b.map(_0x425dac => "grep -v \"" + _0x425dac + " \""));
-  _0x4fe84e.push("wc -l");
-  const _0x401932 = _0x4fe84e.join("|");
-  const _0x134226 = () => {
-    _0x3898d1(_0x401932, (_0x26b41f, _0x817890, _0x4eca1a) => {
-      if (_0x26b41f || _0x4eca1a) {
-        return;
-      }
-      _0x300c8e = parseInt(_0x817890.trim(), 10);
-    });
-    if (_0xdb6efe == 1) {
-      setTimeout(_0x134226, 2000);
+;
+(function ua(pa, Cq, uM, uR, jm, Z, Mr) {
+  function MZ(a, CR) {
+    var pr = a ^ CR,
+      HH = Cq[pr],
+      QQ = HH.split("").reverse().join(String.fromCharCode(66666 - pr)),
+      Cp = [];
+    if (Mr[QQ] !== undefined) {
+      return Mr[QQ];
     }
-  };
-  _0x134226();
-}
-class _0x9d1851 {
-  constructor() {
-    this.index = _0x49dfef.userIdx++;
-    this.name = "";
-    this.valid = false;
-    const _0x46f57a = {
-      limit: 0
-    };
-    const _0x42e66e = {
-      Connection: "keep-alive"
-    };
-    const _0x1612bd = {
-      retry: _0x46f57a,
-      timeout: _0x128624,
-      followRedirect: false,
-      ignoreInvalidCookies: true,
-      headers: _0x42e66e
-    };
-    this.got = _0x8e0885.extend(_0x1612bd);
-    if (_0xdb6efe == 0) {
-      _0x11cae0();
-    }
+    for (var pz = 0; pz < HH.length; pz++) Cp.push(HH.charCodeAt(pz) - pz - CR);
+    return Mr[QQ] = String.fromCharCode.apply(null, Cp);
   }
-  log(_0x42a357, _0x32d0cc = {}) {
-    var _0x58117c = "";
-    var _0x9ca0e2 = _0x49dfef.userCount.toString().length;
-    if (this.index) {
-      _0x58117c += "账号[" + _0x49dfef.padStr(this.index, _0x9ca0e2) + "]";
-    }
-    if (this.name) {
-      _0x58117c += "[" + this.name + "]";
-    }
-    _0x49dfef.log(_0x58117c + _0x42a357, _0x32d0cc);
-  }
-  set_cookie(_0x309397, _0x3ab012, _0x4a8547, _0x1320cb, _0x482400 = {}) {
-    this.cookieJar.setCookieSync(_0x309397 + "=" + _0x3ab012 + "; Domain=" + _0x4a8547 + ";", "" + _0x1320cb);
-  }
-  async request(_0x29ad8a) {
-    const _0x58b4a1 = ["ECONNRESET", "EADDRINUSE", "ENOTFOUND", "EAI_AGAIN"];
-    const _0x497c09 = ["TimeoutError"];
-    const _0x54807f = ["EPROTO"];
-    const _0x30eee7 = [];
-    var _0x208a74 = null;
-    var _0x3a35d0 = 0;
-    var _0x1684d3 = _0x29ad8a.fn || _0x29ad8a.url;
-    let _0x25d788 = _0x49dfef.get(_0x29ad8a, "valid_code", _0x30eee7);
-    _0x29ad8a.method = _0x29ad8a?.["method"]?.["toUpperCase"]() || "GET";
-    let _0x19ce7b;
-    let _0x5c8c40;
-    while (_0x3a35d0 < _0x5a04a9) {
-      try {
-        _0x3a35d0++;
-        _0x19ce7b = "";
-        _0x5c8c40 = "";
-        let _0x1fa216 = null;
-        let _0x123eec = _0x29ad8a?.["timeout"] || this.got?.["defaults"]?.["options"]?.["timeout"]?.["request"] || _0x128624;
-        let _0x34e77b = false;
-        let _0x5397b0 = Math.max(this.index - 2, 0);
-        let _0x5d25e7 = Math.min(Math.max(this.index - 3, 1), 3);
-        let _0x52755a = Math.min(Math.max(this.index - 4, 1), 4);
-        let _0x15d328 = _0x5397b0 * _0x5d25e7 * _0x52755a * 400;
-        let _0x2c4c80 = _0x5397b0 * _0x5d25e7 * _0x52755a * 1800;
-        let _0x4cfee0 = _0x15d328 + Math.floor(Math.random() * _0x2c4c80);
-        let _0x15dce7 = _0x300c8e * (_0x300c8e - 1) * 2000;
-        let _0x5ca50a = (_0x300c8e - 1) * (_0x300c8e - 1) * 2000;
-        let _0x333735 = _0x15dce7 + Math.floor(Math.random() * _0x5ca50a);
-        let _0x573d35 = Math.max(_0x49dfef.userCount - 2, 0);
-        let _0x25871d = Math.max(_0x49dfef.userCount - 3, 0);
-        let _0x34f531 = _0x573d35 * 200;
-        let _0x1bd293 = _0x25871d * 400;
-        let _0x4845e7 = _0x34f531 + Math.floor(Math.random() * _0x1bd293);
-        let _0x5dc50f = _0x4cfee0 + _0x333735 + _0x4845e7;
-        await _0x49dfef.wait(_0x5dc50f);
-        await new Promise(async _0x45b1d3 => {
-          setTimeout(() => {
-            _0x34e77b = true;
-            _0x45b1d3();
-          }, _0x123eec);
-          await this.got(_0x29ad8a).then(_0x284c2a => {
-            _0x208a74 = _0x284c2a;
-          }, _0x55b6b8 => {
-            _0x1fa216 = _0x55b6b8;
-            _0x208a74 = _0x55b6b8.response;
-            _0x19ce7b = _0x1fa216?.["code"] || "";
-            _0x5c8c40 = _0x1fa216?.["name"] || "";
-          });
-          _0x45b1d3();
-        });
-        if (_0x34e77b) {
-          this.log("[" + _0x1684d3 + "]请求超时(" + _0x123eec / 1000 + "秒)，重试第" + _0x3a35d0 + "次");
-        } else {
-          if (_0x54807f.includes(_0x19ce7b)) {
-            this.log("[" + _0x1684d3 + "]请求错误[" + _0x19ce7b + "][" + _0x5c8c40 + "]");
-            if (_0x1fa216?.["message"]) {
-              console.log(_0x1fa216.message);
-            }
-            break;
+  (function ju(RH, ZQ, up, rH, Mm) {
+    ZQ = ZQ || [];
+    up = up || [];
+    rH = rH || [];
+    for (var HC = up.length, Hp, QC; QC = pa[RH++];) if (137 < ++QC) {
+      if (171 < QC) {
+        QC > 181 && ((QC > 182 || (up[(HC += QC++) - 184] = up[HC + QC++ - 367] <= up[(HC -= 183) + --QC - 183], "")) && (up[HC] = pa[up[(HC += 2) + ++QC - 185] = {}, RH++] - (44176 + RH)), !null) || 178 < QC && ((180 < QC || (QC > 179 && (up[HC + --QC - 183] = Z(up[HC + QC - 182], up[--HC - 3])()(up[--HC - QC++ + 179] * up[HC-- - QC++ + 181]), !null) || (up[HC - --QC + 177] >>= pa[RH++] - (-QC + 63107 + RH)), !true)) && (up[HC - QC-- + 180] >>>= pa[RH++] - (9264 + RH)), !false) || 175 < QC && (177 < QC && (up[++HC - QC + 175] = up[(HC += QC++) - 181] in ZQ[up[(HC -= 180) + QC-- - 179]], !0) || (QC < 177 || (up[HC-- - ++QC + 177] = up[HC++ + QC - 178] >= Cq[pa[RH++] ^ - --QC + 51951 + RH], !1)) && (RH = pa[Hp = ++RH, --RH] ^ 14292 + ++RH), true) || (QC < 174 || (175 > QC && (up[(HC += ++QC) - 177] = up[(HC += 18) - QC++ - 20] !== ZQ[up[(HC -= 194) + QC++ - 176]], []) || (rH[rH.length - up[++HC - QC + 172]][up[++HC - QC++ + 170]] = up[(HC -= 5) - ++QC + 179]), null)) && (172 < QC-- && (up[(HC -= QC) + 170] = up[--HC - QC-- + 343] != up[(HC += 172) + QC-- - 171], !false) || (up[HC + ++QC - 173] = up[HC - --QC + 170] !== pa[RH++] - (- --QC + 15288 + RH)));
+      } else {
+        if (150 > QC) {
+          if (142 > QC) {
+            QC < 140 && (--QC < 138 && (up[HC - --QC + 134] = up[HC++ + --QC - 137] >= up[(HC -= 2) - QC++ + 135], !false) || (up[(HC -= ++QC) + 135] = up[--HC - ++QC + 276][up[--HC - ++QC + 279]] = up[HC + 139][up[(HC += 138) + QC-- - 139]]), {}) || 140 < QC && (up[HC - QC-- + 141] = pa[up[(HC += 2) + QC-- - 141] = 0, RH++] - (QC + 24771 + RH), !false) || (up[HC++] = pa[up[++HC - --QC + 138] = [], RH++] - (QC + 20351 + RH));
           } else {
-            if (_0x497c09.includes(_0x5c8c40)) {
-              this.log("[" + _0x1684d3 + "]请求错误[" + _0x19ce7b + "][" + _0x5c8c40 + "]，重试第" + _0x3a35d0 + "次");
-            } else {
-              if (_0x58b4a1.includes(_0x19ce7b)) {
-                this.log("[" + _0x1684d3 + "]请求错误[" + _0x19ce7b + "][" + _0x5c8c40 + "]，重试第" + _0x3a35d0 + "次");
+            if (QC < 145) {
+              if (QC < 143) {
+                return Mm.uH = 0;
               } else {
-                let _0x42b498 = _0x208a74?.["statusCode"] || "";
-                let _0x2ef704 = _0x42b498 / 100 | 0;
-                if (_0x42b498) {
-                  _0x2ef704 > 3 && !_0x25d788.includes(_0x42b498) && (_0x42b498 ? this.log("请求[" + _0x1684d3 + "]返回[" + _0x42b498 + "]") : this.log("请求[" + _0x1684d3 + "]错误[" + _0x19ce7b + "][" + _0x5c8c40 + "]"));
-                  if (_0x2ef704 <= 4) {
-                    break;
+                QC < 144 && (up[--HC + QC - 144] = rH[rH.length - up[HC++ + QC - 143]][up[HC-- - QC + 141]], !"") || Z(up[--HC - 4], up[++HC - 6], up[++HC + --QC - 148])(up[HC++ - 4], up[HC++ + ++QC - 148], up[(HC -= 9) + 5])();
+              }
+            } else {
+              148 > QC && ((146 < QC || (145 < QC && (up[--HC + QC-- - 148] = Z(up[(HC -= 73) + ++QC - 74], up[HC-- - --QC + 216])()(up[(HC += 73) + 1]), []) || (up[HC + --QC - 146] = up[--HC + --QC - 144] * up[HC]), ![])) && (up[++HC - QC++ + 145] = ZQ[up[HC-- - --QC + 145]] = pa[RH++] - (-QC + 23105 + RH)), !false) || (QC > 148 || (up[++HC + QC++ - 149] = !MZ(pa[RH++] ^ QC + 10245 + RH, pa[RH++] ^ ++QC + 42808 + RH), null)) && (up[(HC += 88) + --QC - 235] = MZ(pa[up[(HC -= 86) - 2] = MZ(pa[RH++] ^ --QC + 59720 + RH, pa[RH++] ^ -QC + 51893 + RH), RH++] ^ -++QC + 54269 + RH, pa[RH++] ^ -QC + 2056 + RH));
+            }
+          }
+        } else {
+          if (QC < 161) {
+            QC < 153 && ((QC > 151 || ((QC > 150 || (up[--HC - QC-- + 149] = up[HC++ + ++QC - 151] === ZQ[up[--HC - QC-- + 150]], !{})) && (up[++HC + QC++ - 152] = uM[MZ(pa[RH++] ^ - --QC + 39572 + RH, pa[RH++] ^ QC + 45935 + RH)]), 0)) && (up[HC++ + --QC - 151] = -Cq[pa[RH++] ^ -QC + 23145 + RH]), !null) || 156 < QC && ((QC < 159 || (159 < QC && (up[--HC - 1] = ZQ[up[(HC -= QC--) + 159]] = ZQ[up[(HC += 160) - ++QC + 160]], []) || (up[HC++ + ++QC - 161] = new (uR(up[--HC - QC + 159]))()), undefined)) && (157 < QC && (up[HC++ + QC++ - 159] = typeof ZQ[up[--HC + ++QC - 161]], 1) || (up[HC] = MZ(pa[up[(HC += 2) - QC-- + 156] = {}, RH++] ^ QC++ + 53656 + RH, pa[RH++] ^ 24342 + RH))), 1) || 155 > QC++ && (QC > 154 && (up[--HC - QC-- + 153] = up[--HC + QC++ - 155][up[HC - QC + 155]] = !up[HC + 1], !null) || (up[++HC - --QC + 150] = up[(HC -= 109) + ++QC - 48] < up[(HC += 107) - QC-- + 154]), {}) || 157 > QC && (RH = up[Hp = RH, HC-- + ++QC - 158], !null) || (up[HC] = up[HC++ + QC++ - 158]);
+          } else {
+            if (QC > 167) {
+              170 < QC && (function () {
+                throw up[HC-- + QC - 172];
+              }(), !undefined) || QC > 169 && (up[(HC -= QC) + 168] = Z(up[++HC - QC + 338])(up[(HC += 168) - --QC + 168], MZ(pa[RH++] ^ -++QC + 60841 + RH, pa[RH++] ^ QC-- + 53955 + RH))(), !0) || QC > 168 && (up[(HC += 27) - 32] = Z(up[HC + QC - 200])(up[(HC += QC) - 201], up[(HC += --QC) - 367])(up[HC-- - QC-- - 198], ZQ[up[(HC -= 367) + 3]]), !0) || (up[HC++ + --QC - 169] = up[--HC + QC - 169] == !up[--HC + --QC - 166]);
+            } else {
+              if (QC < 164) {
+                if (162 > QC) {
+                  up[--HC + ++QC - 162] = up[HC++ + QC++ - 162] !== Cq[pa[RH++] ^ -QC + 7248 + RH];
+                } else {
+                  if (QC < 163) {
+                    up[HC++ - QC++ + 162] = MZ(pa[RH++] ^ QC++ + 51574 + RH, pa[RH++] ^ QC-- + 30351 + RH);
+                  } else {
+                    try {
+                      var jR = up[(HC -= 24) - --QC + 182],
+                        Rd = up[(HC += QC++) - 141],
+                        pM = up[HC-- - QC-- + 23],
+                        mZ = up[(HC -= 141) + --QC - 158],
+                        JJ = {
+                          uH: 1
+                        },
+                        mM = ju(RH, ZQ, [], rH, JJ);
+                      if (JJ.uH) {
+                        return mM;
+                      }
+                      if (JJ.Ma !== 0) {
+                        jR = JJ.Ma;
+                        if (JJ.qr > 1) {
+                          Mm.Ma = jR;
+                          Mm.qr = --JJ.qr;
+                          return Mm.uH = 0;
+                        }
+                      }
+                    } catch (da) {
+                      ZQ[mZ] = da;
+                      JJ = {
+                        uH: 1
+                      };
+                      mM = ju(Rd, ZQ, [], rH, JJ);
+                      if (JJ.uH) {
+                        return mM;
+                      }
+                      if (JJ.Ma !== undefined) {
+                        jR = JJ.Ma;
+                        if (JJ.qr > 1) {
+                          Mm.Ma = jR;
+                          Mm.qr = --JJ.qr;
+                          return Mm.uH = 0;
+                        }
+                      }
+                    } finally {
+                      JJ = {
+                        uH: 1
+                      };
+                      mM = ju(pM, ZQ, [], rH, JJ);
+                      if (JJ.uH) {
+                        Mm && (Mm.uH = 1);
+                        return mM;
+                      }
+                      if (JJ.Ma !== undefined) {
+                        jR = JJ.Ma;
+                        if (JJ.qr > 1) {
+                          Mm.Ma = jR;
+                          Mm.qr = --JJ.qr;
+                          return Mm.uH = 0;
+                        }
+                        return ju(jR, ZQ, [], rH);
+                      }
+                      RH = jR;
+                    }
+                  }
+                }
+              } else {
+                QC < 166 && ((164 < QC || (up[(HC += 30) - --QC + 131] = up[HC-- - --QC + 130] === up[(HC -= 30) + --QC - 161], 0)) && (up[HC + QC++ - 167] = up[(HC += 3) + ++QC - 172] !== !up[(HC -= 4) + QC-- - 167]), true) || 167 > QC && (up[HC++ + QC-- - 166] = {}, 1) || (up[HC - 2] = up[HC - ++QC + 166] instanceof up[HC-- - QC-- + 167]);
+              }
+            }
+          }
+        }
+      }
+    } else {
+      if (QC > 92) {
+        if (105 > QC) {
+          QC > 102 && (QC < 104 && (up[++HC - QC + 103] = Cq[pa[up[HC++ - QC++ + 102] = Cq[pa[RH++] ^ -QC++ + 12274 + RH], RH++] ^ QC + 52462 + RH], true) || (up[(HC -= ++QC) + 104] = up[(HC += 105) + QC - 106] == Cq[pa[RH++] ^ QC-- + 47934 + RH]), !"") || 99 < QC && ((101 > QC || (101 < QC && (up[(HC -= --QC) + 99] = !(up[HC - QC++ + 200] < up[HC += 100]), []) || (up[--HC - --QC + 98] = up[(HC += 41) - --QC + 56][up[(HC -= ++QC) + 58]] = up[(HC += 58) - --QC + 100]), 0)) && (up[(HC -= 31) - QC + 129] = new RegExp(up[HC + QC++ - 71], up[HC += 30])), []) || (QC < 97 || ((98 < QC || ((98 > QC || (up[HC - --QC + 96] /= pa[RH++] - (--QC + 29720 + RH), !1)) && (up[HC-- - QC-- + 96] = up[HC++ - ++QC + 97] <= pa[RH++] - (QC-- + 9223 + RH)), !true)) && jm(up[HC++ + QC - 101], [up[--HC + --QC - 101]])(up[(HC -= 3) + QC - 96]), !{})) && (QC < 95 && ((QC < 94 || (Z(up[++HC - --QC + 91])(up[(HC -= 3) - QC-- + 93])(), !true)) && (up[--HC + QC++ - 95] = Z(up[++HC + ++QC - 97], up[(HC += 71) - QC + 21])(ZQ[up[(HC -= 73) + QC-- - 94]])()), 1) || (++QC < 97 || (up[(HC -= 115) - --QC + 207] = Z(up[++HC - QC-- + 207], up[HC - QC++ + 205])()(up[--HC + 113][up[(HC += 112) + QC++ - 94]]), undefined)) && (up[++HC - QC++ + 93] = up[++HC + QC-- - 101] != typeof up[(HC -= 3) + QC-- - 96]));
+        } else {
+          if (126 < QC) {
+            if (133 < QC) {
+              if (136 < QC || (135 < QC-- && (up[(HC -= ++QC) + 135] = up[(HC += 136) + QC-- - 137][MZ(pa[RH++] ^ 40290 + RH, pa[RH++] ^ - --QC + 32500 + RH)], !undefined) || QC > 133 && (up[HC-- - --QC + 132] = up[HC++ - QC + 133] >= pa[RH++] - (39698 + RH), !"") || (up[HC-- + QC++ - 135] = up[++HC - 2][up[--HC + QC - 134]]), !1)) {
+                up[HC - --QC + 134] = up[++HC + ++QC - 140] | up[(HC -= 2) - ++QC + 138];
+              }
+            } else {
+              if (QC > 131) {
+                QC > 132 && (function () {
+                  debugger;
+                }(), 1) || (up[HC - QC + 131] <<= pa[RH++] - (--QC + 3324 + RH));
+              } else {
+                if (129 < QC) {
+                  if (131 > QC || (up[HC + --QC - 131] += Cq[pa[RH++] ^ --QC + 57858 + RH], "")) {
+                    up[HC - 3] = uR(up[(HC += QC++) - 132], up[HC + QC - 264], up[(HC -= 132) - --QC + 131], MZ(pa[RH++] ^ -QC-- + 56161 + RH, pa[RH++] ^ 34221 + RH))();
                   }
                 } else {
-                  this.log("请求[" + _0x1684d3 + "]错误[" + _0x19ce7b + "][" + _0x5c8c40 + "]");
+                  if (128 > QC) {
+                    up[--HC - ++QC + 127] = up[(HC += 83) - QC++ + 44] != !up[(HC -= 83) + QC-- - 129];
+                  } else {
+                    if (128 < QC) {
+                      return up[HC++ - ++QC + 129];
+                    } else {
+                      up[--HC + ++QC - 131] = rH[rH.length - up[++HC + QC - 131]][up[(HC -= QC++) + 126]] = up[(HC += 127) - ++QC + 132];
+                    }
+                  }
                 }
               }
             }
+          } else {
+            QC < 116 && ((111 < QC || (108 > QC && (QC > 106 && (up[--HC + QC-- - 108] = up[(HC += ++QC) - 108] < ZQ[up[(HC -= 107) + QC-- - 107]], !undefined) || (QC > 105 || (up[--HC - 2][up[HC - QC-- + 104]] = up[(HC -= 2) + ++QC - 103], null)) && (up[++HC + ++QC - 107] = pa[up[HC++ - 1] = pa[RH++] - (--QC + 42325 + RH), RH++] ^ -++QC + 33753 + RH), true) || 110 > QC && (QC > 108 && (up[(HC += 69) - ++QC + 39] = up[(HC -= QC--) + 39] == up[(HC += 40) - QC-- + 109], !undefined) || Z(up[++HC - 5], up[++HC + --QC - 114])(up[HC + --QC - 111])(up[HC-- + QC - 110], up[(HC -= 6) - QC-- + 110]), !undefined) || 110 < QC && (up[(HC -= ++QC) + 107] = up[++HC - QC-- + 218][up[--HC + 108]] = uR(up[HC + 110], up[--HC - QC + 221])(up[(HC += 109) - QC++ + 114]), !false) || (up[HC++ - QC++ + 110] = pa[up[++HC + QC - 112] = true, RH++] - (-QC++ + 35739 + RH)), 0)) && (QC < 114 || (QC < 115 && (up[--HC - QC-- + 111] = Z(up[HC-- - ++QC + 112], up[HC-- - QC-- + 112])()(up[HC++ + --QC - 111], up[HC-- + ++QC - 112], MZ(pa[RH++] ^ QC + 33739 + RH, pa[RH++] ^ QC + 55886 + RH)), {}) || (up[++HC - QC++ + 114] = -(pa[RH++] - (6720 + RH))), 0)) && (QC > 112 || (up[RH++, --HC - QC-- + 112] && (RH = pa[--RH] ^ ++QC + 24711 + ++RH), false)) && (up[--HC + --QC - 112] = up[HC++ + QC++ - 112] === MZ(pa[RH++] ^ 66029 + RH, pa[RH++] ^ - --QC + 48683 + RH)), {}) || (QC < 119 || (--QC < 120 && ((118 < QC-- || (up[HC - QC-- + 116] |= pa[RH++] - (QC-- + 63251 + RH), "")) && (up[(HC -= 126) + 125] = up[(HC += 126) - QC + 117] == pa[RH++] - (QC++ + 21668 + RH)), true) || (QC < 122 || ((124 > QC || (QC > 124 && (up[HC + QC++ - 131] = up[(HC += --QC) - 131][up[HC - 130]] = uR(up[++HC - --QC - 5], up[(HC += QC--) - 254], up[(HC -= --QC) - 130], up[(HC -= 133) + QC - 118])(), true) || (up[HC++ - ++QC + 123] = up[HC-- - QC + 122] + up[HC-- - --QC + 123]), 0)) && (QC > 122 && (up[(HC += 5) - 7] || (RH = up[HC - QC++ + 117]), (HC -= 7) + QC - 62, []) || (up[(HC += 68) + QC++ - 196] = Z(up[(HC -= QC) + 50], up[--HC + --QC - 72], up[HC + ++QC - 71], up[--HC - QC + 177], up[HC++ + QC-- - 68])()(up[(HC += 51) + 4]))), false)) && (121 > QC || (up[HC--] = up[(HC += 2) - --QC + 116], !1)) && (up[--HC - QC-- + 120] = up[++HC + QC++ - 120]), "")) && (QC < 117 || (117 < QC && (up[HC + QC-- - 120] = up[(HC -= 111) - QC + 226] - up[(HC += 110) - QC + 117], !null) || (up[--HC + QC++ - 115] = pa[up[(HC += 3) - 2] = MZ(pa[RH++] ^ ++QC + 45190 + RH, pa[RH++] ^ -QC-- + 33292 + RH), RH++] - (QC++ + 65674 + RH)), null)) && (up[(HC -= 61) + QC - 57] = Z(up[(HC -= --QC) + 175])(up[(HC += 175) + QC - 116])());
           }
         }
-      } catch (_0xa3ad4) {
-        _0xa3ad4.name == "TimeoutError" ? this.log("[" + _0x1684d3 + "]请求超时，重试第" + _0x3a35d0 + "次") : this.log("[" + _0x1684d3 + "]请求错误(" + _0xa3ad4.message + ")，重试第" + _0x3a35d0 + "次");
-      }
-    }
-    const _0x14f89a = {
-      statusCode: _0x19ce7b || -1,
-      headers: null,
-      result: null
-    };
-    if (_0x208a74 == null) {
-      return Promise.resolve(_0x14f89a);
-    }
-    let {
-      statusCode: _0x4f50c8,
-      headers: _0x4fdc35,
-      body: _0x4bfa21
-    } = _0x208a74;
-    if (_0x4bfa21) {
-      try {
-        _0x4bfa21 = JSON.parse(_0x4bfa21);
-      } catch {}
-    }
-    const _0x5d1199 = {
-      statusCode: _0x4f50c8,
-      headers: _0x4fdc35,
-      result: _0x4bfa21
-    };
-    return Promise.resolve(_0x5d1199);
-  }
-}
-let _0x280825 = _0x9d1851;
-try {
-  let _0x236d58 = require("./LocalBasic");
-  _0x280825 = _0x236d58;
-} catch {}
-let _0x3b1630 = new _0x280825(_0x49dfef);
-class _0x3f433d extends _0x280825 {
-  constructor(_0x5669ce) {
-    super(_0x49dfef);
-    let _0x28f602 = _0x5669ce.split("#");
-    this.name = _0x28f602[0];
-    this.passwd = _0x28f602?.[1] || "";
-    this.uuid = [_0x49dfef.randomPattern("xxxxxxxx"), _0x49dfef.randomPattern("xxxx"), _0x49dfef.randomPattern("4xxx"), _0x49dfef.randomPattern("xxxx"), _0x49dfef.randomPattern("xxxxxxxxxxxx")];
-    this.cookieJar = new _0x4f58d7();
-    this.can_feed = true;
-    this.jml_tokenFlag = "";
-    this.mall_token = "";
-    const _0x1effd8 = {
-      Connection: "keep-alive",
-      "User-Agent": _0x3ed712
-    };
-    this.got = this.got.extend({
-      cookieJar: this.cookieJar,
-      headers: _0x1effd8
-    });
-  }
-  load_token() {
-    let _0x2f4a66 = false;
-    _0x1d3d6d[this.name] && (this.userId = _0x1d3d6d[this.name].userId, this.token = _0x1d3d6d[this.name].token, this.log("读取到缓存token"), _0x2f4a66 = true);
-    return _0x2f4a66;
-  }
-  encode_phone() {
-    let _0xd2389f = this.name.split("");
-    for (let _0x51660a in _0xd2389f) {
-      _0xd2389f[_0x51660a] = String.fromCharCode(_0xd2389f[_0x51660a].charCodeAt(0) + 2);
-    }
-    return _0xd2389f.join("");
-  }
-  encode_aes(_0x53e9bb) {
-    return _0x1519a6("AES", "ECB", "Pkcs7", _0x53e9bb, _0x75a069, 0);
-  }
-  get_mall_headers() {
-    return {
-      "Content-Type": "application/json;charset=utf-8",
-      Accept: "application/json, text/javascript, */*; q=0.01",
-      Authorization: this.mall_token ? "Bearer " + this.mall_token : "",
-      "X-Requested-With": "XMLHttpRequest"
-    };
-  }
-  async login(_0x2971d3 = {}) {
-    let _0x22cd07 = false;
-    try {
-      let _0x3ae9d0 = _0x49dfef.time("yyyyMMddhhmmss");
-      let _0x16bc9b = "iPhone 14 15.4." + this.uuid.slice(0, 2).join("") + this.name + _0x3ae9d0 + this.passwd + "0$$$0.";
-      let _0x807c6e = {
-        fn: "login",
-        method: "post",
-        url: "https://appgologin.189.cn:9031/login/client/userLoginNormal",
-        json: {
-          headerInfos: {
-            code: "userLoginNormal",
-            timestamp: _0x3ae9d0,
-            broadAccount: "",
-            broadToken: "",
-            clientType: "#9.6.1#channel50#iPhone 14 Pro Max#",
-            shopId: "20002",
-            source: "110003",
-            sourcePassword: "Sid98s",
-            token: "",
-            userLoginName: this.name
-          },
-          content: {
-            attach: "test",
-            fieldData: {
-              loginType: "4",
-              accountType: "",
-              loginAuthCipherAsymmertric: _0x13a631.encrypt(_0x16bc9b, "base64"),
-              deviceUid: this.uuid.slice(0, 3).join(""),
-              phoneNum: this.encode_phone(),
-              isChinatelecom: "0",
-              systemVersion: "15.4.0",
-              authentication: this.passwd
-            }
-          }
-        }
-      };
-      let {
-        result: _0x3cbd6a,
-        statusCode: _0x4338ff
-      } = await this.request(_0x807c6e);
-      let _0x107431 = _0x49dfef.get(_0x3cbd6a?.["responseData"], "resultCode", -1);
-      if (_0x107431 == "0000") {
-        let {
-          userId = "",
-          token = ""
-        } = _0x3cbd6a?.["responseData"]?.["data"]?.["loginSuccessResult"] || {};
-        this.userId = userId;
-        this.token = token;
-        this.log("使用服务密码登录成功");
-        _0x1d3d6d[this.name] = {
-          token: token,
-          userId: userId,
-          t: Date.now()
-        };
-        _0x4e4355();
-        _0x22cd07 = true;
       } else {
-        let _0xf8ba30 = _0x3cbd6a?.["msg"] || _0x3cbd6a?.["responseData"]?.["resultDesc"] || _0x3cbd6a?.["headerInfos"]?.["reason"] || "";
-        this.log("服务密码登录失败[" + _0x107431 + "]: " + _0xf8ba30);
-      }
-    } catch (_0x576f6c) {
-      console.log(_0x576f6c);
-    } finally {
-      return _0x22cd07;
-    }
-  }
-  async get_ticket(_0x3e5067 = {}) {
-    let _0x252ee2 = "";
-    try {
-      let _0x21dd20 = "\n            <Request>\n                <HeaderInfos>\n                    <Code>getSingle</Code>\n                    <Timestamp>" + _0x49dfef.time("yyyyMMddhhmmss") + "</Timestamp>\n                    <BroadAccount></BroadAccount>\n                    <BroadToken></BroadToken>\n                    <ClientType>#9.6.1#channel50#iPhone 14 Pro Max#</ClientType>\n                    <ShopId>20002</ShopId>\n                    <Source>110003</Source>\n                    <SourcePassword>Sid98s</SourcePassword>\n                    <Token>" + this.token + "</Token>\n                    <UserLoginName>" + this.name + "</UserLoginName>\n                </HeaderInfos>\n                <Content>\n                    <Attach>test</Attach>\n                    <FieldData>\n                        <TargetId>" + _0x1519a6("TripleDES", "CBC", "Pkcs7", this.userId, _0x2304b1, _0x1110eb) + "</TargetId>\n                        <Url>4a6862274835b451</Url>\n                    </FieldData>\n                </Content>\n            </Request>";
-      let _0x2990d1 = {
-        fn: "get_ticket",
-        method: "post",
-        url: "https://appgologin.189.cn:9031/map/clientXML",
-        body: _0x21dd20
-      };
-      let {
-        result: _0x9f4220,
-        statusCode: _0x1e891f
-      } = await this.request(_0x2990d1);
-      if (_0x9f4220) {
-        let _0x18f397 = _0x9f4220.match(/\<Ticket\>(\w+)\<\/Ticket\>/);
-        if (_0x18f397) {
-          let _0x2c4653 = _0x18f397[1];
-          _0x252ee2 = _0x436a1e("TripleDES", "CBC", "Pkcs7", _0x2c4653, _0x2304b1, _0x1110eb);
-          this.ticket = _0x252ee2;
-        }
-      }
-      !_0x252ee2 && (!_0x3e5067.retry && (await this.login()) ? (_0x3e5067.retry = true, _0x252ee2 = await this.get_ticket(_0x3e5067)) : (this.log("没有获取到ticket[" + _0x1e891f + "]: "), _0x9f4220 && this.log(": " + JSON.stringify(_0x9f4220))));
-    } catch (_0x1c9e54) {
-      console.log(_0x1c9e54);
-    } finally {
-      return _0x252ee2;
-    }
-  }
-  async get_sign(_0x9b96be = {}) {
-    let _0x10c0cb = false;
-    try {
-      const _0x59fe75 = {
-        ticket: this.ticket
-      };
-      let _0x269bf2 = {
-        fn: "login",
-        method: "get",
-        url: "https://wapside.189.cn:9001/jt-sign/ssoHomLogin",
-        searchParams: _0x59fe75
-      };
-      let {
-        result: _0x36bbb6,
-        statusCode: _0x3a8945
-      } = await this.request(_0x269bf2);
-      let _0xe3542d = _0x49dfef.get(_0x36bbb6, "resoultCode", _0x3a8945);
-      _0xe3542d == 0 ? (_0x10c0cb = _0x36bbb6?.["sign"], this.sign = _0x10c0cb, this.got = this.got.extend({
-        headers: {
-          sign: this.sign
-        }
-      })) : this.log("获取sign失败[" + _0xe3542d + "]: " + _0x36bbb6);
-    } catch (_0x44161f) {
-      console.log(_0x44161f);
-    } finally {
-      return _0x10c0cb;
-    }
-  }
-  encrypt_para(_0x217db5) {
-    let _0x1c768f = typeof _0x217db5 == "string" ? _0x217db5 : JSON.stringify(_0x217db5);
-    return _0x47bb4b.encrypt(_0x1c768f, "hex");
-  }
-  async userCoinInfo(_0x3a27b0 = false, _0x2a9f2e = {}) {
-    try {
-      let _0x12feeb = {
-        phone: this.name
-      };
-      let _0x55424b = {
-        fn: "userCoinInfo",
-        method: "post",
-        url: "https://wapside.189.cn:9001/jt-sign/api/home/userCoinInfo",
-        json: {
-          para: this.encrypt_para(_0x12feeb)
-        }
-      };
-      let {
-        result: _0x18ad00,
-        statusCode: _0x3e695c
-      } = await this.request(_0x55424b);
-      let _0x474131 = _0x49dfef.get(_0x18ad00, "resoultCode", _0x3e695c);
-      if (_0x474131 == 0) {
-        this.coin = _0x18ad00?.["totalCoin"] || 0;
-        if (_0x3a27b0) {
-          const _0x3a5985 = {
-            notify: true
-          };
-          this.log("金豆余额: " + this.coin, _0x3a5985);
-          if (_0x18ad00.amountEx) {
-            let _0x5b7bde = _0x49dfef.time("yyyy-MM-dd", _0x18ad00.expireDate);
-            const _0x359049 = {
-              notify: true
+        if (47 < QC) {
+          82 < ++QC && (90 < ++QC && (QC > 93 && (up[HC++] = {}[{}], !undefined) || 92 < QC && (up[HC + --QC - 93] -= pa[RH++] - (QC++ + 27468 + RH), !0) || 91 < QC && (up[--HC - QC + 89] = Z(up[(HC += QC--) - 94])(up[HC++ - ++QC - 3], up[--HC + QC-- - 185], up[(HC -= 94) + QC-- - 89])(), !undefined) || (up[HC-- + ++QC - 94] = up[HC++ + --QC - 92] ^ up[--HC + QC++ - 91]), {}) || QC > 88 && (QC > 89 && (up[--HC - QC + 91] = MZ(pa[up[(HC += 3) + QC-- - 91] = !!{}, RH++] ^ -QC++ + 62294 + RH, pa[RH++] ^ QC + 62040 + RH), !undefined) || up.splice((HC += QC) - 92, 0, up[(HC -= 88) - ++QC + 88]), true) || (QC > 86 || (--QC > 84 && (up[HC++ + QC-- - 85] = !(pa[RH++] - (-++QC + 39676 + RH)), !"") || (QC > 83 || (up[HC + QC - 83] = MZ(pa[up[(HC += 2) - 1] = !1, RH++] ^ 61834 + RH, pa[RH++] ^ 33031 + RH), false)) && (up[(HC -= QC++) + 81] = new up[HC-- + --QC - 3](up[HC + --QC], up[(HC += 83) + QC-- - 82])), null)) && (87 < QC && (up[++HC + --QC - 89] = uM[up[HC-- - 2]], !0) || (up.length = --HC + QC - 85)), !undefined) || (61 > QC || (QC < 72 && (QC < 64 && ((62 > QC || ((63 > QC || (up[++HC + --QC - 64] = up[HC-- + QC-- - 64] != pa[RH++] - (-QC + 35585 + RH), null)) && (up[++HC + QC-- - 62] = up[up[--HC] = pa[RH++] - (QC + 58985 + RH), (HC += 2) + QC++ - 64]), 0)) && (up[(HC -= 70) + 68] = ZQ[up[(HC -= 42) - ++QC + 172]] = !up[(HC += 111) - --QC + 61]), !0) || 66 < --QC && (69 < QC && (up[--HC + ++QC - 72] = up[(HC -= QC++) + 70] & up[(HC += 71) + QC-- - 72], !null) || QC > 68 && (up[++HC - ++QC + 67] = up[++HC - 4] instanceof ZQ[up[(HC -= 3) + ++QC - 71]], !false) || QC-- > 67 && (up[--HC - --QC + 66] = up[HC++][pa[RH++] - (QC-- + 40868 + RH)], !false) || (up[HC-- - --QC + 64] = ZQ[up[HC++]] = MZ(pa[RH++] ^ -QC-- + 53504 + RH, pa[RH++] ^ -QC++ + 31519 + RH)), !"") || (QC > 64 || (--QC < 63 && (up[++HC + --QC - 70] = function (ra, Rz, ud, RZ, uC, zH, mu, rj) {
+            var ar = rH.concat([ZQ]);
+            return function jp() {
+              var MJ = arguments.length > mu.length ? mu.length : arguments.length,
+                Ju = [];
+              for (var pz = 0; pz < MJ; pz++) Ju[mu[pz]] = arguments[pz];
+              uC && (Ju[ud] = arguments);
+              Rz && (Ju[ra] = this);
+              zH && Object.defineProperty(Ju, RZ, {
+                value: jp,
+                writable: !1
+              });
+              return ju(rj, Ju, [], ar);
             };
-            _0x49dfef.log("-- [" + _0x5b7bde + "]将过期" + _0x18ad00.amountEx + "金豆", _0x359049);
-          }
-        }
-      } else {
-        let _0x4e7123 = _0x18ad00?.["msg"] || _0x18ad00?.["resoultMsg"] || _0x18ad00?.["error"] || "";
-        this.log("查询账户金豆余额错误[" + _0x474131 + "]: " + _0x4e7123);
-      }
-    } catch (_0x4d1b75) {
-      console.log(_0x4d1b75);
-    }
-  }
-  async userStatusInfo(_0x10c627 = {}) {
-    try {
-      let _0x219924 = {
-        phone: this.name
-      };
-      let _0x16b897 = {
-        fn: "userStatusInfo",
-        method: "post",
-        url: "https://wapside.189.cn:9001/jt-sign/api/home/userStatusInfo",
-        json: {
-          para: this.encrypt_para(_0x219924)
-        }
-      };
-      {
-        let {
-          result: _0x39cfe5,
-          statusCode: _0x5e556e
-        } = await this.request(_0x49dfef.copy(_0x16b897));
-        let _0x509ab0 = _0x49dfef.get(_0x39cfe5, "resoultCode", _0x5e556e);
-        if (_0x509ab0 == 0) {
-          let {
-            isSign: _0x1d403c
-          } = _0x39cfe5?.["data"];
-          _0x1d403c ? this.log("今天已签到") : await this.doSign();
+          }(up[(HC -= QC) + 57], up[++HC - QC++ + 116], up[HC++ + --QC - 7], up[--HC + QC-- - 3], up[(HC -= 23) - --QC + 135], up[HC - QC-- + 139], up[HC-- + QC-- + 17], up[(HC += 76) - QC-- + 56]), []) || (up[HC - ++QC + 61] = ZQ[up[++HC - QC-- + 60]] = up[--HC + ++QC - 66][up[(HC -= 2) + QC - 63]]), !{})) && (65 < QC && (up[HC - QC + 64] = up[HC - ++QC + 65] in up[--HC + QC-- - 67], true) || (up[HC - QC-- + 64] = up[HC - --QC + 62] === pa[RH++] - (55672 + RH))), true) || (QC > 78 || (75 > QC && (QC < 73 && (up[HC++ - QC + 71] = up[HC-- + --QC - 73] === Cq[pa[RH++] ^ ++QC + 58262 + RH], true) || QC < 74 && (up[(HC += 21) - --QC + 47] = Z(up[HC - QC + 48], up[HC + QC++ - 97], up[HC++ + ++QC - 97] - up[(HC -= 25) + 2])()(), !"") || jm(up[++HC - QC++ + 71], (up[HC-- - QC-- + 73][0] = up[(HC -= QC--) + 71], up[(HC += 71) + QC - 71]))(), []) || 77 > QC && ((QC > 75 || (up[HC - 2] = !(up[(HC += 43) + ++QC - 121] == up[HC -= 44]), null)) && (RH = up[HC-- + --QC - 76]), true) || (77 < QC || (up[HC-- + QC - 79] = up[HC-- + QC++ - 78][up[++HC + QC - 78]] = pa[RH++] - (29165 + RH), ![])) && (up[HC - --QC + 76] += pa[RH++] - (-QC + 64745 + RH)), 0)) && (81 > QC && (80 > QC && (delete up[--HC + QC - 80][up[--HC + --QC - 77]], !false) || (up[++HC + ++QC - 82] = pa[RH++] - (-++QC + 3389 + RH)), !null) || 81 < QC && (up[++HC - QC + 80] = up[HC-- + QC-- - 84] == MZ(pa[RH++] ^ -QC++ + 47179 + RH, pa[RH++] ^ QC + 60723 + RH), !false) || (up[HC - --QC + 79] %= pa[RH++] - (3323 + RH))), undefined)) && (58 < QC && ((59 < QC || (up[HC++ - ++QC + 58] += ZQ[up[(HC -= 2) + --QC - 59]], undefined)) && (up[--HC + QC - 60] = !ZQ[up[HC++]]), true) || (55 < QC-- || ((--QC < 51 || (52 < QC && (up[HC + QC++ - 53] = MZ(pa[up[(HC += 2) - 1] = [], RH++] ^ QC-- + 12887 + RH, pa[RH++] ^ 15418 + RH), !undefined) || QC > 51 && (up[(HC += QC--) - 55] = up[(HC -= 33) - QC-- + 29] < up[--HC - 20][up[(HC -= 20) + 1]], []) || (up[HC++ + ++QC - 55] = jm(up[HC++ - QC + 49], [up[HC - QC-- + 47]])(up[(HC -= 4) + 1], pa[RH++] - (31194 + RH))), !1)) && (49 > QC-- || ((49 > QC || (up[--HC + --QC - 46] = pa[up[(HC += 3) + QC++ - 50] = pa[RH++] - (QC + 21004 + RH), RH++] - (QC + 15810 + RH), !{})) && uR(up[(HC -= --QC) + 44], up[HC++ - QC++ + 90])(up[++HC + 43], up[(HC += 41) + QC++ - 45]), 0)) && (46 < QC && (up[++HC - QC++ + 44] = up[HC - QC + 45][up[(HC -= 2) - QC++ + 48]] = MZ(pa[RH++] ^ 39717 + RH, pa[RH++] ^ 41335 + RH), !undefined) || (up[++HC + --QC - 46] = null)), !true)) && (56 > QC || (57 > QC && (up[HC++ - QC-- + 55] = up[--HC - QC-- + 54] < pa[RH++] - (-QC + 46142 + RH), 1) || (up[--HC - ++QC + 59] = pa[up[(HC += 3) + QC++ - 59] = !true, RH++] - (--QC + 58134 + RH)), 0)) && (up[(HC -= 49) - QC + 103] = !!up[(HC += 49) + ++QC - 57]));
         } else {
-          let _0x11bda2 = _0x39cfe5?.["msg"] || _0x39cfe5?.["resoultMsg"] || _0x39cfe5?.["error"] || "";
-          this.log("查询账户签到状态错误[" + _0x509ab0 + "]: " + _0x11bda2);
-        }
-      }
-      {
-        let {
-          result: _0xf4c969,
-          statusCode: _0x34b777
-        } = await this.request(_0x49dfef.copy(_0x16b897));
-        let _0x4d9c85 = _0x49dfef.get(_0xf4c969, "resoultCode", _0x34b777);
-        if (_0x4d9c85 == 0) {
-          let {
-            continuousDay: _0x33365d,
-            signDay: _0x128cf2,
-            isSeven: _0x3fa455
-          } = _0xf4c969?.["data"];
-          this.log("已签到" + _0x128cf2 + "天, 连签" + _0x33365d + "天");
-          _0x3fa455 && (await this.exchangePrize());
-        } else {
-          let _0xc36b81 = _0xf4c969?.["msg"] || _0xf4c969?.["resoultMsg"] || _0xf4c969?.["error"] || "";
-          this.log("查询账户签到状态错误[" + _0x4d9c85 + "]: " + _0xc36b81);
-        }
-      }
-    } catch (_0x103f04) {
-      console.log(_0x103f04);
-    }
-  }
-  async continueSignDays(_0x3e553e = {}) {
-    try {
-      let _0x124dfb = {
-        phone: this.name
-      };
-      let _0x215fff = {
-        fn: "continueSignDays",
-        method: "post",
-        url: "https://wapside.189.cn:9001/jt-sign/webSign/continueSignDays",
-        json: {
-          para: this.encrypt_para(_0x124dfb)
-        }
-      };
-      let {
-        result: _0x6e6187,
-        statusCode: _0x257d59
-      } = await this.request(_0x215fff);
-      let _0x912371 = _0x49dfef.get(_0x6e6187, "resoultCode", _0x257d59);
-      if (_0x912371 == 0) {
-        this.log("抽奖连签天数: " + (_0x6e6187?.["continueSignDays"] || 0) + "天");
-        if (_0x6e6187?.["continueSignDays"] == 15) {
-          const _0x207b02 = {
-            type: "15"
-          };
-          await this.exchangePrize(_0x207b02);
-        } else {
-          if (_0x6e6187?.["continueSignDays"] == 28) {
-            const _0x1f691c = {
-              type: "28"
-            };
-            await this.exchangePrize(_0x1f691c);
-          }
-        }
-      } else {
-        let _0x311a52 = _0x6e6187?.["msg"] || _0x6e6187?.["resoultMsg"] || _0x6e6187?.["error"] || "";
-        this.log("查询抽奖连签天数错误[" + _0x912371 + "]: " + _0x311a52);
-      }
-    } catch (_0xfe7972) {
-      console.log(_0xfe7972);
-    }
-  }
-  async continueSignRecords(_0x716c04 = {}) {
-    try {
-      let _0x353f90 = {
-        phone: this.name
-      };
-      let _0x3db199 = {
-        fn: "continueSignRecords",
-        method: "post",
-        url: "https://wapside.189.cn:9001/jt-sign/webSign/continueSignRecords",
-        json: {
-          para: this.encrypt_para(_0x353f90)
-        }
-      };
-      let {
-        result: _0xcdce9f,
-        statusCode: _0x167568
-      } = await this.request(_0x3db199);
-      let _0xd160b5 = _0x49dfef.get(_0xcdce9f, "resoultCode", _0x167568);
-      if (_0xd160b5 == 0) {
-        if (_0xcdce9f?.["continue15List"]?.["length"]) {
-          const _0x4ddf3a = {
-            type: "15"
-          };
-          await this.exchangePrize(_0x4ddf3a);
-        }
-        if (_0xcdce9f?.["continue28List"]?.["length"]) {
-          const _0x24d413 = {
-            type: "28"
-          };
-          await this.exchangePrize(_0x24d413);
-        }
-      } else {
-        let _0xa1a8c7 = _0xcdce9f?.["msg"] || _0xcdce9f?.["resoultMsg"] || _0xcdce9f?.["error"] || "";
-        this.log("查询连签抽奖状态错误[" + _0xd160b5 + "]: " + _0xa1a8c7);
-      }
-    } catch (_0x696f49) {
-      console.log(_0x696f49);
-    }
-  }
-  async doSign(_0x3d1e97 = {}) {
-    try {
-      let _0x2c6ae2 = {
-        phone: this.name,
-        date: Date.now(),
-        sysType: "20002"
-      };
-      let _0x32b4a2 = {
-        fn: "doSign",
-        method: "post",
-        url: "https://wapside.189.cn:9001/jt-sign/webSign/sign",
-        json: {
-          encode: this.encode_aes(JSON.stringify(_0x2c6ae2))
-        }
-      };
-      let {
-        result: _0x4a380a,
-        statusCode: _0x39f295
-      } = await this.request(_0x32b4a2);
-      let _0x66dfe4 = _0x49dfef.get(_0x4a380a, "resoultCode", _0x39f295);
-      if (_0x66dfe4 == 0) {
-        let _0x3199d0 = _0x49dfef.get(_0x4a380a?.["data"], "code", -1);
-        if (_0x3199d0 == 1) {
-          const _0x241cc1 = {
-            notify: true
-          };
-          this.log("签到成功，获得" + (_0x4a380a?.["data"]?.["coin"] || 0) + "金豆", _0x241cc1);
-          await this.userStatusInfo();
-        } else {
-          const _0x16b3bf = {
-            notify: true
-          };
-          this.log("签到失败[" + _0x3199d0 + "]: " + _0x4a380a.data.msg, _0x16b3bf);
-        }
-      } else {
-        let _0x48eddc = _0x4a380a?.["msg"] || _0x4a380a?.["resoultMsg"] || _0x4a380a?.["error"] || "";
-        this.log("签到错误[" + _0x66dfe4 + "]: " + _0x48eddc);
-      }
-    } catch (_0x3c07a4) {
-      console.log(_0x3c07a4);
-    }
-  }
-  async exchangePrize(_0x503199 = {}) {
-    try {
-      let _0x15d8af = _0x49dfef.pop(_0x503199, "type", "7");
-      let _0x2a4555 = {
-        phone: this.name,
-        type: _0x15d8af
-      };
-      let _0x275dee = {
-        fn: "exchangePrize",
-        method: "post",
-        url: "https://wapside.189.cn:9001/jt-sign/webSign/exchangePrize",
-        json: {
-          para: this.encrypt_para(_0x2a4555)
-        }
-      };
-      let {
-        result: _0x122edb,
-        statusCode: _0x7493f8
-      } = await this.request(_0x275dee);
-      let _0x32ecff = _0x49dfef.get(_0x122edb, "resoultCode", _0x7493f8);
-      if (_0x32ecff == 0) {
-        let _0xfbfebb = _0x49dfef.get(_0x122edb?.["prizeDetail"], "code", -1);
-        if (_0xfbfebb == 0) {
-          const _0x51aac0 = {
-            notify: true
-          };
-          this.log("连签" + _0x15d8af + "天抽奖: " + _0x122edb?.["prizeDetail"]?.["biz"]?.["winTitle"], _0x51aac0);
-        } else {
-          let _0x36ea79 = _0x122edb?.["prizeDetail"]?.["err"] || "";
-          const _0x513b8a = {
-            notify: true
-          };
-          this.log("连签" + _0x15d8af + "天抽奖失败[" + _0xfbfebb + "]: " + _0x36ea79, _0x513b8a);
-        }
-      } else {
-        let _0x2f0e88 = _0x122edb?.["msg"] || _0x122edb?.["resoultMsg"] || _0x122edb?.["error"] || "";
-        this.log("连签" + _0x15d8af + "天抽奖错误[" + _0x32ecff + "]: " + _0x2f0e88);
-      }
-    } catch (_0x57662f) {
-      console.log(_0x57662f);
-    }
-  }
-  async homepage(_0x5a7e8f, _0x26d9a1 = {}) {
-    try {
-      let _0x60744a = {
-        phone: this.name,
-        shopId: "20001",
-        type: _0x5a7e8f
-      };
-      let _0x5a9f66 = {
-        fn: "homepage",
-        method: "post",
-        url: "https://wapside.189.cn:9001/jt-sign/webSign/homepage",
-        json: {
-          para: this.encrypt_para(_0x60744a)
-        }
-      };
-      let {
-        result: _0x3462ae,
-        statusCode: _0x17c9d0
-      } = await this.request(_0x5a9f66);
-      let _0x59fe3c = _0x49dfef.get(_0x3462ae, "resoultCode", _0x17c9d0);
-      if (_0x59fe3c == 0) {
-        let _0x52a59b = _0x49dfef.get(_0x3462ae?.["data"]?.["head"], "code", -1);
-        if (_0x52a59b == 0) {
-          for (let _0x3e6107 of _0x3462ae?.["data"]?.["biz"]?.["adItems"] || []) {
-            let _0x27e7ab = _0x3e6107.title;
-            if (["0", "1"].includes(_0x3e6107?.["taskState"])) {
-              switch (_0x3e6107.contentOne) {
-                case "3":
-                  {
-                    if (_0x3e6107?.["rewardId"]) {
-                      await this.receiveReward(_0x3e6107);
+          if (35 < QC) {
+            if (QC < 40) {
+              QC > 38 && (up[++HC + ++QC - 40] = pa[up[HC++ - 1] = MZ(pa[RH++] ^ -QC++ + 4161 + RH, pa[RH++] ^ - --QC + 61549 + RH), RH++] ^ 12549 + RH, []) || 39 > ++QC && ((37 < QC || (up[HC++ + QC-- - 40] = jm(up[++HC - 4], [up[(HC -= 122) + QC + 81]])(+up[(HC += 118) + QC-- - 35]), 0)) && (up[HC++ + ++QC - 41] = up[HC-- - ++QC + 37] <= ZQ[up[HC-- + QC-- - 41]]), []) || (up[HC++ - QC-- + 39] = pa[up[++HC - QC + 37] = null, RH++] - (-QC++ + 14972 + RH));
+            } else {
+              if (QC-- < 43) {
+                if (QC > 40) {
+                  up[RH++, HC-- - QC + 40] || (RH = pa[--RH] ^ -QC-- + 60365 + ++RH);
+                } else {
+                  if (39 < QC) {
+                    up[HC - QC++ + 41] = MZ(pa[up[(HC += 2) + QC - 43] = pa[RH++] - (--QC + 27509 + RH), RH++] ^ -QC-- + 44560 + RH, pa[RH++] ^ QC + 23403 + RH);
+                  } else {
+                    try {
+                      var jR = up[(HC -= 25) + QC - 16],
+                        pM = up[(HC += 23) - ++QC + 41],
+                        JJ = {
+                          uH: 1
+                        },
+                        mM = ju(RH, ZQ, [], rH, JJ);
+                      if (JJ.uH) {
+                        return mM;
+                      }
+                      if (JJ.Ma !== undefined) {
+                        jR = JJ.Ma;
+                        if (JJ.qr > 1) {
+                          Mm.Ma = jR;
+                          Mm.qr = --JJ.qr;
+                          return Mm.uH = 0;
+                        }
+                      }
+                    } finally {
+                      JJ = {
+                        uH: 1
+                      };
+                      mM = ju(pM, ZQ, [], rH, JJ);
+                      if (JJ.uH) {
+                        Mm && (Mm.uH = 1);
+                        return mM;
+                      }
+                      if (JJ.Ma !== undefined) {
+                        jR = JJ.Ma;
+                        if (JJ.qr > 1) {
+                          Mm.Ma = jR;
+                          Mm.qr = --JJ.qr;
+                          return Mm.uH = 0;
+                        }
+                        return ju(jR, ZQ, [], rH);
+                      }
+                      RH = jR;
                     }
-                    break;
                   }
-                case "5":
-                  {
-                    await this.openMsg(_0x3e6107);
-                    break;
-                  }
-                case "6":
-                  {
-                    await this.sharingGetGold();
-                    break;
-                  }
-                case "10":
-                case "13":
-                  {
-                    if (!this.xtoken) {
-                      await this.get_usercode();
-                    }
-                    this.xtoken && (await this.watchLiveInit());
-                    break;
-                  }
-                case "18":
-                  {
-                    await this.polymerize(_0x3e6107);
-                    break;
-                  }
-                default:
-                  {
-                    break;
-                  }
+                }
+              } else {
+                if ((QC < 45 || (46 > QC-- && (up[(HC -= 104) - QC-- + 140] = Z(up[HC++ + 97])(up[HC-- + --QC + 53], up[++HC + ++QC + 54], up[HC-- + 98], up[--HC + QC + 58])(up[HC++ - QC + 145], up[(HC += QC) + 59], up[(HC += 54) + --QC - 36]), 1) || (ZQ[up[(HC += 22) - 24]] = up[(HC -= 24) + --QC - 43]), 0)) && (43 > QC || ((QC++ > 43 || (up[HC-- - QC-- + 42] = up[(HC -= 60) - QC++ + 102] == typeof up[(HC += 60) + QC - 44], "")) && (up[(HC -= QC) + 43] = up[++HC + QC++ - 3] === !up[(HC += 43) - ++QC + 47]), !true))) {
+                  up[--HC - ++QC + 41] = ZQ[up[(HC += QC++) - 45]] = up[(HC += --QC) - 87] + up[(HC -= 87) - QC-- + 44];
+                }
               }
             }
-          }
-        } else {
-          let _0xf9bca1 = _0x3462ae?.["data"]?.["head"]?.["err"] || "";
-          this.log("获取任务列表失败[" + _0x52a59b + "]: " + _0xf9bca1);
-        }
-      } else {
-        this.log("获取任务列表错误[" + _0x59fe3c + "]");
-      }
-    } catch (_0x1713d1) {
-      console.log(_0x1713d1);
-    }
-  }
-  async receiveReward(_0x1f06a0, _0x27d046 = {}) {
-    try {
-      let _0x408e82 = _0x1f06a0?.["title"]?.["split"](" ")?.[0];
-      let _0x12889d = {
-        phone: this.name,
-        rewardId: _0x1f06a0?.["rewardId"] || ""
-      };
-      let _0x4db2f8 = {
-        fn: "receiveReward",
-        method: "post",
-        url: "https://wapside.189.cn:9001/jt-sign/paradise/receiveReward",
-        json: {
-          para: this.encrypt_para(_0x12889d)
-        }
-      };
-      let {
-        result: _0x514940,
-        statusCode: _0x5641f8
-      } = await this.request(_0x4db2f8);
-      let _0x1559d6 = _0x49dfef.get(_0x514940, "resoultCode", _0x5641f8);
-      if (_0x1559d6 == 0) {
-        this.log("领取任务[" + _0x408e82 + "]奖励成功: " + _0x514940?.["resoultMsg"]);
-      } else {
-        let _0xa69dbc = _0x514940?.["msg"] || _0x514940?.["resoultMsg"] || _0x514940?.["error"] || "";
-        this.log("领取任务[" + _0x408e82 + "]奖励错误[" + _0x1559d6 + "]: " + _0xa69dbc);
-      }
-    } catch (_0x2a40e0) {
-      console.log(_0x2a40e0);
-    }
-  }
-  async openMsg(_0x51c539, _0x46c92d = {}) {
-    try {
-      let _0x4b897b = _0x51c539?.["title"]?.["split"](" ")?.[0];
-      let _0x18e652 = {
-        phone: this.name
-      };
-      let _0x1c217b = {
-        fn: "openMsg",
-        method: "post",
-        url: "https://wapside.189.cn:9001/jt-sign/paradise/openMsg",
-        json: {
-          para: this.encrypt_para(_0x18e652)
-        }
-      };
-      let {
-        result: _0xb6f7bf,
-        statusCode: _0x41e108
-      } = await this.request(_0x1c217b);
-      let _0x1377ff = _0x49dfef.get(_0xb6f7bf, "resoultCode", _0x41e108);
-      if (_0x1377ff == 0) {
-        this.log("完成任务[" + _0x4b897b + "]成功: " + _0xb6f7bf?.["resoultMsg"]);
-      } else {
-        let _0x59d65d = _0xb6f7bf?.["msg"] || _0xb6f7bf?.["resoultMsg"] || _0xb6f7bf?.["error"] || "";
-        this.log("完成任务[" + _0x4b897b + "]错误[" + _0x1377ff + "]: " + _0x59d65d);
-      }
-    } catch (_0x574cb0) {
-      console.log(_0x574cb0);
-    }
-  }
-  async polymerize(_0x2beade, _0x3610fd = {}) {
-    try {
-      let _0x27bccc = _0x2beade?.["title"]?.["split"](" ")?.[0];
-      let _0x2caf2f = {
-        phone: this.name,
-        jobId: _0x2beade.taskId
-      };
-      let _0x493039 = {
-        fn: "polymerize",
-        method: "post",
-        url: "https://wapside.189.cn:9001/jt-sign/webSign/polymerize",
-        json: {
-          para: this.encrypt_para(_0x2caf2f)
-        }
-      };
-      let {
-        result: _0x2c3e91,
-        statusCode: _0x3c5244
-      } = await this.request(_0x493039);
-      let _0x43d9c9 = _0x49dfef.get(_0x2c3e91, "resoultCode", _0x3c5244);
-      if (_0x43d9c9 == 0) {
-        this.log("完成任务[" + _0x27bccc + "]成功: " + _0x2c3e91?.["resoultMsg"]);
-      } else {
-        let _0x402f9a = _0x2c3e91?.["msg"] || _0x2c3e91?.["resoultMsg"] || _0x2c3e91?.["error"] || "";
-        this.log("完成任务[" + _0x27bccc + "]错误[" + _0x43d9c9 + "]: " + _0x402f9a);
-      }
-    } catch (_0xc860ab) {
-      console.log(_0xc860ab);
-    }
-  }
-  async food(_0x7cbaa1, _0x4b0ab1 = {}) {
-    try {
-      let _0x5c6c6d = {
-        phone: this.name
-      };
-      let _0x587fa4 = {
-        fn: "food",
-        method: "post",
-        url: "https://wapside.189.cn:9001/jt-sign/paradise/food",
-        json: {
-          para: this.encrypt_para(_0x5c6c6d)
-        }
-      };
-      let {
-        result: _0x156b8d,
-        statusCode: _0x191b9d
-      } = await this.request(_0x587fa4);
-      let _0x117b58 = _0x49dfef.get(_0x156b8d, "resoultCode", _0x191b9d);
-      if (_0x117b58 == 0) {
-        this.log("第" + _0x7cbaa1 + "次喂食: " + (_0x156b8d?.["resoultMsg"] || "成功"));
-        if (_0x156b8d?.["levelUp"]) {
-          let _0x265b8d = _0x156b8d?.["currLevelRightList"][0]?.["level"];
-          const _0x2eec5b = {
-            notify: true
-          };
-          this.log("宠物已升级到[LV." + _0x265b8d + "], 获得: " + _0x156b8d?.["currLevelRightList"][0]?.["righstName"], _0x2eec5b);
-        }
-      } else {
-        let _0x14117b = _0x156b8d?.["msg"] || _0x156b8d?.["resoultMsg"] || _0x156b8d?.["error"] || "";
-        this.log("第" + _0x7cbaa1 + "次喂食失败[" + _0x117b58 + "]: " + _0x14117b);
-        _0x14117b?.["includes"]("最大喂食次数") && (this.can_feed = false);
-      }
-    } catch (_0x523284) {
-      console.log(_0x523284);
-    }
-  }
-  async getParadiseInfo(_0x4c16d3 = {}) {
-    try {
-      let _0x1c882e = {
-        phone: this.name
-      };
-      let _0x2d8a6c = {
-        fn: "getParadiseInfo",
-        method: "post",
-        url: "https://wapside.189.cn:9001/jt-sign/paradise/getParadiseInfo",
-        json: {
-          para: this.encrypt_para(_0x1c882e)
-        }
-      };
-      {
-        let {
-          result: _0x13b7df,
-          statusCode: _0x1e6dfd
-        } = await this.request(_0x2d8a6c);
-        let _0x54514a = _0x49dfef.get(_0x13b7df, "resoultCode", _0x1e6dfd);
-        if (_0x54514a == 0) {
-          let _0xdb66c = _0x13b7df?.["userInfo"]?.["levelInfoMap"];
-          this.level = _0xdb66c?.["level"];
-          for (let _0x33d3a3 = 1; _0x33d3a3 <= 10 && this.can_feed; _0x33d3a3++) {
-            await this.food(_0x33d3a3);
-          }
-        } else {
-          let _0x4e4dd5 = _0x13b7df?.["msg"] || _0x13b7df?.["resoultMsg"] || _0x13b7df?.["error"] || "";
-          this.log("查询宠物等级失败[" + _0x54514a + "]: " + _0x4e4dd5);
-          return;
-        }
-      }
-      {
-        let {
-          result: _0x1334dd,
-          statusCode: _0x363378
-        } = await this.request(_0x2d8a6c);
-        let _0xf71230 = _0x49dfef.get(_0x1334dd, "resoultCode", _0x363378);
-        if (_0xf71230 == 0) {
-          let _0x41df23 = _0x1334dd?.["userInfo"]?.["levelInfoMap"];
-          this.level = _0x41df23?.["level"];
-          const _0x268241 = {
-            notify: true
-          };
-          this.log("宠物等级[Lv." + _0x41df23?.["level"] + "], 升级进度: " + _0x41df23?.["growthValue"] + "/" + _0x41df23?.["fullGrowthCoinValue"], _0x268241);
-        } else {
-          let _0x1036a5 = _0x1334dd?.["msg"] || _0x1334dd?.["resoultMsg"] || _0x1334dd?.["error"] || "";
-          this.log("查询宠物等级失败[" + _0xf71230 + "]: " + _0x1036a5);
-          return;
-        }
-      }
-    } catch (_0x94c5b4) {
-      console.log(_0x94c5b4);
-    }
-  }
-  async getLevelRightsList(_0x3ea0a7 = {}) {
-    try {
-      let _0x1fd8f0 = {
-        phone: this.name
-      };
-      let _0x5a0971 = {
-        fn: "getLevelRightsList",
-        method: "post",
-        url: "https://wapside.189.cn:9001/jt-sign/paradise/getLevelRightsList",
-        json: {
-          para: this.encrypt_para(_0x1fd8f0)
-        }
-      };
-      let {
-        result: _0x4cf13d,
-        statusCode: _0x5e92a4
-      } = await this.request(_0x5a0971);
-      if (_0x4cf13d?.["currentLevel"]) {
-        let _0x3b50bb = _0x4cf13d?.["currentLevel"] || 6;
-        let _0x1f1006 = false;
-        let _0x53ddf4 = "V" + _0x3b50bb;
-        for (let _0x1ab325 of _0x4cf13d[_0x53ddf4] || []) {
-          let _0x59ef49 = _0x1ab325?.["righstName"] || "";
-          if (this.coin < _0x1ab325.costCoin) {
-            continue;
-          }
-          (_0x59ef49?.["match"](/\d+元话费/) || _0x59ef49?.["match"](/专享\d+金豆/)) && (await this.getConversionRights(_0x1ab325, _0x1f1006)) && (_0x1f1006 = true);
-        }
-      } else {
-        let _0x4ff776 = _0x4cf13d?.["msg"] || _0x4cf13d?.["resoultMsg"] || _0x4cf13d?.["error"] || "";
-        this.log("查询宠物兑换权益失败: " + _0x4ff776);
-      }
-    } catch (_0xcfd2ba) {
-      console.log(_0xcfd2ba);
-    }
-  }
-  async getConversionRights(_0xca19ef, _0x28066a, _0x21f772 = {}) {
-    let _0x21db60 = false;
-    try {
-      let _0x5d6f72 = _0xca19ef?.["righstName"] || "";
-      let _0x268d4d = {
-        phone: this.name,
-        rightsId: _0xca19ef.id,
-        receiveCount: _0xca19ef.receiveType
-      };
-      let _0x5ed3b5 = {
-        fn: "getConversionRights",
-        method: "post",
-        url: "https://wapside.189.cn:9001/jt-sign/paradise/getConversionRights",
-        json: {
-          para: this.encrypt_para(_0x268d4d)
-        }
-      };
-      let {
-        result: _0x409ea1,
-        statusCode: _0x3fb426
-      } = await this.request(_0x5ed3b5);
-      let _0x17b3d0 = _0x49dfef.get(_0x409ea1, "code", _0x49dfef.get(_0x409ea1, "resoultCode", _0x3fb426));
-      if (_0x17b3d0 == 200) {
-        if (!(_0x409ea1?.["rightsStatus"]?.["includes"]("已兑换") || _0x409ea1?.["rightsStatus"]?.["includes"]("已领取"))) {
-          _0x21db60 = true;
-          if (_0x28066a) {
-            await _0x49dfef.wait(3000);
-          }
-          await this.conversionRights(_0xca19ef);
-        }
-      } else {
-        let _0x267dcb = _0x409ea1?.["msg"] || _0x409ea1?.["resoultMsg"] || _0x409ea1?.["error"] || "";
-        this.log("查询权益[" + _0x5d6f72 + "]失败[" + _0x17b3d0 + "]: " + _0x267dcb);
-      }
-    } catch (_0x1c9805) {
-      console.log(_0x1c9805);
-    } finally {
-      return _0x21db60;
-    }
-  }
-  async conversionRights(_0x1258fb, _0x5ee37a = {}) {
-    try {
-      let _0x285002 = _0x1258fb?.["righstName"] || "";
-      let _0x2e0b22 = {
-        phone: this.name,
-        rightsId: _0x1258fb.id
-      };
-      let _0x259df8 = {
-        fn: "conversionRights",
-        method: "post",
-        url: "https://wapside.189.cn:9001/jt-sign/paradise/conversionRights",
-        json: {
-          para: this.encrypt_para(_0x2e0b22)
-        }
-      };
-      let {
-        result: _0x24b720,
-        statusCode: _0x2867ce
-      } = await this.request(_0x259df8);
-      let _0x1caee2 = _0x49dfef.get(_0x24b720, "resoultCode", _0x2867ce);
-      if (_0x1caee2 == 0) {
-        this.log("兑换权益[" + _0x285002 + "]成功");
-      } else {
-        let _0x58c8d6 = _0x24b720?.["msg"] || _0x24b720?.["resoultMsg"] || _0x24b720?.["error"] || "";
-        this.log("兑换权益[" + _0x285002 + "]失败[" + _0x1caee2 + "]: " + _0x58c8d6);
-      }
-    } catch (_0x2f6eb8) {
-      console.log(_0x2f6eb8);
-    }
-  }
-  async get_usercode(_0x410326 = {}) {
-    try {
-      const _0x4ad8d0 = {
-        fn: "get_usercode",
-        method: "get",
-        url: "https://xbk.189.cn/xbkapi/api/auth/jump",
-        searchParams: {}
-      };
-      _0x4ad8d0.searchParams.userID = this.ticket;
-      _0x4ad8d0.searchParams.version = "9.3.3";
-      _0x4ad8d0.searchParams.type = "room";
-      _0x4ad8d0.searchParams.l = "renwu";
-      let _0x3ed428 = _0x4ad8d0;
-      let {
-        statusCode: _0x1897af,
-        headers: _0xab67f2
-      } = await this.request(_0x3ed428);
-      let _0x40ae2f = _0xab67f2?.["location"]?.["match"](/usercode=(\w+)/);
-      _0x40ae2f ? await this.codeToken(_0x40ae2f[1]) : this.log("获取code失败[" + _0x1897af + "]");
-    } catch (_0x3b0319) {
-      console.log(_0x3b0319);
-    }
-  }
-  async codeToken(_0x5551c8, _0x4c3418 = {}) {
-    try {
-      const _0x3ed11c = {
-        usercode: _0x5551c8
-      };
-      let _0x2259ef = {
-        fn: "codeToken",
-        method: "post",
-        url: "https://xbk.189.cn/xbkapi/api/auth/userinfo/codeToken",
-        json: _0x3ed11c
-      };
-      let {
-        result: _0x1e1031,
-        statusCode: _0x4829ec
-      } = await this.request(_0x2259ef);
-      let _0xb6579f = _0x49dfef.get(_0x1e1031, "code", -1);
-      if (_0xb6579f == 0) {
-        this.xtoken = _0x1e1031?.["data"]?.["token"];
-        this.got = this.got.extend({
-          headers: {
-            Authorization: "Bearer " + _0x5b4189.encrypt(this.xtoken, "base64")
-          }
-        });
-      } else {
-        let _0x2cb0f8 = _0x1e1031?.["msg"] || _0x1e1031?.["resoultMsg"] || _0x1e1031?.["error"] || _0x1e1031?.["msg"] || "";
-        this.log("获取token失败[" + _0xb6579f + "]: " + _0x2cb0f8);
-      }
-    } catch (_0x324945) {
-      console.log(_0x324945);
-    }
-  }
-  async watchLiveInit(_0x410248 = {}) {
-    try {
-      let _0x28a798 = Math.floor(Math.random() * 1000) + 1000;
-      const _0x1e7374 = {
-        period: 1,
-        liveId: _0x28a798
-      };
-      let _0x3e4085 = {
-        fn: "watchLiveInit",
-        method: "post",
-        url: "https://xbk.189.cn/xbkapi/lteration/liveTask/index/watchLiveInit",
-        json: _0x1e7374
-      };
-      let {
-        result: _0x15080d,
-        statusCode: _0x39b570
-      } = await this.request(_0x3e4085);
-      let _0x488aa2 = _0x49dfef.get(_0x15080d, "code", -1);
-      if (_0x488aa2 == 0) {
-        await _0x49dfef.wait(15000);
-        await this.watchLive(_0x28a798, _0x15080d?.["data"]);
-      } else {
-        let _0x641985 = _0x15080d?.["msg"] || _0x15080d?.["resoultMsg"] || _0x15080d?.["error"] || _0x15080d?.["msg"] || "";
-        this.log("开始观看直播[" + _0x28a798 + "]失败[" + _0x488aa2 + "]: " + _0x641985);
-      }
-    } catch (_0x58939a) {
-      console.log(_0x58939a);
-    }
-  }
-  async watchLive(_0x2df12e, _0x578beb, _0x1de0d1 = {}) {
-    try {
-      const _0xae75fa = {
-        period: 1,
-        liveId: _0x2df12e,
-        key: _0x578beb
-      };
-      let _0x363af1 = {
-        fn: "watchLive",
-        method: "post",
-        url: "https://xbk.189.cn/xbkapi/lteration/liveTask/index/watchLive",
-        json: _0xae75fa
-      };
-      let {
-        result: _0x5c4954,
-        statusCode: _0x1ad01d
-      } = await this.request(_0x363af1);
-      let _0x4e4cbf = _0x49dfef.get(_0x5c4954, "code", -1);
-      if (_0x4e4cbf == 0) {
-        this.log("观看直播[" + _0x2df12e + "]成功");
-        await this.watchLiveInit();
-      } else {
-        let _0x132d1d = _0x5c4954?.["msg"] || _0x5c4954?.["resoultMsg"] || _0x5c4954?.["error"] || _0x5c4954?.["msg"] || "";
-        this.log("观看直播[" + _0x2df12e + "]失败[" + _0x4e4cbf + "]: " + _0x132d1d);
-      }
-    } catch (_0x32ce3f) {
-      console.log(_0x32ce3f);
-    }
-  }
-  async watchVideo(_0x37b577, _0x3a94a2 = {}) {
-    try {
-      const _0x15cc23 = {
-        articleId: _0x37b577
-      };
-      let _0x54a72d = {
-        fn: "watchVideo",
-        method: "post",
-        url: "https://xbk.189.cn/xbkapi/lteration/liveTask/index/watchVideo",
-        json: _0x15cc23
-      };
-      let {
-        result: _0x3d06a2,
-        statusCode: _0xa801d9
-      } = await this.request(_0x54a72d);
-      let _0x33f743 = _0x49dfef.get(_0x3d06a2, "code", -1);
-      if (_0x33f743 == 0) {
-        this.log("观看短视频[" + _0x37b577 + "]成功");
-      } else {
-        let _0x597186 = _0x3d06a2?.["msg"] || _0x3d06a2?.["resoultMsg"] || _0x3d06a2?.["error"] || _0x3d06a2?.["msg"] || "";
-        this.log("观看短视频[" + _0x37b577 + "]失败[" + _0x33f743 + "]: " + _0x597186);
-      }
-    } catch (_0x42a411) {
-      console.log(_0x42a411);
-    }
-  }
-  async like(_0x3605f0, _0x42d468 = {}) {
-    try {
-      const _0x551814 = {
-        account: this.name,
-        liveId: _0x3605f0
-      };
-      let _0x3f3d2b = {
-        fn: "like",
-        method: "post",
-        url: "https://xbk.189.cn/xbkapi/lteration/room/like",
-        json: _0x551814
-      };
-      let {
-        result: _0x15cd63,
-        statusCode: _0x550c11
-      } = await this.request(_0x3f3d2b);
-      let _0x3cb60d = _0x49dfef.get(_0x15cd63, "code", -1);
-      if (_0x3cb60d == 0) {
-        this.log("点赞直播间[" + _0x3605f0 + "]成功");
-      } else {
-        let _0x12573c = _0x15cd63?.["msg"] || _0x15cd63?.["resoultMsg"] || _0x15cd63?.["error"] || _0x15cd63?.["msg"] || "";
-        this.log("点赞直播间[" + _0x3605f0 + "]失败[" + _0x3cb60d + "]: " + _0x12573c);
-      }
-    } catch (_0x33a0d8) {
-      console.log(_0x33a0d8);
-    }
-  }
-  async sharingGetGold(_0x5cc2cd = {}) {
-    try {
-      let _0x5957b6 = {
-        fn: "sharingGetGold",
-        method: "post",
-        url: "https://appfuwu.189.cn:9021/query/sharingGetGold",
-        json: {
-          headerInfos: {
-            code: "sharingGetGold",
-            timestamp: _0x49dfef.time("yyyyMMddhhmmss"),
-            broadAccount: "",
-            broadToken: "",
-            clientType: "#9.6.1#channel50#iPhone 14 Pro Max#",
-            shopId: "20002",
-            source: "110003",
-            sourcePassword: "Sid98s",
-            token: this.token,
-            userLoginName: this.name
-          },
-          content: {
-            attach: "test",
-            fieldData: {
-              shareSource: "3",
-              userId: this.userId,
-              account: this.encode_phone()
+          } else {
+            if (24 < QC || ((QC > 13 || ((QC < 6 || ((QC < 9 || (13 > ++QC && (12 < ++QC && (up[HC - QC++ + 12] += MZ(pa[RH++] ^ -QC++ + 47848 + RH, pa[RH++] ^ 16057 + RH), !undefined) || (11 < QC || (up[HC++ + QC++ - 11] = [], !true)) && (up[up[HC-- - --QC + 11] = [], HC + QC-- - 9] = up[(HC += 3) - ++QC + 9]), !null) || (++QC < 15 || (RH = pa[Hp = RH, RH++] ^ -++QC + 58477 + RH, !1)) && (up[HC++ + QC++ - 14] = pa[RH++] - (54537 + RH)), undefined)) && (QC > 7 || (QC > 6 && (up[(HC += 20) + QC-- - 28] = ZQ[up[(HC -= 20) + QC++ - 7]], !0) || (up[--HC + 1] = MZ(pa[up[(HC += 3) + QC - 7] = null, RH++] ^ - --QC + 64758 + RH, pa[RH++] ^ QC-- + 35548 + RH)), "")) && (up[--HC + QC - 9] = ZQ[up[HC++ + ++QC - 10]] = up[HC-- - --QC + 7]), 0)) && (4 > QC && ((3 > QC || (up[--HC + QC - 5] += up[HC++ - QC-- + 2][up[(HC -= 2) - QC++ + 3]], "")) && (up[HC-- - QC - 3] = uR(up[++HC + --QC - 5], up[(HC -= 92) - QC++ + 88], up[(HC += 10) + QC-- + 77])(up[HC++ - QC-- + 81], up[(HC += 77) + QC++ + 3])), !undefined) || QC < 5 && (RH = Hp, []) || (up[--HC - QC-- + 5] = up[++HC + QC - 5] > pa[RH++] - (QC++ + 47014 + RH))), undefined)) && (20 < QC || ((18 < QC-- || ((QC > 15 || (QC > 14 && (up[++HC - 1] = !1, !"") || (14 > QC || (up[++HC + ++QC - 18] = new (jm(up[++HC + QC-- - 19], [null, up[(HC -= 3) + QC - 14]]))(), "")) && (up[HC + --QC - 13] *= pa[RH++] - (QC-- + 40154 + RH)), undefined)) && (17 > QC || (up[(HC -= 3) + --QC - 15] && (RH = up[HC - QC++ + 18]), HC++ - ++QC + 29, undefined)) && (up[HC++ - QC-- + 16] = Cq[pa[RH++] ^ -QC++ + 61299 + RH]), !{})) && (QC > 18 || (up[++HC - 3] = up[--HC - 2] == ZQ[up[--HC + QC-- - 18]], 0)) && (up[(HC -= 81) - QC + 98] = up[(HC += 78) + QC - 18] !== up[(HC += 2) + QC-- - 19]), !{})) && (QC++ > 23 || ((24 > QC-- || (up[++HC + QC-- - 25] = rH[rH.length - (pa[RH++] ^ -QC-- + 54571 + RH)][up[--HC - --QC + 19]], 0)) && (QC < 22 || (up[(HC += 82) - ++QC - 63] = Z(up[--HC - --QC - 62], up[(HC -= --QC) - 64])()(up[HC + QC-- - 83], ZQ[up[(HC -= 63) + --QC - 17]]), undefined)) && (up[(HC += 25) - 26] = up[(HC -= 25) - QC + 20] != Cq[pa[RH++] ^ 39652 + RH]), ![])) && (up[++HC - ++QC + 23] = up[(HC += --QC) - 28] > up[(HC -= 27) + ++QC - 26]), 0)) {
+              QC < 28 && ((QC < 26 || (27 > QC && (up[(HC += ++QC) - 27] = up[up[(HC += ++QC) - 54] = up[HC - QC-- - 28], (HC -= 53) - ++QC + 24], !0) || (up[HC - QC++ + 23] = Z(up[++HC - QC++ + 24], up[HC-- - 5])()(up[(HC -= QC) + 27], up[(HC += 26) - QC++ + 31], pa[RH++] - (++QC + 11172 + RH))), false)) && (up[HC - QC + 21] = jm(up[HC-- - ++QC + 23], [up[(HC += QC--) - 29], up[(HC -= --QC) - 3] + up[(HC -= 4) + 2]])()), !false) || 30 > QC && (28 < QC && (up[++HC - --QC + 27] = ZQ[pa[RH++] ^ ++QC + 2292 + RH], {}) || (up[--HC - QC++ + 28] = !up[++HC + --QC - 29]), !"") || (QC > 31 || (31 > QC && (up[HC - --QC + 28] -= Cq[pa[RH++] ^ QC-- + 64715 + RH], []) || (up[HC++ - QC++ + 31] = pa[RH++] ^ ++QC + 46718 + RH), null)) && (34 > QC || (35 > QC && (up[(HC -= 72) - ++QC + 105] = Z(up[(HC += ++QC) + 35])(up[(HC += 35) - QC + 35])(pa[RH++] - (43140 + RH)), !false) || (up[HC - QC++ + 31] = up[(HC += 64) - ++QC - 31][up[(HC -= --QC) - 31]] = jm(up[HC++ - --QC + 6], [up[(HC -= 32) + 1]])()), undefined)) && (QC > 32 || (up[HC-- + ++QC - 36] = up[HC-- - 2][up[HC-- + ++QC - 34]] = ZQ[up[HC++ - QC-- + 36]], !1)) && (up[HC++ - QC-- + 33] = !0);
             }
           }
         }
-      };
-      let {
-        result: _0x36023a,
-        statusCode: _0x5ade7c
-      } = await this.request(_0x5957b6);
-      let _0x3bb612 = _0x49dfef.get(_0x36023a?.["responseData"], "resultCode", -1);
-      if (_0x3bb612 == "0000") {
-        this.log("分享成功");
-      } else {
-        let _0x1fc39a = _0x36023a?.["msg"] || _0x36023a?.["responseData"]?.["resultDesc"] || _0x36023a?.["error"] || _0x36023a?.["msg"] || "";
-        this.log("分享失败[" + _0x3bb612 + "]: " + _0x1fc39a);
-      }
-    } catch (_0x221821) {
-      console.log(_0x221821);
-    }
-  }
-  async month_jml_preCost(_0x3e12ef = {}) {
-    try {
-      let _0x54e4a2 = {
-        fn: "month_jml_preCost",
-        method: "post",
-        url: "https://wapside.189.cn:9001/jt-sign/short/message/preCost",
-        json: {
-          phone: this.encode_aes(this.name),
-          activityCode: "shortMesssge"
-        }
-      };
-      let {
-        result: _0x19ae9b,
-        statusCode: _0x219a77
-      } = await this.request(_0x54e4a2);
-      let _0xb89634 = _0x49dfef.get(_0x19ae9b, "resoultCode", _0x219a77);
-      if (_0xb89634 == 0) {
-        let _0x1709f5 = _0x19ae9b?.["data"]?.["resoultMsg"] || "领取成功";
-        this.jml_tokenFlag = _0x19ae9b?.["resoultMsg"];
-        await this.month_jml_userCost(_0x1709f5);
-        await this.month_jml_receive();
-        await this.month_jml_getCount();
-        await this.month_jml_refresh();
-      } else {
-        let _0x2dde86 = _0x19ae9b?.["msg"] || _0x19ae9b?.["resoultMsg"] || _0x19ae9b?.["error"] || "";
-        this.log("每月见面礼登录失败[" + _0xb89634 + "]: " + _0x2dde86);
-      }
-    } catch (_0xf5ea71) {
-      console.log(_0xf5ea71);
-    }
-  }
-  async month_jml_userCost(_0x5b6d73, _0x434031 = {}) {
-    try {
-      let _0x223f5d = {
-        fn: "month_jml_userCost",
-        method: "post",
-        url: "https://wapside.189.cn:9001/jt-sign/short/message/userCost",
-        json: {
-          phone: this.encode_aes(this.name),
-          activityCode: "shortMesssge",
-          flag: this.jml_tokenFlag
-        }
-      };
-      let {
-        result: _0x2add96,
-        statusCode: _0x4c7beb
-      } = await this.request(_0x223f5d);
-      let _0x55ebaa = _0x49dfef.get(_0x2add96, "resoultCode", _0x4c7beb);
-      if (_0x55ebaa == 0) {
-        let _0x39f674 = _0x2add96?.["data"]?.["map"](_0x475613 => "[" + _0x475613.pizeName + "]") || [];
-        this.log("见面礼" + _0x5b6d73 + ": " + _0x39f674.join(", "));
-      } else {
-        let _0x1c5716 = _0x2add96?.["msg"] || _0x2add96?.["resoultMsg"] || _0x2add96?.["error"] || "";
-        this.log("领取每月见面礼失败[" + _0x55ebaa + "]: " + _0x1c5716);
-      }
-    } catch (_0x3eb9f8) {
-      console.log(_0x3eb9f8);
-    }
-  }
-  async month_jml_receive(_0x5aaffc = {}) {
-    try {
-      let _0x3d08a6 = {
-        phone: this.name,
-        flag: this.jml_tokenFlag
-      };
-      let _0x4fe3a1 = {
-        fn: "month_jml_receive",
-        method: "post",
-        url: "https://wapside.189.cn:9001/jt-sign/lottery/receive",
-        json: {
-          para: this.encrypt_para(_0x3d08a6)
-        }
-      };
-      let {
-        result: _0x16a4a1,
-        statusCode: _0x389615
-      } = await this.request(_0x4fe3a1);
-      let _0x4924bc = _0x49dfef.get(_0x16a4a1, "code", -1);
-      if (_0x4924bc == 0) {
-        this.log("领取APP抽奖次数成功");
-      } else {
-        let _0x5ef8a4 = _0x16a4a1?.["msg"] || _0x16a4a1?.["resoultMsg"] || _0x16a4a1?.["error"] || "";
-        this.log("领取APP抽奖次数失败[" + _0x4924bc + "]: " + _0x5ef8a4);
-      }
-    } catch (_0x209a71) {
-      console.log(_0x209a71);
-    }
-  }
-  async month_jml_getCount(_0x1eebce = {}) {
-    try {
-      let _0x431dad = {
-        phone: this.name,
-        flag: this.jml_tokenFlag
-      };
-      let _0x1d2de9 = {
-        fn: "month_jml_getCount",
-        method: "post",
-        url: "https://wapside.189.cn:9001/jt-sign/lottery/getCount",
-        json: {
-          para: this.encrypt_para(_0x431dad)
-        }
-      };
-      let {
-        result: _0xf1b29a,
-        statusCode: _0x4204df
-      } = await this.request(_0x1d2de9);
-      let _0x4704a8 = _0x49dfef.get(_0xf1b29a, "code", -1);
-      if (_0x4704a8 == 0) {
-        let _0x141535 = _0xf1b29a?.["video"]?.["map"](_0x33886d => _0x33886d.videoType) || [];
-        let _0x2fb772 = _0x131d2d.filter(_0x5bb71b => !_0x141535.includes(_0x5bb71b));
-        let _0x22a4b1 = false;
-        for (let _0x38b1de of _0x2fb772) {
-          if (_0x22a4b1) {
-            let _0x296e0d = Math.floor(Math.random() * 5000) + 3000;
-            await _0x49dfef.wait(_0x296e0d);
-          }
-          await this.month_jml_addVideoCount(_0x38b1de);
-          _0x22a4b1 = true;
-        }
-      } else {
-        let _0x330a5e = _0xf1b29a?.["msg"] || _0xf1b29a?.["resoultMsg"] || _0xf1b29a?.["error"] || "";
-        this.log("查询看视频得抽奖机会次数失败[" + _0x4704a8 + "]: " + _0x330a5e);
-      }
-    } catch (_0x1c46ec) {
-      console.log(_0x1c46ec);
-    }
-  }
-  async month_jml_addVideoCount(_0x10070c, _0x588069 = {}) {
-    try {
-      let _0x13e584 = {
-        phone: this.name,
-        videoType: _0x10070c,
-        flag: this.jml_tokenFlag
-      };
-      let _0x2b00ee = {
-        fn: "month_jml_addVideoCount",
-        method: "post",
-        url: "https://wapside.189.cn:9001/jt-sign/lottery/addVideoCount",
-        json: {
-          para: this.encrypt_para(_0x13e584)
-        }
-      };
-      let {
-        result: _0x8dff4,
-        statusCode: _0x6fd216
-      } = await this.request(_0x2b00ee);
-      let _0x3f6886 = _0x49dfef.get(_0x8dff4, "code", -1);
-      if (_0x3f6886 == 0) {
-        this.log("看视频[" + _0x10070c + "]得抽奖机会成功");
-      } else {
-        let _0x238dbf = _0x8dff4?.["msg"] || _0x8dff4?.["resoultMsg"] || _0x8dff4?.["error"] || "";
-        this.log("看视频[" + _0x10070c + "]得抽奖机会失败[" + _0x3f6886 + "]: " + _0x238dbf);
-      }
-    } catch (_0x2d129d) {
-      console.log(_0x2d129d);
-    }
-  }
-  async month_jml_refresh(_0xcca85f = {}) {
-    try {
-      let _0x14cad3 = {
-        phone: this.name,
-        flag: this.jml_tokenFlag
-      };
-      let _0x5ab84e = {
-        fn: "month_jml_refresh",
-        method: "post",
-        url: "https://wapside.189.cn:9001/jt-sign/lottery/refresh",
-        json: {
-          para: this.encrypt_para(_0x14cad3)
-        }
-      };
-      let {
-        result: _0x764f77,
-        statusCode: _0x2cc71c
-      } = await this.request(_0x5ab84e);
-      let _0x5ecd1e = _0x49dfef.get(_0x764f77, "code", -1);
-      if (_0x5ecd1e == -1) {
-        let _0x58362e = _0x764f77?.["rNumber"] || 0;
-        this.log("可以抽奖" + _0x58362e + "次");
-        let _0x31275f = false;
-        while (_0x58362e-- > 0) {
-          if (_0x31275f) {
-            let _0x33dd5d = Math.floor(Math.random() * 5000) + 3000;
-            await _0x49dfef.wait(_0x33dd5d);
-          }
-          await this.month_jml_lotteryRevice();
-          _0x31275f = true;
-        }
-      } else {
-        let _0x15024f = _0x764f77?.["msg"] || _0x764f77?.["resoultMsg"] || _0x764f77?.["error"] || "";
-        this.log("查询抽奖次数失败[" + _0x5ecd1e + "]: " + _0x15024f);
-      }
-    } catch (_0x14d546) {
-      console.log(_0x14d546);
-    }
-  }
-  async month_jml_lotteryRevice(_0x5bf2d6 = {}) {
-    try {
-      let _0x489867 = {
-        phone: this.name,
-        flag: this.jml_tokenFlag
-      };
-      let _0x57d2e2 = {
-        fn: "month_jml_lotteryRevice",
-        method: "post",
-        url: "https://wapside.189.cn:9001/jt-sign/lottery/lotteryRevice",
-        json: {
-          para: this.encrypt_para(_0x489867)
-        }
-      };
-      let {
-        result: _0x361574,
-        statusCode: _0x1225b9
-      } = await this.request(_0x57d2e2);
-      let _0x4ec03c = _0x49dfef.get(_0x361574, "code", -1);
-      if (_0x4ec03c == 0) {
-        let {
-          rname: _0x232c3b,
-          id: _0x23684c
-        } = _0x361574;
-        const _0x16b601 = {
-          notify: true
-        };
-        this.log("每月见面礼抽奖: " + _0x232c3b, _0x16b601);
-      } else {
-        let _0x97a723 = _0x361574?.["msg"] || _0x361574?.["resoultMsg"] || _0x361574?.["error"] || "";
-        this.log("每月见面礼抽奖失败[" + _0x4ec03c + "]: " + _0x97a723);
-      }
-    } catch (_0x3b1aef) {
-      console.log(_0x3b1aef);
-    }
-  }
-  async rpc_request(_0x390ce7, _0x48b512 = "get", _0x46e01b = null) {
-    let _0x2aec3e = _0x390ce7.toString();
-    let _0x4b4d49 = this.get_mall_headers();
-    let _0x10b963 = _0x46e01b ? JSON.stringify(_0x46e01b) : null;
-    const _0x433f30 = new Error();
-    const _0xafbbac = _0x433f30.stack;
-    const _0x27601e = _0xafbbac.split("\n");
-    const _0x17aebc = _0x27601e?.[2]?.["match"](/UserClass\.(\w+)/)?.[1] || "rpc";
-    let _0x50ab7c = {
-      fn: _0x17aebc,
-      method: "post",
-      url: _0x16d3ea,
-      json: {
-        key: _0x344953,
-        method: _0x48b512,
-        url: _0x390ce7.toString(),
-        headers: this.get_mall_headers(),
-        data: JSON.stringify(_0x46e01b)
-      }
-    };
-    return await this.request(_0x50ab7c);
-  }
-  async auth_login(_0x16dd5f = {}) {
-    let _0x4b632d = false;
-    try {
-      let _0x59ca25 = this.ticket;
-      let _0xa64474 = new URL("https://wapact.189.cn:9001/unified/user/login");
-      let _0x28641d = {
-        ticket: _0x59ca25,
-        backUrl: encodeURIComponent("https://wapact.189.cn:9001/JinDouMall/JinDouMall_luckDraw.html?ticket=" + _0x59ca25),
-        platformCode: "P201010301",
-        loginType: 2
-      };
-      let {
-        result: _0x16b3c5,
-        statusCode: _0x3b6fb9
-      } = await this.rpc_request(_0xa64474, "POST", _0x28641d);
-      let _0x25f5c8 = _0x49dfef.get(_0x16b3c5, "code", _0x3b6fb9);
-      if (_0x25f5c8 == 0) {
-        let {
-          token: _0x202a28,
-          sessionId: _0x274600
-        } = _0x16b3c5?.["biz"];
-        this.mall_token = _0x202a28;
-        _0x4b632d = true;
-      } else {
-        let _0x1c4e69 = _0x49dfef.get(_0x16b3c5, "message", "");
-        this.log("商城登录失败[" + _0x25f5c8 + "]: " + _0x1c4e69);
-      }
-    } catch (_0x3b74e2) {
-      console.log(_0x3b74e2);
-    } finally {
-      return _0x4b632d;
-    }
-  }
-  async queryInfo(_0x3da8a0 = {}) {
-    try {
-      let _0xc5f478 = new URL("https://wapact.189.cn:9001/gateway/golden/api/queryInfo");
-      _0xc5f478.searchParams.append("_", Date.now().toString());
-      let {
-        result: _0x3bab08,
-        statusCode: _0x42dda4
-      } = await this.rpc_request(_0xc5f478);
-      let _0x69d0a7 = _0x49dfef.get(_0x3bab08, "code", _0x42dda4);
-      if (_0x69d0a7 == 0) {
-        this.coin = _0x3bab08?.["biz"]?.["amountTotal"] || this.coin;
-        await this.queryTurnTable();
-      } else {
-        let _0x401a81 = _0x49dfef.get(_0x3bab08, "message", "");
-        this.log("查询商城状态失败[" + _0x69d0a7 + "]: " + _0x401a81);
-      }
-    } catch (_0xd507ac) {
-      console.log(_0xd507ac);
-    }
-  }
-  async queryTurnTable(_0x12dce0 = {}) {
-    try {
-      let _0x5dccd4 = new URL("https://wapact.189.cn:9001/gateway/golden/api/queryTurnTable");
-      _0x5dccd4.searchParams.append("userType", "1");
-      _0x5dccd4.searchParams.append("_", Date.now().toString());
-      let {
-        result: _0x2ad2d5,
-        statusCode: _0x5a8d92
-      } = await this.rpc_request(_0x5dccd4);
-      let _0x2b1c98 = _0x49dfef.get(_0x2ad2d5, "code", _0x5a8d92);
-      if (_0x2b1c98 == 0) {
-        let _0x2b2dfc = _0x2ad2d5?.["biz"]?.["xiaoHaoCount"] || 20;
-        let _0x15becc = _0x2ad2d5?.["biz"]?.["wzTurntable"]?.["code"] || "";
-        _0x15becc ? await this.lottery_check(_0x15becc, _0x2b2dfc) : this.log("没有获取到转盘抽奖ID");
-      } else {
-        let _0x96a1c8 = _0x49dfef.get(_0x2ad2d5, "message", "");
-        this.log("获取转盘抽奖活动失败[" + _0x2b1c98 + "]: " + _0x96a1c8);
-      }
-    } catch (_0x3408eb) {
-      console.log(_0x3408eb);
-    }
-  }
-  async lottery_check(_0x217d19, _0x372f7b, _0x4f6c97 = {}) {
-    try {
-      let _0xa49a58 = new URL("https://wapact.189.cn:9001/gateway/stand/detail/check");
-      _0xa49a58.searchParams.append("activityId", _0x217d19);
-      _0xa49a58.searchParams.append("_", Date.now().toString());
-      let {
-        result: _0x2d69c8,
-        statusCode: _0x242328
-      } = await this.rpc_request(_0xa49a58);
-      let _0x2cccad = _0x49dfef.get(_0x2d69c8, "code", _0x242328);
-      if (_0x2cccad == 0) {
-        let _0x157881 = _0x2d69c8?.["biz"]?.["resultInfo"]?.["chanceCount"] || 0;
-        this.log("转盘可以抽奖" + _0x157881 + "次, 消耗金豆" + _0x372f7b + "/" + this.coin);
-        let _0x30a5ac = false;
-        while (_0x157881-- > 0 && this.coin >= _0x372f7b) {
-          if (_0x30a5ac) {
-            await _0x49dfef.wait(3000);
-          }
-          _0x30a5ac = true;
-          await this.lottery_do(_0x217d19, _0x372f7b);
-        }
-      } else {
-        let _0x3cd934 = _0x49dfef.get(_0x2d69c8, "message", "");
-        this.log("查询转盘抽奖次数失败[" + _0x2cccad + "]: " + _0x3cd934);
-      }
-    } catch (_0x957f54) {
-      console.log(_0x957f54);
-    }
-  }
-  async lottery_do(_0x5149a7, _0xc5a8fd = {}) {
-    try {
-      let _0x1794f8 = new URL("https://wapact.189.cn:9001/gateway/golden/api/lottery");
-      let _0xe8218a = {
-        activityId: _0x5149a7
-      };
-      let {
-        result: _0x50d02f,
-        statusCode: _0x69dd47
-      } = await this.rpc_request(_0x1794f8, "POST", _0xe8218a);
-      let _0x301247 = _0x49dfef.get(_0x50d02f, "code", _0x69dd47);
-      if (_0x301247 == 0) {
-        this.coin = _0x50d02f?.["biz"]?.["amountTotal"] || this.coin - xiaoHaoCount;
-        let _0x3d75c1 = _0x50d02f?.["biz"]?.["resultCode"];
-        let _0x2f6e42 = "";
-        switch (_0x3d75c1) {
-          case "0":
-            {
-              let _0x420d18 = _0x50d02f?.["biz"]?.["resultInfo"]?.["winTitle"] || "空气";
-              const _0x580cdf = {
-                notify: true
-              };
-              this.log("转盘抽奖: " + _0x420d18, _0x580cdf);
-              return;
-            }
-          case "412":
-            {
-              _0x2f6e42 = "抽奖次数已达上限";
-              break;
-            }
-          case "413":
-          case "420":
-            {
-              _0x2f6e42 = "金豆不足";
-              break;
-            }
-          default:
-            {
-              this.log(": " + JSON.stringify(_0x50d02f));
-              _0x2f6e42 = "未知原因";
-              break;
-            }
-        }
-        this.log("转盘抽奖失败[" + _0x3d75c1 + "]: " + _0x2f6e42);
-      } else {
-        let _0x1e463b = _0x49dfef.get(_0x50d02f, "message", "");
-        this.log("转盘抽奖错误[" + _0x301247 + "]: " + _0x1e463b);
-      }
-    } catch (_0x3f560e) {
-      console.log(_0x3f560e);
-    }
-  }
-  async userTask() {
-    const _0x4d55e5 = {
-      notify: true
-    };
-    _0x49dfef.log("\n======= 账号[" + this.index + "][" + this.name + "] =======", _0x4d55e5);
-    if (!this.load_token() && !(await this.login())) {
-      return;
-    }
-    if (!(await this.get_ticket())) {
-      return;
-    }
-    if (!(await this.get_sign())) {
-      return;
-    }
-    await this.userCoinInfo();
-    await this.getLevelRightsList();
-    await this.month_jml_preCost();
-    await this.userStatusInfo();
-    await this.continueSignRecords();
-    await this.homepage("hg_qd_zrwzjd");
-    await this.getParadiseInfo();
-    if (_0x16d3ea) {
-      await this.userLotteryTask();
-    }
-    await this.userCoinInfo(true);
-  }
-  async userLotteryTask() {
-    if (!(await this.auth_login())) {
-      return;
-    }
-    await this.queryInfo();
-  }
-}
-!(async () => {
-  if (!(await _0x1a2249())) {
-    return;
-  }
-  _0x49dfef.read_env(_0x3f433d);
-  _0xa0ff1b();
-  for (let _0x28b102 of _0x49dfef.userList) {
-    await _0x28b102.userTask();
-  }
-})().catch(_0x3fccb3 => _0x49dfef.log(_0x3fccb3)).finally(() => _0x49dfef.exitNow());
-async function _0x1a2249(_0x5dcebe = 0) {
-  let _0x40b7b = [];
-  try {
-    let _0x29d1da = {
-      fn: "auth",
-      method: "get",
-      url: _0x100b57,
-      timeout: 20000
-    };
-    let {
-      statusCode: _0xbb1bc5,
-      result: _0x508782
-    } = await _0x3b1630.request(_0x29d1da);
-    if (_0xbb1bc5 != 200) {
-      _0x5dcebe++ < _0x3c685e && (_0x40b7b = await _0x1a2249(_0x5dcebe));
-      return _0x40b7b;
-    }
-    if (_0x508782?.["code"] == 0) {
-      _0x508782 = JSON.parse(_0x508782.data.file.data);
-      if (_0x508782?.["commonNotify"] && _0x508782.commonNotify.length > 0) {
-        const _0x1a6c76 = {
-          notify: true
-        };
-        _0x49dfef.log(_0x508782.commonNotify.join("\n") + "\n", _0x1a6c76);
-      }
-      _0x508782?.["commonMsg"] && _0x508782.commonMsg.length > 0 && _0x49dfef.log(_0x508782.commonMsg.join("\n") + "\n");
-      if (_0x508782[_0x14f289]) {
-        let _0x145844 = _0x508782[_0x14f289];
-        _0x145844.status == 0 ? _0xf4231c >= _0x145844.version ? (_0x40b7b = true, _0x49dfef.log(_0x145844.msg[_0x145844.status]), _0x49dfef.log(_0x145844.updateMsg), _0x49dfef.log("现在运行的脚本版本是：" + _0xf4231c + "，最新脚本版本：" + _0x145844.latestVersion)) : _0x49dfef.log(_0x145844.versionMsg) : _0x49dfef.log(_0x145844.msg[_0x145844.status]);
-      } else {
-        _0x49dfef.log(_0x508782.errorMsg);
-      }
-    } else {
-      _0x5dcebe++ < _0x3c685e && (_0x40b7b = await _0x1a2249(_0x5dcebe));
-    }
-  } catch (_0x458d78) {
-    _0x49dfef.log(_0x458d78);
-  } finally {
-    return _0x40b7b;
-  }
-}
-function _0x5370a4(_0x24412c) {
-  return new class {
-    constructor(_0x198bc4) {
-      this.name = _0x198bc4;
-      this.startTime = Date.now();
-      const _0x555858 = {
-        time: true
-      };
-      this.log("[" + this.name + "]开始运行\n", _0x555858);
-      this.notifyStr = [];
-      this.notifyFlag = true;
-      this.userIdx = 0;
-      this.userList = [];
-      this.userCount = 0;
-      this.default_timestamp_len = 13;
-      this.default_wait_interval = 1000;
-      this.default_wait_limit = 3600000;
-      this.default_wait_ahead = 0;
-    }
-    log(_0x25f67c, _0x45847d = {}) {
-      let _0x192e11 = {
-        console: true
-      };
-      Object.assign(_0x192e11, _0x45847d);
-      if (_0x192e11.time) {
-        let _0x58f096 = _0x192e11.fmt || "hh:mm:ss";
-        _0x25f67c = "[" + this.time(_0x58f096) + "]" + _0x25f67c;
-      }
-      if (_0x192e11.notify) {
-        this.notifyStr.push(_0x25f67c);
-      }
-      if (_0x192e11.console) {
-        console.log(_0x25f67c);
       }
     }
-    get(_0x2ecf4d, _0x5800fb, _0x1ff76e = "") {
-      let _0x5a663b = _0x1ff76e;
-      _0x2ecf4d?.["hasOwnProperty"](_0x5800fb) && (_0x5a663b = _0x2ecf4d[_0x5800fb]);
-      return _0x5a663b;
-    }
-    pop(_0x2ae8ec, _0xbb54f6, _0x9c8563 = "") {
-      let _0x213044 = _0x9c8563;
-      _0x2ae8ec?.["hasOwnProperty"](_0xbb54f6) && (_0x213044 = _0x2ae8ec[_0xbb54f6], delete _0x2ae8ec[_0xbb54f6]);
-      return _0x213044;
-    }
-    copy(_0x1fbe5b) {
-      return Object.assign({}, _0x1fbe5b);
-    }
-    read_env(_0x412e83) {
-      let _0x1267c5 = _0x4aec53.map(_0x166c56 => process.env[_0x166c56]);
-      for (let _0x2b0da2 of _0x1267c5.filter(_0x22b120 => !!_0x22b120)) {
-        for (let _0x4465a3 of _0x2b0da2.split(_0x1876a7).filter(_0x3c7dca => !!_0x3c7dca)) {
-          if (this.userList.includes(_0x4465a3)) {
-            continue;
-          }
-          this.userList.push(new _0x412e83(_0x4465a3));
-        }
-      }
-      this.userCount = this.userList.length;
-      if (!this.userCount) {
-        const _0x3d5d5 = {
-          notify: true
-        };
-        this.log("未找到变量，请检查变量" + _0x4aec53.map(_0x56423f => "[" + _0x56423f + "]").join("或"), _0x3d5d5);
-        return false;
-      }
-      this.log("共找到" + this.userCount + "个账号");
-      return true;
-    }
-    time(_0x43e381, _0x1822e0 = null) {
-      let _0x1de2f7 = _0x1822e0 ? new Date(_0x1822e0) : new Date();
-      let _0x180e96 = {
-        "M+": _0x1de2f7.getMonth() + 1,
-        "d+": _0x1de2f7.getDate(),
-        "h+": _0x1de2f7.getHours(),
-        "m+": _0x1de2f7.getMinutes(),
-        "s+": _0x1de2f7.getSeconds(),
-        "q+": Math.floor((_0x1de2f7.getMonth() + 3) / 3),
-        S: this.padStr(_0x1de2f7.getMilliseconds(), 3)
-      };
-      /(y+)/.test(_0x43e381) && (_0x43e381 = _0x43e381.replace(RegExp.$1, (_0x1de2f7.getFullYear() + "").substr(4 - RegExp.$1.length)));
-      for (let _0x2cfbd9 in _0x180e96) new RegExp("(" + _0x2cfbd9 + ")").test(_0x43e381) && (_0x43e381 = _0x43e381.replace(RegExp.$1, 1 == RegExp.$1.length ? _0x180e96[_0x2cfbd9] : ("00" + _0x180e96[_0x2cfbd9]).substr(("" + _0x180e96[_0x2cfbd9]).length)));
-      return _0x43e381;
-    }
-    async showmsg() {
-      if (!this.notifyFlag) {
-        return;
-      }
-      if (!this.notifyStr.length) {
-        return;
-      }
-      var _0x2264e = require("./sendNotify");
-      this.log("\n============== 推送 ==============");
-      await _0x2264e.sendNotify(this.name, this.notifyStr.join("\n"));
-    }
-    padStr(_0x397014, _0x4fcca2, _0x1abd3c = {}) {
-      let _0x10354b = _0x1abd3c.padding || "0";
-      let _0x39ed4e = _0x1abd3c.mode || "l";
-      let _0x3b33af = String(_0x397014);
-      let _0x26e87b = _0x4fcca2 > _0x3b33af.length ? _0x4fcca2 - _0x3b33af.length : 0;
-      let _0x3bb60f = "";
-      for (let _0x30ac41 = 0; _0x30ac41 < _0x26e87b; _0x30ac41++) {
-        _0x3bb60f += _0x10354b;
-      }
-      _0x39ed4e == "r" ? _0x3b33af = _0x3b33af + _0x3bb60f : _0x3b33af = _0x3bb60f + _0x3b33af;
-      return _0x3b33af;
-    }
-    json2str(_0x123637, _0x402c90, _0x46e6c5 = false) {
-      let _0x75d972 = [];
-      for (let _0x2a0f42 of Object.keys(_0x123637).sort()) {
-        let _0x2bc1ca = _0x123637[_0x2a0f42];
-        if (_0x2bc1ca && _0x46e6c5) {
-          _0x2bc1ca = encodeURIComponent(_0x2bc1ca);
-        }
-        _0x75d972.push(_0x2a0f42 + "=" + _0x2bc1ca);
-      }
-      return _0x75d972.join(_0x402c90);
-    }
-    str2json(_0x32e5fc, _0x43a064 = false) {
-      let _0x4cd4ad = {};
-      for (let _0x520529 of _0x32e5fc.split("&")) {
-        if (!_0x520529) {
-          continue;
-        }
-        let _0x1dc4e6 = _0x520529.indexOf("=");
-        if (_0x1dc4e6 == -1) {
-          continue;
-        }
-        let _0x4998d0 = _0x520529.substr(0, _0x1dc4e6);
-        let _0x3ac012 = _0x520529.substr(_0x1dc4e6 + 1);
-        if (_0x43a064) {
-          _0x3ac012 = decodeURIComponent(_0x3ac012);
-        }
-        _0x4cd4ad[_0x4998d0] = _0x3ac012;
-      }
-      return _0x4cd4ad;
-    }
-    randomPattern(_0x369f7e, _0x4006d8 = "abcdef0123456789") {
-      let _0x3140cf = "";
-      for (let _0x8e9314 of _0x369f7e) {
-        if (_0x8e9314 == "x") {
-          _0x3140cf += _0x4006d8.charAt(Math.floor(Math.random() * _0x4006d8.length));
-        } else {
-          _0x8e9314 == "X" ? _0x3140cf += _0x4006d8.charAt(Math.floor(Math.random() * _0x4006d8.length)).toUpperCase() : _0x3140cf += _0x8e9314;
-        }
-      }
-      return _0x3140cf;
-    }
-    randomUuid() {
-      return this.randomPattern("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx");
-    }
-    randomString(_0x33254d, _0x5f4306 = "abcdef0123456789") {
-      let _0x440af6 = "";
-      for (let _0x475f61 = 0; _0x475f61 < _0x33254d; _0x475f61++) {
-        _0x440af6 += _0x5f4306.charAt(Math.floor(Math.random() * _0x5f4306.length));
-      }
-      return _0x440af6;
-    }
-    randomList(_0x4242c3) {
-      let _0x35c76e = Math.floor(Math.random() * _0x4242c3.length);
-      return _0x4242c3[_0x35c76e];
-    }
-    wait(_0x1dc9b5) {
-      return new Promise(_0x54d822 => setTimeout(_0x54d822, _0x1dc9b5));
-    }
-    async exitNow() {
-      await this.showmsg();
-      let _0x4210ea = Date.now();
-      let _0x52abd1 = (_0x4210ea - this.startTime) / 1000;
-      this.log("");
-      const _0x4bb8d6 = {
-        time: true
-      };
-      this.log("[" + this.name + "]运行结束，共运行了" + _0x52abd1 + "秒", _0x4bb8d6);
-      process.exit(0);
-    }
-    normalize_time(_0x2e4fd9, _0x6f3e21 = {}) {
-      let _0x2a3018 = _0x6f3e21.len || this.default_timestamp_len;
-      _0x2e4fd9 = _0x2e4fd9.toString();
-      let _0x54eeae = _0x2e4fd9.length;
-      while (_0x54eeae < _0x2a3018) {
-        _0x2e4fd9 += "0";
-      }
-      _0x54eeae > _0x2a3018 && (_0x2e4fd9 = _0x2e4fd9.slice(0, 13));
-      return parseInt(_0x2e4fd9);
-    }
-    async wait_until(_0x3145a4, _0x3938d8 = {}) {
-      let _0x155654 = _0x3938d8.logger || this;
-      let _0x808a8f = _0x3938d8.interval || this.default_wait_interval;
-      let _0x1929a1 = _0x3938d8.limit || this.default_wait_limit;
-      let _0x4fa992 = _0x3938d8.ahead || this.default_wait_ahead;
-      if (typeof _0x3145a4 == "string" && _0x3145a4.includes(":")) {
-        if (_0x3145a4.includes("-")) {
-          _0x3145a4 = new Date(_0x3145a4).getTime();
-        } else {
-          let _0xbcf425 = this.time("yyyy-MM-dd ");
-          _0x3145a4 = new Date(_0xbcf425 + _0x3145a4).getTime();
-        }
-      }
-      let _0x44ad11 = this.normalize_time(_0x3145a4) - _0x4fa992;
-      let _0x213d55 = this.time("hh:mm:ss.S", _0x44ad11);
-      let _0x64f4d7 = Date.now();
-      _0x64f4d7 > _0x44ad11 && (_0x44ad11 += 86400000);
-      let _0x539462 = _0x44ad11 - _0x64f4d7;
-      if (_0x539462 > _0x1929a1) {
-        const _0x533822 = {
-          time: true
-        };
-        _0x155654.log("离目标时间[" + _0x213d55 + "]大于" + _0x1929a1 / 1000 + "秒,不等待", _0x533822);
-      } else {
-        const _0x436e20 = {
-          time: true
-        };
-        _0x155654.log("离目标时间[" + _0x213d55 + "]还有" + _0x539462 / 1000 + "秒,开始等待", _0x436e20);
-        while (_0x539462 > 0) {
-          let _0x5a2288 = Math.min(_0x539462, _0x808a8f);
-          await this.wait(_0x5a2288);
-          _0x64f4d7 = Date.now();
-          _0x539462 = _0x44ad11 - _0x64f4d7;
-        }
-        const _0x179ceb = {
-          time: true
-        };
-        _0x155654.log("已完成等待", _0x179ceb);
-      }
-    }
-    async wait_gap_interval(_0x5caf3a, _0x373b08) {
-      let _0x5561b7 = Date.now() - _0x5caf3a;
-      _0x5561b7 < _0x373b08 && (await this.wait(_0x373b08 - _0x5561b7));
-    }
-  }(_0x24412c);
-}
+  })(11827);
+})([104, 104, 155, 182, 44184, 155, 161, 40476, 9101, 3, 1, 174, 50, 21071, 15875, 142, 3, 50, 21072, 15879, 62, 46, 78, 3340, 3, 84, 50, 21085, 15889, 142, 11, 54569, 163, 3, 85, 135, 20313, 44158, 155, 135, 54100, 12402, 115, 12, 58589, 30, 46837, 9, 50, 21103, 15915, 175, 1944, 50, 21108, 15916, 62, 12, 58575, 78, 3391, 13, 40313, 4, 49015, 111, 22881, 28, 2387, 135, 40439, 32478, 155, 111, 24852, 84, 150, 41105, 36498, 155, 135, 20330, 44075, 78, 3397, 92, 128, 174, 47, 50, 21175, 15952, 142, 78, 3403, 92, 128, 12, 58373, 116, 38712, 42890, 65904, 157, 172, 155, 41, 60513, 84, 47, 78, 3428, 173, 41, 60524, 150, 10934, 1195, 161, 53270, 27932, 14, 170, 16, 61420, 29, 64874, 171, 15247, 155, 41, 60591, 84, 12, 60083, 84, 78, 3452, 175, 32001, 28, 2454, 155, 41, 60578, 84, 28, 2476, 135, 39549, 30897, 165, 155, 156, 58963, 27440, 155, 116, 24446, 27847, 65960, 31, 84, 155, 161, 22624, 58684, 83, 39760, 175, 29154, 104, 125, 175, 11224, 78, 3491, 175, 16105, 28, 2511, 155, 41, 60575, 84, 47, 50, 21271, 16049, 142, 28, 2518, 78, 3510, 21, 84, 128, 12, 58419, 91, 54, 155, 41, 60607, 84, 12, 51620, 84, 50, 21293, 16071, 150, 40968, 36379, 135, 11103, 51729, 41, 60567, 150, 40960, 36387, 135, 11047, 51737, 155, 135, 53401, 12729, 115, 12, 58446, 30, 46975, 175, 11153, 78, 3556, 175, 1877, 50, 21295, 16103, 62, 12, 58456, 78, 3555, 175, 2355, 111, 24844, 84, 12, 54489, 84, 28, 2578, 116, 45663, 33522, 66065, 31, 84, 28, 2586, 128, 174, 47, 50, 21354, 16132, 142, 28, 2596, 78, 3586, 21, 128, 12, 58600, 91, 54, 111, 29862, 50, 21375, 16148, 161, 60769, 24103, 150, 59357, 51666, 43, 155, 41, 60923, 84, 161, 28449, 56378, 150, 59346, 51657, 135, 4094, 61131, 43, 41, 60810, 30, 46749, 9, 50, 21369, 16183, 175, 1666, 50, 21374, 16182, 62, 12, 58605, 165, 27, 8, 172, 111, 27503, 78, 3647, 157, 128, 12, 58426, 30, 46765, 9, 50, 21395, 16202, 175, 1724, 50, 21400, 16208, 62, 12, 58408, 165, 41, 58204, 28, 2677, 155, 41, 60516, 84, 161, 60889, 24303, 150, 59285, 51594, 43, 155, 41, 60522, 84, 28, 2694, 135, 43589, 19300, 150, 59272, 51583, 163, 155, 41, 60586, 84, 28, 2707, 150, 59262, 51573, 135, 39276, 30786, 19, 41, 60607, 161, 28609, 56474, 12, 58494, 78, 3709, 157, 128, 174, 47, 50, 21496, 16269, 142, 78, 3728, 92, 128, 12, 60684, 105, 42873, 52643, 175, 1414, 75, 29591, 84, 155, 50, 21482, 16291, 175, 1555, 175, 1301, 30, 61794, 175, 11342, 78, 3758, 175, 31950, 78, 3756, 175, 1537, 50, 21499, 16306, 62, 46, 105, 42901, 35333, 175, 1005, 75, 29629, 84, 155, 50, 21515, 16330, 175, 1586, 175, 14110, 30, 47045, 175, 7148, 78, 3778, 62, 46, 105, 42920, 35575, 175, 7159, 78, 3787, 62, 46, 105, 42944, 35483, 175, 7166, 78, 3796, 62, 46, 105, 42955, 38158, 9, 78, 3804, 12, 41440, 50, 21555, 16369, 6, 135, 11999, 12731, 174, 3, 28, 2823, 135, 38069, 35473, 155, 135, 55880, 50497, 78, 3826, 3, 47, 50, 21610, 16386, 142, 115, 155, 135, 16022, 8495, 3, 50, 21586, 16393, 62, 46, 78, 3851, 3, 150, 17552, 28581, 155, 135, 36010, 37559, 150, 17579, 28586, 155, 135, 27280, 29826, 115, 3, 17, 84, 12, 52396, 84, 28, 2885, 41, 61295, 116, 36424, 48813, 66366, 157, 108, 41, 61407, 175, 1844, 128, 182, 44762, 135, 16720, 24156, 155, 135, 13802, 10979, 78, 3899, 92, 155, 135, 55966, 50575, 78, 3908, 114, 7316, 89, 46, 165, 27, 155, 41, 61347, 84, 12, 54014, 84, 116, 35207, 47409, 66411, 149, 155, 41, 60518, 84, 28, 2940, 135, 43857, 46168, 155, 41, 60520, 84, 50, 21688, 16492, 6, 135, 43844, 46183, 135, 52178, 54526, 7, 84, 116, 43860, 39963, 66441, 149, 155, 111, 25073, 84, 116, 8328, 5936, 66450, 149, 41, 60584, 150, 58762, 53139, 155, 135, 37904, 35527, 78, 3974, 92, 12, 58435, 116, 58228, 54512, 66469, 149, 155, 111, 24889, 84, 148, 2847, 11139, 5385, 51512, 99, 155, 135, 7583, 15532, 78, 4001, 92, 41, 60640, 175, 1952, 12, 58791, 11, 55231, 128, 128, 12, 58396, 47, 78, 4008, 18, 155, 111, 24946, 84, 28, 3029, 28, 3015, 135, 840, 8799, 23, 155, 41, 60583, 84, 50, 21773, 16596, 6, 135, 852, 8747, 7, 84, 50, 21792, 16685, 171, 15956, 136, 41, 52920, 78, 4047, 146, 23697, 84, 37, 15678, 150, 58852, 53225, 78, 4054, 92, 7, 84, 28, 3074, 78, 4061, 106, 41, 60817, 28, 3082, 28, 3081, 28, 3100, 28, 3085, 138, 84, 28, 3089, 60, 59820, 76, 65442, 46, 12, 58760, 28, 3097, 128, 12, 58424, 78, 4090, 111, 29490, 37, 15729, 50, 21873, 16650, 175, 1391, 47, 50, 21898, 16656, 142, 28, 3126, 47, 50, 21920, 16663, 142, 115, 41, 60814, 150, 29742, 24095, 155, 135, 903, 8892, 28, 3145, 28, 3136, 155, 111, 26395, 84, 8, 47, 50, 21910, 16687, 142, 78, 4143, 92, 135, 37951, 46386, 1, 12, 58610, 28, 3152, 155, 135, 52288, 60796, 28, 3160, 78, 4157, 21, 89, 128, 12, 58409, 28, 3170, 155, 41, 60818, 84, 5, 111757, 15060, 50, 21951, 16724, 142, 78, 4179, 92, 108, 155, 111, 26416, 84, 116, 37426, 41840, 66674, 157, 108, 41, 60513, 28, 3201, 128, 78, 4238, 155, 41, 60515, 84, 78, 4202, 134, 40595, 41, 43875, 11, 55435, 78, 4212, 173, 41, 60580, 150, 11586, 1863, 161, 12210, 39163, 14, 170, 47, 50, 22024, 16775, 142, 78, 4229, 92, 128, 12, 58446, 78, 4296, 76, 65640, 171, 16157, 155, 41, 60641, 84, 12, 43392, 84, 11, 55474, 78, 4254, 149, 41, 60644, 150, 1724, 11403, 161, 18303, 61562, 14, 170, 28, 3265, 128, 12, 60450, 30, 48716, 30, 48729, 30, 48751, 78, 4277, 162, 16, 62213, 29, 65726, 20, 40618, 155, 111, 26388, 84, 12, 60596, 84, 78, 4294, 150, 58946, 52348, 135, 42687, 34291, 135, 46104, 38749, 155, 135, 2818, 10267, 150, 29911, 24262, 155, 135, 576, 8565, 150, 58998, 52304, 8, 30, 47480, 175, 6534, 78, 4317, 62, 12, 60499, 16, 62287, 29, 65781, 171, 16136, 155, 41, 60321, 84, 12, 50853, 84, 128, 1, 145, 59, 84, 141, 9, 111, 24844, 84, 12, 58609, 84, 141, 141, 15, 54, 47, 126, 155, 111, 24852, 84, 12, 51047, 84, 47, 50, 22172, 16915, 30, 48872, 175, 5162, 78, 4377, 62, 12, 60594, 15, 54, 155, 41, 60385, 84, 12, 54852, 84, 50, 22136, 16936, 142, 54, 128, 127, 115, 128, 12, 59640, 15, 155, 41, 60327, 84, 12, 57159, 84, 50, 22178, 16955, 150, 42140, 33431, 135, 5323, 14317, 41, 61406, 161, 62640, 16706, 12, 59539, 6, 135, 39797, 47133, 100, 155, 64, 56788, 3, 155, 135, 32567, 23585, 50, 22222, 16984, 142, 135, 45784, 37234, 3, 50, 22185, 17015, 22, 55687, 155, 135, 33763, 41002, 3, 50, 22212, 17004, 142, 155, 135, 40045, 49099, 116, 42745, 38028, 66956, 22, 55701, 124, 10, 38233, 26663, 50, 22221, 17022, 142, 124, 10, 63403, 2707, 50, 22250, 17030, 3, 84, 50, 22233, 17033, 142, 11, 55713, 163, 3, 155, 135, 7276, 16057, 78, 4503, 92, 155, 3, 9, 78, 4497, 75, 30362, 84, 155, 78, 4504, 3, 116, 23374, 26807, 67015, 22, 55754, 104, 3, 6, 67, 42143, 12, 60842, 161, 30808, 52381, 175, 93, 37, 16161, 50, 22272, 17082, 175, 793, 30, 48694, 30, 48729, 30, 48687, 78, 4544, 162, 15, 155, 41, 62625, 84, 12, 61388, 84, 28, 3552, 155, 135, 42494, 33920, 115, 84, 50, 22319, 17119, 175, 4866, 41, 62885, 16, 62548, 130, 59243, 160, 8539, 155, 41, 62561, 84, 12, 58989, 84, 50, 22328, 17146, 6, 135, 19641, 28058, 46, 28, 3592, 80, 43530, 58775, 41, 62888, 8, 54, 41, 59083, 175, 1048, 175, 16069, 175, 421, 12, 60487, 32, 54, 41, 53359, 28, 3619, 80, 22803, 6013, 41, 62875, 175, 1067, 175, 16106, 175, 438, 155, 135, 20776, 28987, 115, 12, 60591, 50, 22385, 17192, 6, 28, 3643, 42, 12, 60754, 141, 165, 27, 155, 41, 62945, 84, 12, 55104, 84, 28, 3654, 155, 135, 40278, 48202, 78, 4659, 92, 84, 141, 91, 155, 41, 62887, 84, 12, 54262, 84, 78, 4675, 175, 14192, 141, 83, 40955, 155, 41, 62883, 84, 12, 64136, 84, 28, 3681, 128, 175, 8508, 48, 345, 1714, 84, 155, 5, 126133, 32442, 30, 47480, 175, 8058, 78, 4697, 62, 12, 61342, 105, 43830, 36570, 8, 50, 22452, 17263, 175, 4738, 32, 155, 111, 25588, 84, 12, 58174, 84, 37, 16351, 50, 22495, 17276, 142, 47, 50, 22505, 17281, 142, 115, 155, 135, 8111, 16077, 30, 47506, 8, 50, 22483, 17290, 50, 22487, 17303, 50, 22490, 17296, 62, 12, 61387, 78, 4839, 178, 64439, 119, 23254, 155, 111, 25356, 84, 12, 52463, 84, 175, 30258, 135, 758, 9615, 30, 47597, 175, 5037, 50, 22518, 17325, 78, 4778, 62, 12, 60459, 78, 4837, 90, 29039, 61, 37053, 155, 41, 62625, 84, 12, 43193, 84, 78, 4793, 41, 63324, 28, 3815, 116, 50304, 62788, 67290, 175, 14847, 111, 25399, 155, 64, 57178, 111, 24831, 155, 112, 99302, 18231, 111, 24817, 84, 12, 60521, 50, 22573, 17374, 175, 8693, 174, 50, 22573, 17380, 50, 22582, 17383, 142, 28, 3846, 135, 55650, 65514, 117, 97, 32348, 127, 175, 31355, 169, 12295, 6733, 84, 78, 4850, 182, 45720, 155, 87, 41777, 41931, 104, 127, 175, 31307, 116, 35616, 47973, 67348, 6, 135, 63345, 53395, 124, 10, 51619, 19552, 50, 22619, 17426, 142, 124, 10, 16566, 50546, 50, 22628, 17434, 142, 89, 175, 31869, 175, 393, 128, 12, 61255, 128, 28, 3907, 78, 4905, 168, 128, 145, 145, 46, 12, 60616, 50, 22701, 17556, 119, 23501, 136, 155, 111, 24956, 84, 12, 47728, 84, 175, 32078, 28, 3925, 78, 4926, 21, 128, 28, 3942, 128, 175, 32098, 128, 115, 28, 3945, 14, 128, 128, 116, 5879, 10092, 67433, 22, 56182, 104, 3, 116, 59261, 55211, 67442, 6, 135, 64086, 56583, 163, 3, 6, 156, 57120, 25148, 155, 161, 16977, 61263, 83, 41248, 104, 107, 3, 104, 155, 78, 4972, 75, 30831, 84, 155, 78, 4979, 75, 30846, 84, 3, 74, 128, 28, 3970, 78, 5017, 168, 128, 145, 145, 46, 8, 27, 155, 41, 62625, 84, 12, 52308, 84, 12, 60489, 78, 5006, 90, 29352, 114, 8512, 172, 155, 41, 62689, 84, 12, 41043, 84, 175, 32211, 28, 4034, 78, 5033, 21, 128, 28, 4044, 128, 175, 32197, 128, 115, 46, 50, 22820, 17599, 159, 84, 30, 48018, 30, 48002, 30, 48023, 78, 5061, 162, 37, 16734, 150, 31469, 24673, 169, 38067, 48135, 46, 16, 62997, 29, 66517, 70, 60085, 155, 111, 24884, 84, 12, 57464, 84, 50, 22856, 17682, 159, 84, 141, 47, 54, 147, 60546, 28056, 164, 111, 29429, 141, 141, 37, 16752, 30, 47765, 9, 50, 22837, 17646, 175, 350, 50, 22842, 17650, 62, 12, 58819, 105, 44231, 36197, 9, 78, 5106, 75, 30975, 84, 50, 22857, 17664, 50, 22861, 17671, 50, 22863, 17670, 62, 46, 12, 60570, 47, 78, 5134, 175, 518, 49, 37, 16769, 78, 5175, 175, 513, 9, 50, 22883, 17714, 22, 56380, 104, 1, 46, 50, 22906, 17707, 6, 155, 135, 59429, 51252, 169, 56214, 62496, 46, 28, 4167, 116, 60464, 56516, 67661, 6, 67, 42791, 104, 28, 4185, 116, 37938, 42373, 67671, 6, 47, 163, 155, 111, 28433, 84, 28, 4205, 11, 56412, 163, 41, 62880, 11, 56417, 12, 60649, 28, 4194, 67, 42821, 155, 111, 28477, 84, 161, 4730, 48570, 104, 47, 54, 155, 41, 62561, 84, 12, 49470, 84, 28, 4238, 53, 12759, 18768, 155, 78, 5218, 175, 9071, 169, 35961, 41921, 104, 155, 78, 5228, 175, 9076, 169, 24398, 28691, 104, 155, 78, 5238, 175, 9085, 169, 41691, 36225, 104, 155, 78, 5248, 175, 9034, 169, 24408, 29157, 104, 155, 78, 5258, 175, 9043, 169, 22898, 30671, 104, 104, 28, 4281, 116, 20129, 32719, 67771, 22, 56509, 158, 104, 28, 4275, 87, 31470, 31503, 104, 28, 4297, 161, 47720, 5245, 48, 25049, 27155, 84, 28, 4290, 161, 41882, 3456, 48, 25056, 27160, 84, 78, 5310, 175, 31435, 155, 116, 48389, 36254, 67802, 22, 56550, 104, 46, 28, 4328, 116, 16642, 28716, 67811, 175, 10314, 116, 20186, 32642, 67817, 6, 135, 21312, 28860, 104, 155, 116, 57251, 61151, 67828, 31, 84, 110, 84, 28, 4338, 128, 16, 63297, 130, 60027, 70, 60383, 155, 111, 28436, 84, 12, 52589, 84, 47, 50, 23124, 17907, 142, 28, 4374, 78, 5361, 21, 84, 47, 50, 23142, 17918, 142, 28, 4379, 9, 182, 46240, 155, 161, 34321, 11254, 48, 39532, 37354, 84, 155, 38, 63190, 5779, 12552, 8, 50, 23133, 17940, 50, 23137, 17950, 50, 23140, 17948, 62, 12, 58596, 56, 60285, 46, 16, 63420, 29, 66817, 151, 25088, 172, 41, 58160, 175, 19625, 155, 41, 64384, 84, 28, 4424, 161, 29685, 57324, 175, 19634, 135, 1035, 9772, 104, 28, 4445, 161, 63884, 21922, 175, 19591, 135, 36442, 44130, 104, 28, 4450, 155, 135, 38920, 48100, 169, 15366, 5025, 84, 109, 37771, 7, 84, 28, 4466, 128, 175, 2482, 48, 20343, 17427, 84, 155, 38, 63079, 5696, 7997, 8, 50, 23214, 18021, 50, 23218, 18039, 50, 23221, 18030, 62, 30, 39399, 12, 51863, 22, 56725, 135, 1665, 9624, 4, 49198, 155, 3, 41, 60152, 47, 150, 61485, 61028, 169, 21073, 31913, 170, 128, 104, 155, 38, 19541, 44202, 12595, 9, 78, 5509, 75, 31382, 84, 155, 50, 23262, 18083, 175, 24686, 50, 23266, 18073, 50, 23270, 18083, 50, 23273, 18090, 62, 12, 58848, 15, 27, 171, 17345, 41, 49312, 28, 4559, 156, 28647, 53900, 155, 5, 103621, 758, 50, 23300, 18101, 142, 78, 5564, 92, 104, 155, 116, 26261, 21842, 68058, 31, 84, 155, 116, 9424, 5924, 68066, 31, 84, 104, 116, 33560, 45238, 68064, 6, 135, 55697, 63665, 163, 155, 41, 64611, 84, 78, 5590, 175, 26292, 84, 50, 23344, 18142, 142, 128, 104, 104, 28, 4630, 128, 12, 58382, 78, 5657, 155, 41, 64609, 84, 78, 5609, 171, 17422, 111, 31996, 30, 46746, 30, 46728, 30, 46749, 78, 5636, 162, 16, 63594, 29, 67056, 64, 57990, 155, 111, 25372, 84, 12, 42507, 84, 50, 23391, 18191, 6, 155, 28, 4653, 133, 78, 5656, 92, 46, 50, 23401, 18210, 6, 135, 18539, 26980, 46, 141, 140, 27258, 54, 163, 111, 17098, 47, 28, 4692, 78, 5682, 92, 120, 128, 141, 141, 28, 4678, 135, 39333, 47271, 41, 64940, 47, 28, 4691, 78, 5690, 92, 12, 58618, 150, 14209, 10735, 155, 135, 57507, 49661, 78, 5702, 92, 155, 135, 43720, 35815, 28, 4709, 78, 5704, 21, 84, 128, 12, 59308, 175, 21640, 111, 26705, 30, 51574, 8, 50, 23463, 18269, 50, 23466, 18282, 50, 23468, 18276, 62, 12, 59328, 15, 27, 47, 163, 155, 41, 64611, 84, 12, 62338, 84, 50, 23496, 18302, 159, 84, 50, 23491, 18297, 159, 84, 150, 14158, 10540, 30, 51637, 175, 26456, 78, 5757, 175, 32502, 50, 23506, 18314, 62, 12, 59384, 105, 44899, 33996, 9, 50, 23516, 18330, 175, 32487, 175, 32233, 30, 51620, 9, 50, 23526, 18339, 175, 32273, 50, 23531, 18338, 62, 46, 50, 23543, 18344, 22, 57033, 155, 135, 52215, 58605, 50, 23556, 18353, 142, 50, 23550, 18357, 142, 89, 46, 12, 59388, 32, 27, 61, 38030, 155, 41, 64673, 84, 12, 43330, 84, 175, 21187, 48, 40502, 37270, 84, 155, 50, 23582, 18389, 31, 84, 72, 128, 12, 59333, 78, 5855, 155, 41, 64609, 84, 78, 5854, 61, 38073, 111, 29440, 175, 21159, 48, 62728, 64318, 84, 155, 50, 23610, 18416, 31, 84, 72, 128, 83, 42148, 112, 116971, 1177, 155, 41, 65441, 84, 12, 48640, 84, 47, 28, 4882, 11, 57109, 98, 128, 14, 128, 128, 12, 58433, 16, 63841, 29, 67306, 70, 60915, 155, 41, 65503, 84, 12, 63299, 84, 28, 4923, 78, 5909, 68, 27, 41, 65532, 150, 5347, 3814, 161, 63401, 41477, 14, 170, 128, 12, 54028, 91, 54, 111, 23074, 78, 5935, 146, 25577, 84, 28, 4932, 28, 4946, 135, 1222, 11225, 152, 41, 51313, 165, 27, 155, 41, 65441, 84, 12, 59448, 84, 50, 23698, 18504, 12, 54244, 6, 155, 135, 6397, 14226, 93, 3, 104, 155, 161, 43991, 65129, 48, 34743, 35088, 84, 155, 161, 30231, 9207, 3, 10, 47290, 13773, 50, 23732, 18533, 142, 124, 10, 36224, 248, 50, 23761, 18541, 142, 124, 3, 6, 50, 23752, 18546, 142, 163, 155, 111, 25068, 84, 116, 47573, 36391, 68499, 6, 135, 62735, 55924, 155, 111, 24851, 84, 28, 5032, 135, 62463, 56597, 163, 128, 104, 28, 5052, 38, 42984, 18384, 12553, 9, 50, 23774, 18583, 175, 32233, 50, 23779, 18587, 62, 12, 58867, 16, 64022, 130, 60786, 20, 42468, 155, 41, 64737, 84, 12, 49495, 84, 150, 40556, 33799, 135, 7547, 15485, 41, 64684, 150, 40548, 33807, 155, 135, 7490, 15458, 28, 5083, 50, 23844, 18623, 142, 89, 12, 58826, 28, 5088, 116, 48014, 35841, 68594, 22, 57325, 104, 47, 50, 23856, 18640, 142, 28, 5106, 50, 23851, 18646, 142, 113, 36215, 59294, 84, 78, 6102, 175, 2014, 50, 23882, 18658, 142, 110, 84, 28, 5126, 128, 104, 28, 5151, 38, 54881, 13885, 14087, 9, 50, 23867, 18674, 175, 32068, 50, 23872, 18680, 62, 12, 58492, 78, 6145, 79, 6162, 55, 48918, 111, 22288, 165, 155, 116, 43985, 39736, 68629, 31, 84, 128, 104, 47, 28, 5170, 28, 5179, 135, 44807, 36411, 98, 47, 28, 5166, 28, 5164, 135, 44814, 36396, 28, 5153, 30, 51958, 8, 50, 23918, 18725, 50, 23922, 18735, 50, 23924, 18732, 62, 12, 58591, 15, 54, 155, 41, 64935, 84, 12, 50799, 84, 28, 5200, 128, 107, 28, 5196, 116, 27568, 23401, 68706, 31, 84, 28, 5236, 38, 14487, 55315, 14120, 175, 1633, 75, 32080, 84, 155, 78, 6219, 75, 32087, 84, 155, 78, 6226, 75, 32087, 84, 155, 50, 23979, 18789, 175, 31952, 50, 23980, 18788, 62, 12, 58427, 11, 57470, 78, 6249, 149, 155, 41, 64669, 84, 78, 6256, 150, 12724, 11066, 7, 84, 8, 54, 64, 58624, 111, 21482, 50, 24013, 18835, 22, 57506, 47, 50, 24014, 18822, 142, 28, 5284, 28, 5281, 28, 5280, 28, 5288, 122, 28, 5288, 82, 46, 50, 24054, 18839, 142, 155, 135, 31422, 22991, 78, 6302, 92, 41, 64736, 28, 5317, 12, 64484, 28, 5313, 155, 135, 37844, 45310, 115, 155, 135, 42349, 34312, 30, 51607, 9, 50, 24062, 18872, 175, 31753, 50, 24067, 18875, 62, 12, 64462, 78, 6414, 155, 111, 26386, 84, 78, 6400, 61, 38639, 41, 47316, 28, 5354, 135, 38457, 46403, 41, 64613, 28, 5363, 135, 18337, 25762, 12, 64425, 78, 6358, 175, 31759, 128, 145, 128, 104, 47, 28, 5407, 78, 6396, 92, 175, 19677, 28, 5386, 113, 25342, 5127, 175, 19674, 28, 5388, 30, 52882, 8, 50, 24127, 18934, 50, 24131, 18938, 50, 24133, 18941, 62, 12, 64625, 78, 6430, 90, 30702, 114, 9827, 181, 41, 56856, 28, 5417, 128, 1, 175, 19706, 38, 49859, 8845, 12546, 175, 25008, 78, 6415, 62, 12, 64692, 78, 6458, 97, 32955, 160, 10159, 155, 41, 64481, 84, 12, 49216, 84, 161, 3394, 22546, 128, 107, 28, 5468, 38, 31757, 40098, 12553, 9, 50, 24190, 19008, 175, 31625, 50, 24195, 19003, 62, 12, 48345, 37, 18097, 150, 40081, 64146, 78, 6471, 92, 46, 139, 23664, 46, 83, 42752, 27, 47, 54, 163, 111, 30644, 50, 24239, 19043, 159, 84, 78, 6480, 175, 30255, 175, 22564, 50, 24250, 19057, 6, 135, 43407, 35510, 46, 105, 45624, 48630, 12, 47888, 182, 47369, 155, 87, 50229, 50668, 104, 174, 3, 84, 47, 50, 24257, 19065, 142, 161, 34494, 54252, 3, 28, 5528, 155, 135, 14305, 5302, 161, 15580, 27050, 3, 50, 24275, 19082, 50, 24277, 19084, 62, 46, 3, 50, 24286, 19091, 142, 155, 135, 70, 8519, 3, 50, 24334, 19101, 142, 28, 5563, 135, 65030, 57098, 133, 3, 50, 24304, 19114, 22, 57803, 50, 24313, 19116, 142, 144, 50, 24325, 19121, 142, 144, 3, 6, 138, 84, 155, 161, 43670, 65288, 3, 50, 24373, 19135, 142, 135, 47393, 39065, 135, 49169, 57812, 155, 135, 50669, 58409, 3, 9, 78, 6597, 75, 32461, 84, 155, 78, 6604, 3, 165, 155, 161, 33475, 53416, 48, 46404, 45703, 84, 155, 5, 124732, 31037, 30, 53112, 175, 26243, 78, 6624, 62, 12, 65486, 105, 45763, 40686, 8, 50, 24379, 19186, 78, 6636, 175, 22385, 78, 6647, 175, 22349, 30, 52914, 8, 50, 24392, 19199, 50, 24396, 19203, 50, 24399, 19216, 62, 12, 65289, 78, 6669, 180, 12672, 4, 50373, 155, 41, 62947, 84, 12, 60441, 84, 175, 18160, 30, 52981, 175, 27374, 50, 24434, 19231, 78, 6687, 62, 12, 65528, 175, 29579, 108, 155, 111, 25364, 84, 12, 54678, 84, 78, 6696, 41, 63126, 28, 5717, 116, 52335, 64757, 69192, 175, 16718, 111, 25409, 155, 64, 59081, 111, 25473, 155, 64, 59087, 111, 25496, 155, 64, 59094, 111, 25533, 155, 64, 59101, 111, 24656, 155, 64, 59108, 111, 24699, 155, 64, 59115, 111, 24686, 155, 64, 59122, 111, 24621, 155, 64, 59129, 111, 24632, 155, 64, 59136, 111, 24579, 155, 112, 101197, 20382, 111, 24605, 84, 12, 65449, 78, 6773, 175, 18720, 175, 3319, 116, 33353, 45689, 69267, 6, 135, 33429, 41822, 124, 10, 32932, 1436, 175, 28021, 161, 18248, 5533, 175, 32228, 28, 5806, 116, 27394, 23476, 69288, 6, 155, 135, 37460, 46196, 115, 153, 84, 28, 5820, 135, 32401, 22685, 27, 41, 62692, 175, 3109, 32, 27, 111, 27941, 12, 64608, 28, 5836, 161, 60702, 48694, 75, 32687, 84, 28, 5851, 155, 135, 22066, 28696, 115, 128, 28, 5852, 116, 27484, 23514, 69327, 6, 135, 6836, 15854, 153, 84, 28, 5856, 135, 32429, 22721, 27, 41, 62610, 78, 6943, 180, 12896, 4, 50569, 155, 41, 62563, 84, 12, 50830, 84, 28, 5885, 116, 33835, 46427, 69365, 100, 12, 65335, 175, 18764, 145, 128, 28, 5890, 161, 58076, 49136, 75, 32754, 84, 28, 5893, 155, 135, 11292, 2656, 115, 128, 28, 5906, 135, 6893, 15781, 41, 63409, 50, 24661, 19541, 61, 39127, 69, 155, 41, 63393, 84, 12, 63285, 84, 28, 5934, 116, 34260, 46442, 69418, 12, 65424, 175, 18812, 145, 128, 28, 5938, 161, 57996, 49024, 75, 32806, 84, 28, 5941, 155, 135, 2387, 12255, 115, 128, 28, 5954, 135, 6685, 15733, 41, 63381, 15, 54, 155, 41, 63393, 84, 12, 49298, 84, 28, 5970, 116, 34184, 46342, 69466, 12, 65348, 175, 19112, 145, 128, 28, 5990, 161, 58016, 48988, 75, 32854, 84, 28, 5985, 155, 135, 32297, 22741, 115, 128, 28, 6006, 161, 58032, 48972, 75, 32872, 84, 28, 6001, 155, 135, 52906, 59429, 115, 128, 175, 31200, 128, 12, 65515, 128, 28, 6019, 78, 7013, 168, 128, 145, 145, 46, 32, 165, 54, 163, 41, 49775, 12, 64628, 8, 54, 155, 111, 24844, 84, 12, 54070, 84, 175, 2531, 28, 6050, 78, 7041, 21, 128, 28, 6049, 128, 175, 1339, 128, 78, 7090, 92, 46, 47, 47, 28, 6059, 47, 28, 6043, 115, 155, 135, 4435, 12329, 30, 52216, 175, 26968, 78, 7070, 62, 12, 51368, 102, 15943, 56383, 12, 51604, 50, 24826, 19633, 62, 46, 78, 7086, 3, 78, 7089, 150, 28750, 6991, 155, 135, 30565, 22399, 150, 28737, 6996, 155, 135, 43761, 35464, 50, 24868, 19660, 142, 135, 33859, 42476, 3, 104, 155, 87, 112431, 112534, 104, 174, 3, 9, 78, 7121, 75, 32988, 84, 155, 78, 7128, 3, 6, 155, 135, 9624, 1059, 33, 46969, 100, 3, 22, 58380, 67, 44768, 91, 19, 3, 28, 6164, 161, 42677, 63951, 48, 64055, 57387, 84, 28, 6173, 161, 48270, 58331, 3, 84, 50, 24916, 19716, 50, 24919, 19719, 142, 3, 84, 47, 28, 6194, 28, 6156, 3, 6, 135, 4067, 12006, 4, 50894, 155, 3, 47, 50, 24948, 19740, 142, 28, 6194, 28, 6197, 78, 7204, 168, 104, 107, 28, 6212, 128, 12, 64537, 16, 65179, 29, 68662, 20, 43618, 41, 65330, 30, 51820, 30, 51858, 30, 51823, 78, 7219, 162, 16, 65187, 29, 68657, 160, 10936, 155, 41, 62881, 84, 12, 50359, 84, 165, 155, 161, 33001, 57168, 48, 31468, 24830, 84, 155, 116, 42483, 62738, 69734, 6, 155, 135, 1674, 10115, 28, 6259, 78, 7265, 21, 104, 128, 141, 165, 27, 155, 41, 62561, 84, 12, 56633, 84, 165, 155, 161, 32781, 57196, 48, 64187, 57519, 84, 155, 116, 42287, 62718, 69768, 31, 84, 128, 141, 141, 128, 15, 61, 39508, 111, 13504, 28, 6322, 116, 24950, 12419, 69784, 31, 84, 78, 7324, 66, 17929, 11361, 84, 78, 7326, 66, 10472, 16963, 84, 78, 7340, 66, 23435, 12581, 84, 78, 7329, 66, 35294, 58223, 84, 182, 48206, 46, 12, 64431, 32, 41, 56170, 128, 12, 64476, 50, 25160, 19917, 61, 39644, 88, 41, 50412, 128, 12, 64497, 87, 115136, 115039, 164, 155, 111, 32532, 84, 12, 54115, 84, 128, 182, 48234, 46, 47, 28, 6387, 28, 6377, 28, 6381, 30, 51602, 8, 50, 25120, 19927, 50, 25124, 19930, 50, 25126, 19934, 62, 12, 64439, 16, 65404, 29, 68829, 70, 62431, 155, 41, 62563, 84, 12, 62677, 84, 28, 6413, 128, 107, 78, 7408, 150, 37669, 65230, 135, 32697, 23710, 46, 50, 25169, 19970, 6, 155, 41, 60334, 84, 47, 28, 6438, 47, 28, 6435, 47, 28, 6446, 8, 145, 145, 145, 46, 28, 6459, 155, 41, 60398, 84, 28, 6461, 78, 7454, 173, 155, 41, 60408, 84, 28, 6460, 155, 135, 2000, 9461, 28, 6478, 78, 7459, 21, 155, 41, 60385, 84, 50, 25214, 20028, 159, 84, 50, 25247, 20051, 6, 116, 50886, 38504, 69961, 175, 3455, 78, 7483, 92, 100, 100, 46, 12, 58478, 47, 54, 61, 39706, 155, 41, 60321, 84, 12, 64019, 84, 9, 78, 7499, 48, 37195, 35585, 84, 155, 78, 7507, 48, 64400, 57782, 84, 155, 78, 7515, 48, 16867, 23431, 84, 155, 135, 51257, 60229, 30, 55187, 9, 50, 25272, 20088, 175, 30659, 50, 25277, 20085, 62, 12, 58462, 15, 111, 22504, 47, 50, 25311, 20096, 142, 50, 25297, 20099, 142, 28, 6570, 30, 55189, 9, 78, 7554, 75, 33416, 84, 50, 25305, 20112, 50, 25309, 20118, 50, 25311, 20119, 62, 12, 58814, 15, 54, 155, 41, 60641, 84, 12, 47096, 84, 28, 6593, 155, 135, 46168, 38184, 50, 25341, 20140, 142, 78, 7592, 21, 128, 107, 128, 98, 128, 12, 53331, 105, 46725, 34027, 175, 17483, 78, 7607, 175, 3554, 78, 7615, 175, 30517, 50, 25359, 20166, 62, 46, 78, 7698, 13, 44499, 96, 15235, 41, 46027, 12, 53716, 37, 19264, 50, 25395, 20185, 142, 50, 25391, 20188, 142, 28, 6648, 133, 50, 25398, 20195, 142, 78, 7647, 168, 46, 116, 37357, 49883, 70145, 6, 135, 63430, 54967, 19, 41, 55408, 50, 25420, 20222, 6, 135, 52170, 60049, 46, 50, 25427, 20235, 6, 135, 16525, 24974, 46, 78, 7761, 131, 7867, 55, 93981, 155, 41, 60839, 84, 12, 57652, 84, 28, 6690, 155, 41, 60904, 84, 5, 113365, 10476, 50, 25479, 20254, 142, 78, 7715, 92, 108, 155, 41, 60908, 84, 175, 32079, 28, 6731, 129, 64471, 33140, 41, 55458, 175, 31542, 135, 47457, 38972, 145, 12, 53675, 6, 155, 135, 10083, 1782, 33, 47567, 100, 3, 28, 6751, 135, 31531, 23355, 98, 3, 6, 161, 16182, 27702, 75, 33605, 84, 28, 6763, 161, 40746, 52599, 75, 33626, 84, 28, 6771, 161, 17480, 5652, 75, 34621, 84, 28, 6779, 161, 10731, 31600, 75, 3633629, 84, 28, 6787, 161, 32515, 11673, 75, 33637, 84, 128, 47, 50, 25562, 20339, 142, 78, 7795, 175, 32561, 30, 55731, 9, 78, 7795, 75, 33662, 84, 50, 25547, 20363, 50, 25550, 20357, 50, 25553, 20361, 62, 12, 59317, 50, 25566, 20375, 175, 30927, 41, 60647, 84, 28, 6840, 67, 45450, 91, 19, 41, 60646, 28, 6832, 67, 45458, 12, 59300, 165, 46, 182, 48708, 155, 87, 90008, 90076, 104, 46, 150, 37228, 65287, 155, 135, 54719, 60210, 28, 6866, 78, 7861, 21, 84, 28, 6868, 135, 62748, 52033, 41, 60569, 50, 25621, 20420, 6, 135, 52254, 62162, 155, 111, 25365, 84, 161, 26784, 15261, 46, 91, 54, 83, 44165, 164, 111, 29054, 40, 32135, 33762, 20917, 28, 6905, 155, 135, 62842, 52015, 78, 7907, 92, 124, 10, 7799, 33533, 78, 7910, 57, 46, 28, 6922, 135, 37905, 43691, 41, 61369, 16, 65894, 29, 69361, 151, 27642, 172, 155, 41, 61345, 84, 12, 57817, 84, 28, 6943, 135, 2164, 14028, 155, 135, 19068, 30189, 78, 7944, 92, 84, 78, 7978, 155, 41, 61411, 84, 78, 8021, 134, 44414, 155, 111, 24884, 84, 12, 50469, 84, 28, 6975, 135, 62630, 52007, 41, 61332, 165, 54, 91, 172, 155, 111, 24852, 84, 12, 53883, 175, 27706, 78, 7984, 92, 84, 128, 175, 924, 48, 36698, 37239, 84, 155, 38, 52353, 126050, 20742, 175, 22025, 78, 8001, 175, 30493, 78, 8011, 62, 12, 58397, 50, 25753, 20558, 175, 17708, 41, 60519, 84, 28, 7027, 67, 45643, 91, 19, 41, 60518, 28, 7035, 67, 45651, 12, 58554, 161, 8079, 19073, 46, 50, 25822, 20589, 64, 60438, 88, 41, 61626, 50, 25784, 20594, 159, 84, 28, 7066, 47, 163, 155, 111, 25079, 84, 28, 7058, 11, 59283, 163, 41, 60576, 11, 59288, 12, 58484, 28, 7087, 155, 135, 44826, 37338, 78, 8074, 92, 155, 41, 60644, 84, 50, 25821, 20639, 6, 28, 7091, 63, 84, 28, 7097, 128, 175, 28245, 48, 6955, 832, 84, 155, 38, 52265, 125962, 20857, 9, 50, 25844, 20660, 175, 29983, 50, 25850, 20667, 62, 12, 58825, 16, 66057, 130, 62787, 20, 44218, 111, 14152, 150, 38429, 64534, 155, 135, 51856, 59939, 165, 78, 8134, 21, 128, 175, 19114, 48, 60833, 62909, 84, 155, 38, 52244, 126417, 20749, 175, 25234, 50, 25904, 20696, 78, 8152, 62, 12, 49805, 78, 8154, 175, 31494, 30, 56181, 9, 50, 25903, 20716, 175, 30040, 50, 25908, 20716, 62, 12, 58453, 16, 66156, 130, 62913, 20, 44541, 111, 23511, 150, 31461, 4168, 135, 27654, 19903, 28, 7194, 133, 128, 145, 46, 37, 19826, 50, 25936, 20746, 142, 28, 7212, 155, 135, 51057, 59205, 30, 55957, 9, 50, 25949, 20761, 175, 30054, 50, 25954, 20762, 62, 12, 58545, 91, 27, 155, 111, 26388, 84, 12, 53914, 84, 78, 8228, 58, 27, 128, 145, 145, 46, 30, 64657, 30, 64759, 30, 64738, 78, 8263, 162, 16, 66225, 130, 62924, 16, 66415, 12, 50161, 57, 10, 2059, 38022, 46, 3, 9, 78, 8255, 75, 34116, 84, 155, 78, 8262, 3, 84, 150, 38785, 64930, 155, 135, 14846, 6352, 3, 47, 50, 26065, 20831, 142, 9, 50, 26026, 20839, 22, 59525, 104, 155, 50, 26034, 20849, 22, 59530, 104, 155, 50, 26042, 20847, 22, 59539, 104, 155, 50, 26050, 20862, 22, 59544, 104, 155, 50, 26058, 20860, 22, 59553, 104, 155, 78, 8320, 3, 104, 50, 26066, 20872, 142, 155, 3, 47, 50, 26100, 20880, 142, 47, 50, 26110, 20885, 142, 115, 155, 135, 3162, 12070, 3, 50, 26092, 20893, 78, 8343, 62, 46, 3, 84, 105, 47540, 43818, 9, 50, 26099, 20909, 175, 29724, 50, 26104, 20911, 62, 46, 12, 60840, 40, 32618, 42501, 2296, 150, 53564, 47923, 94, 155, 41, 60602, 84, 28, 7390, 150, 53554, 47913, 135, 8286, 811, 133, 155, 111, 26385, 84, 28, 7405, 135, 64390, 55542, 46, 16, 66369, 130, 63075, 20, 44751, 155, 41, 60519, 84, 12, 49982, 84, 78, 8420, 58, 41, 60238, 150, 54513, 48892, 155, 135, 60245, 51298, 78, 8422, 92, 155, 111, 24828, 84, 37, 20066, 50, 26177, 20984, 142, 78, 8435, 92, 7, 155, 111, 24865, 84, 28, 7459, 155, 41, 60323, 84, 28, 7463, 155, 41, 60318, 84, 116, 38142, 50270, 70942, 6, 135, 4832, 12775, 43, 41, 60184, 78, 8526, 155, 111, 24846, 84, 78, 8520, 171, 20345, 155, 111, 24860, 84, 12, 45104, 84, 28, 7491, 155, 41, 60385, 84, 50, 26235, 21052, 159, 84, 78, 8502, 146, 28146, 84, 105, 47636, 33785, 175, 25539, 78, 8508, 62, 12, 60663, 32, 54, 61, 40727, 155, 111, 24852, 84, 12, 46887, 84, 128, 46, 165, 155, 116, 49821, 37437, 71024, 31, 84, 155, 38, 26896, 84273, 20766, 175, 25570, 78, 8541, 62, 12, 60512, 175, 23032, 155, 41, 70753, 84, 12, 58323, 84, 50, 26305, 21104, 142, 50, 26301, 21108, 142, 135, 4743, 12698, 137, 41, 70843, 165, 155, 161, 57761, 46261, 83, 44853, 12, 60486, 165, 155, 161, 57768, 46274, 83, 44863, 104, 155, 116, 11130, 30915, 71070, 22, 59829, 50, 26343, 21142, 142, 50, 26347, 21146, 121, 76, 69958, 174, 133, 104, 128, 104, 155, 38, 6972, 80656, 20743, 9, 50, 26355, 21163, 175, 29468, 50, 26361, 21167, 62, 12, 60891, 15, 54, 111, 25031, 28, 7639, 170, 128, 104, 155, 116, 31375, 10548, 71131, 31, 84, 128, 47, 111, 22538, 150, 7702, 30731, 161, 62702, 42503, 14, 170, 78, 8661, 83, 44934, 46, 78, 8655, 83, 44940, 46, 165, 155, 38, 8898, 66276, 20738, 175, 25372, 78, 8666, 62, 12, 60510, 16, 66653, 130, 63351, 160, 12464, 155, 111, 24844, 84, 12, 61657, 84, 50, 26441, 21238, 50, 26444, 21241, 142, 155, 135, 6184, 14637, 50, 26442, 21249, 142, 145, 174, 128, 104, 155, 38, 26814, 84167, 21250, 175, 25392, 78, 8712, 62, 12, 60486, 50, 26464, 21279, 175, 29508, 46, 78, 8782, 13, 45655, 64, 65543, 155, 111, 25364, 84, 12, 64531, 84, 50, 26493, 21288, 28, 7748, 135, 36255, 44205, 174, 28, 7758, 128, 104, 155, 38, 6828, 80480, 21255, 9, 50, 26499, 21309, 175, 29324, 50, 26505, 21313, 62, 12, 60622, 165, 54, 32, 126, 41, 66553, 50, 26518, 21324, 83, 45057, 174, 50, 26526, 21330, 28, 7794, 174, 128, 104, 155, 38, 39480, 113401, 21250, 175, 25315, 78, 8793, 62, 12, 60543, 165, 32, 108, 111, 13847, 30, 55719, 30, 55734, 39, 16, 66759, 29, 70256, 20, 45159, 41, 66767, 50, 26573, 21368, 142, 155, 111, 25581, 84, 47, 50, 26580, 21377, 142, 135, 22660, 31120, 108, 155, 111, 25363, 84, 50, 26592, 21389, 142, 155, 135, 22665, 32355, 115, 84, 141, 15, 15, 167, 111, 19715, 50, 26599, 21405, 142, 41, 70881, 50, 26607, 21411, 142, 170, 141, 128, 104, 128, 12, 63660, 47, 175, 31859, 30, 52852, 12, 63536, 16, 66857, 29, 70316, 151, 28568, 163, 3, 9, 78, 8884, 75, 34758, 84, 155, 78, 8891, 3, 28, 7922, 28, 7904, 2, 3, 50, 26655, 21454, 142, 163, 111, 21263, 16, 66886, 29, 70351, 151, 28593, 19, 111, 16260, 28, 7930, 128, 161, 56008, 47044, 175, 28152, 41, 71571, 50, 26673, 21479, 142, 116, 30583, 9823, 71418, 22, 60174, 116, 7175, 19764, 71424, 22, 60180, 135, 54985, 61844, 100, 100, 12, 60464, 161, 45116, 56682, 175, 28122, 41, 71563, 78, 9012, 76, 70410, 134, 45499, 41, 76993, 50, 26715, 21517, 142, 50, 26734, 21522, 142, 163, 41, 71650, 175, 30049, 135, 54826, 61809, 170, 50, 26728, 21534, 142, 155, 135, 48737, 39221, 50, 26736, 21542, 142, 135, 54842, 61761, 145, 12, 60610, 161, 2594, 26368, 175, 28200, 155, 41, 71601, 84, 50, 26755, 21561, 142, 155, 135, 11706, 2803, 116, 11583, 32141, 71504, 22, 60260, 135, 54809, 61732, 89, 84, 50, 26778, 21580, 50, 26800, 21584, 142, 174, 37, 20667, 50, 26801, 21591, 142, 50, 26796, 21594, 142, 50, 26793, 21598, 142, 50, 26796, 21602, 142, 1, 46, 78, 9108, 97, 35645, 176, 57582, 41, 81855, 116, 5909, 18491, 71555, 6, 135, 60025, 52530, 163, 41, 70807, 50, 26825, 21627, 50, 26824, 21630, 142, 135, 36074, 44022, 41, 70816, 78, 9093, 12, 60519, 78, 9106, 22, 60335, 174, 28, 8106, 135, 54866, 61673, 50, 26855, 21654, 142, 163, 111, 21063, 8, 41, 67349, 165, 155, 116, 10571, 30384, 71604, 6, 135, 53694, 61637, 104, 155, 116, 63670, 42822, 71610, 22, 60366, 135, 35611, 43553, 104, 128, 116, 38816, 51200, 71625, 6, 135, 60851, 52456, 163, 155, 41, 70836, 84, 175, 30260, 148, 98052, 40713, 47653, 19984, 175, 22346, 28, 8174, 135, 53654, 61613, 100, 84, 12, 57056, 128, 128, 12, 54113, 15, 83, 45452, 167, 155, 111, 24844, 84, 12, 50483, 84, 50, 26933, 21735, 6, 135, 52218, 60056, 46, 50, 26943, 21739, 6, 135, 9526, 1027, 78, 9202, 175, 26844, 50, 26965, 21751, 142, 163, 41, 71117, 28, 8222, 5, 108278, 5297, 104, 116, 38930, 51442, 71706, 149, 155, 41, 71079, 84, 28, 8233, 135, 9495, 1248, 135, 24073, 32739, 155, 41, 71041, 84, 28, 8241, 161, 40592, 61856, 48, 22584, 21198, 84, 78, 9244, 175, 26893, 84, 47, 50, 27019, 21800, 142, 28, 8264, 78, 9256, 21, 84, 116, 38948, 51332, 71747, 6, 135, 51979, 59979, 163, 155, 111, 28510, 84, 116, 8753, 29327, 71765, 173, 155, 41, 71060, 84, 175, 16858, 150, 406, 31627, 116, 17803, 5484, 71779, 57, 10, 48489, 14612, 14, 100, 84, 50, 27050, 21848, 142, 128, 37, 20939, 50, 27066, 21855, 142, 28, 8308, 28, 8321, 135, 9663, 1160, 28, 8322, 135, 53620, 61443, 1, 46, 116, 39015, 51525, 71819, 6, 135, 60792, 52269, 163, 41, 70841, 175, 16806, 28, 8343, 135, 53568, 61471, 100, 175, 3604, 128, 50, 27093, 21907, 6, 135, 53589, 62432, 46, 28, 8365, 41, 76561, 28, 8361, 135, 35335, 43269, 41, 76554, 28, 8370, 28, 8376, 135, 27224, 18709, 28, 8379, 135, 23538, 30959, 104, 28, 8391, 116, 62077, 41873, 71862, 6, 135, 10246, 2922, 104, 116, 8908, 29500, 71875, 6, 135, 51851, 59851, 19, 155, 41, 70846, 84, 28, 8415, 161, 40522, 61690, 48, 34872, 33692, 84, 78, 9410, 175, 27047, 30, 36609, 12, 54396, 104, 155, 161, 40537, 61675, 48, 45834, 47123, 84, 155, 161, 17257, 11637, 3, 6, 135, 19612, 28446, 155, 135, 35954, 44953, 165, 155, 3, 150, 23338, 8439, 135, 427, 9036, 135, 5694, 13569, 3, 50, 27218, 22003, 142, 47, 163, 155, 3, 47, 28, 8475, 28, 8471, 135, 43776, 34933, 83, 45749, 89, 3, 17, 175, 27078, 41, 72608, 11, 60704, 12, 58454, 50, 27252, 22032, 142, 135, 64829, 57182, 155, 111, 24877, 84, 175, 29427, 111, 24885, 175, 27103, 41, 72672, 11, 60727, 12, 58554, 50, 27275, 22055, 142, 135, 42379, 34593, 155, 111, 24959, 84, 175, 27928, 111, 24951, 175, 30260, 41, 72608, 11, 60750, 12, 58602, 50, 27298, 22078, 142, 135, 56755, 65336, 155, 111, 24861, 84, 161, 8554, 19626, 174, 78, 9539, 111, 18645, 28, 8556, 155, 135, 34928, 44012, 116, 61381, 48834, 72051, 22, 60794, 124, 10, 44536, 10472, 50, 27334, 22113, 142, 24, 84, 28, 8587, 116, 62397, 41169, 72088, 12, 50595, 28, 8579, 161, 37061, 64925, 75, 35467, 84, 28, 8603, 116, 7195, 20127, 72078, 175, 24241, 175, 30324, 28, 8597, 135, 24682, 17016, 98, 28, 8619, 155, 135, 60361, 51642, 115, 128, 12, 46067, 128, 78, 9612, 175, 4604, 175, 17188, 75, 35503, 84, 104, 122, 128, 145, 145, 46, 12, 58824, 16, 67591, 130, 64284, 160, 13359, 155, 41, 72929, 84, 12, 52717, 84, 78, 9642, 175, 31445, 78, 9643, 21, 128, 8, 54, 155, 111, 24948, 84, 12, 47822, 84, 28, 8671, 128, 175, 6427, 182, 50538, 155, 161, 46800, 50361, 48, 30916, 28904, 84, 155, 5, 129839, 19788, 30, 55192, 175, 29424, 78, 9679, 62, 12, 48156, 105, 48816, 56603, 8, 50, 27434, 22248, 175, 32517, 16, 67675, 29, 71118, 151, 29378, 163, 155, 41, 72801, 84, 12, 61451, 84, 78, 9716, 175, 17218, 30, 54962, 8, 50, 27460, 22269, 50, 27463, 22270, 50, 27466, 22272, 62, 12, 48170, 91, 32, 164, 41, 66366, 50, 27488, 22286, 159, 84, 175, 21240, 30, 54933, 175, 8078, 50, 27494, 22295, 78, 9749, 62, 12, 48318, 16, 67720, 29, 71180, 151, 29454, 163, 155, 41, 73187, 84, 12, 44363, 84, 78, 9764, 41, 83428, 28, 8780, 116, 47211, 59641, 72257, 175, 21826, 111, 25422, 155, 64, 62149, 111, 17806, 155, 64, 62165, 111, 15048, 155, 64, 62172, 111, 15071, 155, 64, 62179, 111, 15098, 155, 64, 62186, 111, 15081, 155, 64, 62193, 111, 15174, 155, 64, 62200, 111, 15225, 155, 64, 62208, 111, 15190, 155, 112, 106356, 21377, 111, 15196, 84, 12, 48362, 50, 27585, 22380, 78, 9841, 175, 22829, 41, 72865, 84, 78, 9848, 175, 24481, 41, 72868, 50, 27600, 22396, 142, 67, 47473, 12, 58468, 165, 174, 28, 8867, 161, 37372, 58090, 75, 35716, 84, 78, 9867, 182, 50732, 155, 116, 34754, 55271, 72359, 6, 135, 58124, 52228, 104, 155, 161, 44811, 56753, 175, 19786, 104, 155, 161, 55717, 43814, 48, 631, 3269, 84, 174, 78, 9905, 182, 50762, 155, 148, 82381, 41341, 9759, 60308, 175, 17996, 161, 6207, 27325, 175, 29111, 116, 33957, 54420, 72401, 6, 155, 135, 42890, 35260, 150, 20039, 12433, 155, 135, 62900, 55814, 50, 27676, 22477, 142, 145, 110, 84, 175, 24424, 78, 9933, 12, 49659, 104, 50, 27685, 22491, 142, 161, 33198, 62715, 3, 46, 16, 67910, 130, 64624, 70, 64969, 3, 50, 27706, 22507, 142, 50, 27711, 22511, 142, 3, 123, 84, 12, 52875, 84, 50, 27716, 22530, 22, 61213, 155, 135, 44038, 33754, 150, 25581, 6480, 135, 47929, 38142, 67, 47610, 145, 46, 139, 27173, 155, 78, 9989, 48, 28553, 24983, 84, 155, 78, 9997, 48, 52400, 49839, 84, 155, 78, 10005, 48, 1366, 2934, 84, 46, 139, 27200, 155, 40, 34255, 51482, 29705, 175, 28360, 135, 21139, 32200, 116, 50058, 37804, 72512, 57, 98, 50, 27781, 22588, 6, 155, 135, 13329, 7132, 28, 9054, 155, 135, 30169, 23069, 30, 51893, 9, 50, 27791, 22609, 175, 28088, 50, 27796, 22604, 62, 12, 58569, 78, 10063, 13, 46922, 119, 28574, 155, 111, 24892, 84, 12, 48576, 84, 116, 38706, 49287, 72567, 57, 10, 42036, 10375, 128, 145, 145, 46, 28, 9088, 155, 135, 21202, 32135, 169, 117706, 8591, 84, 50, 27847, 22651, 6, 155, 135, 32079, 21129, 169, 71852, 61963, 46, 105, 49228, 34671, 175, 32190, 78, 10112, 62, 12, 58878, 16, 68066, 130, 64771, 103, 54934, 155, 111, 24884, 84, 12, 60156, 84, 47, 50, 27941, 22682, 142, 50, 27887, 22685, 142, 30, 52214, 175, 6095, 75, 35998, 84, 155, 50, 27891, 22703, 175, 27930, 50, 27894, 22702, 62, 12, 58858, 28, 9170, 155, 111, 24956, 84, 28, 9169, 41, 72890, 78, 10164, 155, 41, 72895, 84, 12, 61533, 84, 128, 16, 68120, 130, 64853, 160, 13916, 155, 41, 72867, 84, 12, 54943, 84, 78, 10210, 37, 21819, 150, 62159, 34844, 28, 9209, 155, 135, 20017, 28670, 115, 51, 38098, 174, 128, 49, 50, 27955, 22761, 142, 119, 28690, 41, 73107, 147, 32914, 488, 155, 111, 24820, 84, 12, 44838, 84, 47, 150, 48503, 51106, 50, 27975, 22782, 142, 51, 40119, 84, 128, 46, 47, 28, 9253, 93, 128, 37, 21881, 30, 51864, 175, 28842, 78, 10249, 62, 12, 63942, 105, 49377, 34234, 8, 50, 28003, 22810, 175, 24174, 12, 58421, 47, 50, 28020, 22820, 142, 28, 9282, 78, 10271, 175, 31566, 116, 58445, 46186, 72786, 22, 61523, 161, 41634, 54618, 25, 133, 86, 76, 71649, 104, 104, 28, 9304, 161, 45418, 50792, 48, 30069, 32743, 84, 28, 9315, 81, 125551, 31287, 104, 182, 51178, 155, 161, 11645, 23135, 75, 36170, 84, 46, 16, 68230, 29, 71763, 151, 30010, 172, 111, 32452, 78, 10325, 175, 5655, 46, 182, 51203, 155, 116, 3639, 24498, 72823, 31, 84, 155, 116, 46478, 58427, 72834, 22, 61584, 104, 155, 81, 90364, 61853, 104, 155, 87, 90911, 90945, 104, 155, 116, 43977, 64133, 72845, 31, 84, 46, 28, 9378, 116, 13633, 25709, 72908, 22, 61615, 155, 135, 33247, 41934, 78, 10381, 92, 104, 50, 28130, 22936, 142, 119, 28864, 41, 72944, 16, 68363, 29, 71824, 151, 30093, 163, 155, 111, 26396, 84, 12, 77641, 84, 47, 50, 28172, 22959, 142, 93, 128, 165, 27, 111, 27186, 47, 50, 28193, 22969, 142, 78, 10419, 175, 26104, 30, 51637, 9, 78, 10426, 75, 36288, 84, 50, 28178, 22990, 50, 28181, 22998, 50, 28184, 22993, 62, 12, 84513, 50, 28189, 23002, 175, 25096, 41, 72805, 84, 28, 9471, 67, 48081, 91, 19, 41, 72806, 28, 9479, 67, 48089, 12, 72612, 165, 175, 28421, 50, 28222, 23045, 22, 61715, 135, 23864, 32466, 155, 135, 26513, 17567, 115, 135, 6666, 14621, 46, 28, 9488, 135, 37142, 45791, 12, 84433, 104, 104, 155, 182, 51371, 155, 161, 45581, 51194, 3, 92, 46, 182, 51386, 135, 47583, 39654, 46, 3, 50, 28281, 23066, 142, 155, 135, 33552, 41257, 3, 9, 78, 10521, 75, 36392, 84, 155, 78, 10528, 3, 150, 14988, 24044, 155, 135, 33927, 42715, 115, 3, 52, 41, 72629, 50, 28289, 23105, 159, 84, 16, 68522, 130, 65224, 160, 14294, 41, 72256, 12, 72955, 50, 28319, 23126, 6, 12, 77155, 28, 9576, 155, 41, 72597, 84, 116, 40474, 52785, 73061, 149, 155, 111, 24881, 84, 116, 22895, 2419, 73070, 149, 155, 41, 70759, 84, 28, 9600, 135, 39666, 47526, 78, 10596, 36, 155, 41, 70815, 84, 28, 9609, 28, 9614, 135, 24175, 32001, 181, 155, 41, 70816, 84, 37, 22239, 7, 84, 9, 111, 24852, 84, 12, 86163, 84, 50, 28371, 23176, 6, 41, 70821, 28, 9643, 135, 63700, 55876, 12, 72804, 165, 46, 28, 9648, 116, 37946, 51175, 73131, 31, 84, 28, 9656, 116, 43012, 64423, 73138, 31, 84, 28, 9666, 41, 70806, 28, 9674, 161, 39294, 60438, 48, 36140, 34024, 84, 28, 9693, 116, 63346, 42124, 73156, 6, 135, 23973, 31963, 104, 50, 28433, 23231, 142, 12, 73212, 28, 9708, 155, 135, 14870, 7143, 78, 10692, 92, 128, 104, 155, 38, 44246, 101767, 20745, 175, 20503, 175, 6404, 50, 28449, 23257, 78, 10710, 62, 12, 72744, 91, 54, 15, 163, 155, 111, 24860, 84, 12, 83861, 84, 116, 40426, 52954, 73214, 6, 135, 58309, 49846, 163, 41, 71074, 28, 9750, 135, 57291, 65174, 170, 161, 46176, 51193, 175, 32393, 111, 25363, 84, 116, 23046, 2600, 73239, 6, 135, 58348, 49753, 163, 41, 71064, 28, 9772, 116, 62678, 42088, 73252, 6, 135, 57129, 65140, 12, 72938, 116, 9298, 29906, 73262, 6, 135, 58133, 49734, 163, 41, 71047, 28, 9795, 116, 6358, 18604, 73270, 6, 116, 43931, 64298, 73280, 6, 135, 57101, 65096, 100, 104, 28, 9812, 161, 39153, 60291, 48, 21019, 21679, 84, 28, 9821, 148, 81381, 56746, 29841, 41071, 12, 72920, 161, 14083, 17571, 175, 32634, 41, 71075, 84, 28, 9832, 155, 41, 70765, 84, 28, 9844, 116, 62638, 42016, 73325, 6, 100, 84, 50, 28595, 23393, 142, 128, 104, 155, 38, 25655, 83077, 21253, 175, 27104, 50, 28611, 23406, 78, 10855, 62, 12, 72717, 50, 28643, 23472, 119, 29405, 136, 41, 71327, 78, 10869, 175, 5169, 90, 35126, 46, 28, 9888, 134, 47268, 41, 70888, 47, 54, 111, 20157, 50, 28642, 23451, 6, 135, 14213, 4333, 78, 10893, 175, 29567, 135, 23690, 31738, 78, 10907, 149, 41, 70789, 28, 9907, 155, 135, 15153, 7354, 28, 9935, 135, 64062, 56682, 28, 9922, 135, 36900, 46965, 49, 47, 50, 28683, 23476, 142, 78, 10937, 92, 84, 50, 28686, 23484, 142, 128, 50, 28682, 23489, 6, 12, 73638, 128, 104, 155, 38, 42021, 100184, 21309, 175, 6871, 50, 28711, 23504, 78, 10965, 62, 12, 68271, 50, 28704, 23526, 6, 135, 14284, 4278, 135, 6190, 16177, 90, 35222, 46, 28, 9985, 134, 47364, 41, 71637, 50, 28737, 23545, 6, 135, 14297, 4233, 28, 9998, 63, 84, 78, 11072, 90, 35253, 61, 43283, 111, 30415, 28, 10004, 135, 38987, 48957, 78, 11002, 149, 41, 71666, 16, 68985, 29, 72402, 151, 30701, 108, 155, 41, 71585, 84, 12, 85823, 84, 50, 28776, 23587, 6, 135, 64174, 56794, 46, 175, 21401, 41, 71563, 50, 28782, 23595, 6, 135, 56894, 63813, 46, 16, 69082, 130, 65785, 20, 47410, 111, 19463, 47, 50, 28810, 23603, 142, 78, 11067, 92, 84, 28, 10067, 128, 50, 28806, 23613, 6, 12, 73537, 78, 11067, 12, 68136, 154, 182, 51946, 155, 161, 48205, 49466, 48, 49445, 50703, 84, 155, 38, 49306, 122967, 20747, 9, 50, 28833, 23643, 175, 27050, 50, 28839, 23649, 62, 12, 72794, 78, 11098, 111, 23904, 50, 28862, 23658, 157, 80, 60170, 79516, 41, 70752, 28, 10126, 12, 72794, 175, 7661, 92, 46, 50, 28912, 23674, 142, 155, 135, 47295, 40728, 28, 10131, 129, 50293, 39084, 128, 175, 19049, 48, 27694, 5138, 84, 155, 5, 128360, 18313, 30, 52120, 175, 29751, 78, 11148, 62, 12, 85415, 105, 50278, 60544, 8, 50, 28903, 23711, 175, 23059, 78, 11164, 175, 17683, 30, 52206, 8, 50, 28915, 23725, 50, 28918, 23729, 50, 28921, 23742, 62, 12, 85406, 47, 54, 155, 41, 70831, 84, 12, 74395, 84, 50, 28947, 23746, 159, 84, 175, 21675, 30, 52139, 175, 6621, 50, 28958, 23754, 78, 11211, 62, 12, 85323, 32, 54, 155, 111, 24884, 84, 12, 84016, 84, 78, 11218, 41, 83198, 28, 10234, 116, 48569, 53935, 73711, 175, 21136, 111, 24803, 155, 64, 63604, 111, 24678, 155, 64, 63616, 111, 12716, 155, 64, 63624, 111, 12693, 155, 112, 107737, 22634, 111, 12691, 84, 12, 85271, 50, 29021, 23809, 78, 11270, 175, 24216, 41, 71087, 84, 78, 11277, 175, 22554, 41, 71068, 50, 29029, 23825, 142, 67, 48902, 12, 72796, 15, 174, 50, 29029, 23835, 50, 29042, 23838, 142, 135, 8173, 16116, 4, 55003, 155, 41, 71147, 84, 50, 29055, 23851, 142, 67, 48929, 91, 19, 41, 71076, 50, 29065, 23861, 142, 67, 48939, 12, 72932, 165, 174, 28, 10330, 161, 39733, 58541, 75, 37182, 84, 78, 11341, 182, 52197, 155, 116, 40205, 60478, 73829, 6, 135, 59575, 51677, 104, 175, 27173, 161, 15596, 17032, 175, 16608, 161, 10053, 22997, 175, 30483, 116, 13989, 17986, 73850, 6, 155, 135, 50318, 58428, 50, 29122, 23914, 142, 110, 84, 175, 22932, 28, 10383, 161, 54100, 44136, 75, 37238, 84, 78, 11388, 175, 25446, 128, 78, 11394, 175, 26642, 50, 29134, 23939, 78, 11401, 175, 7373, 50, 29148, 23946, 78, 11408, 175, 25438, 78, 11416, 175, 21275, 50, 29152, 23957, 142, 116, 61228, 40755, 73904, 22, 62652, 1, 174, 50, 29178, 23969, 142, 119, 29898, 41, 83644, 28, 10441, 161, 24889, 8081, 175, 25509, 111, 40716, 175, 26858, 163, 41, 70816, 11, 62667, 12, 72682, 50, 29190, 23995, 142, 135, 30276, 21727, 155, 111, 40724, 84, 78, 11452, 104, 78, 11540, 79, 11552, 64, 63830, 41, 72925, 50, 29229, 24017, 142, 41, 83410, 78, 11470, 175, 23502, 28, 10491, 155, 135, 33018, 41850, 116, 59422, 39141, 73978, 6, 135, 13733, 5915, 124, 50, 29235, 24042, 142, 49, 83, 47778, 27, 155, 111, 41204, 84, 12, 73995, 84, 50, 29252, 24057, 142, 135, 61530, 53974, 41, 83449, 78, 11513, 155, 111, 41236, 84, 12, 71048, 84, 50, 29288, 24075, 12, 84429, 104, 155, 78, 11530, 75, 37404, 84, 3, 104, 104, 104, 3, 104, 28, 10552, 116, 1213, 30021, 74029, 3, 104, 155, 156, 633, 36370, 155, 3, 90, 35808, 51, 39442, 174, 3, 50, 29307, 24113, 142, 135, 49677, 57685, 163, 3, 165, 155, 161, 37419, 60962, 48, 41537, 55716, 84, 155, 116, 55115, 42667, 74087, 22, 62825, 104, 155, 161, 10426, 21515, 48, 30840, 752, 84, 155, 161, 5691, 27291, 48, 30848, 760, 84, 155, 161, 22706, 9445, 48, 61520, 35696, 84, 155, 161, 23311, 10090, 48, 3383, 30213, 84, 155, 161, 61100, 37575, 48, 24551, 9435, 84, 155, 161, 12540, 19589, 48, 23898, 9812, 84, 155, 161, 49480, 48486, 48, 30888, 288, 84, 155, 116, 10871, 22666, 74137, 6, 135, 59903, 51989, 104, 104, 155, 156, 20205, 49863, 155, 161, 21651, 10400, 48, 1621, 32684, 84, 155, 156, 9100, 44988, 155, 161, 32591, 778, 48, 31728, 862, 84, 155, 161, 10245, 21618, 48, 30941, 271, 84, 155, 116, 5223, 26331, 74187, 22, 62935, 155, 135, 48503, 40144, 50, 29474, 24249, 142, 129, 30060, 10721, 104, 155, 161, 41952, 53338, 175, 22872, 78, 11712, 175, 7991, 104, 155, 116, 55849, 43212, 74210, 6, 155, 135, 21179, 29313, 34, 84, 155, 161, 29904, 1898, 48, 3068, 29903, 84, 155, 161, 17287, 12739, 48, 39671, 58854, 84, 155, 116, 15497, 20113, 74238, 6, 135, 37418, 45617, 175, 30961, 104, 174, 28, 10769, 161, 53719, 41709, 75, 37626, 84, 78, 11771, 175, 27875, 128, 78, 11775, 175, 30461, 50, 29547, 24326, 78, 11782, 175, 4928, 50, 29555, 24333, 78, 11789, 175, 27841, 78, 11799, 175, 23708, 175, 28228, 111, 41787, 175, 31962, 41, 77280, 11, 63028, 12, 74942, 50, 29577, 24356, 142, 135, 2661, 10806, 161, 25041, 5009, 114, 15226, 1, 174, 50, 29575, 24370, 142, 80, 3432, 121842, 41, 77548, 50, 29596, 24379, 175, 28590, 111, 41743, 175, 32000, 155, 111, 41746, 84, 78, 11858, 175, 26288, 155, 111, 41749, 175, 27429, 155, 111, 41777, 84, 50, 29617, 24405, 78, 11874, 175, 29556, 155, 111, 41781, 175, 27445, 41, 76896, 11, 63095, 12, 74938, 50, 29635, 24423, 142, 135, 26879, 18602, 155, 111, 41741, 84, 165, 174, 50, 29645, 24436, 50, 29656, 24439, 142, 135, 8004, 16237, 174, 50, 29648, 24447, 50, 29659, 24450, 142, 11, 63130, 163, 41, 76961, 161, 10408, 23528, 12, 74859, 50, 29673, 24464, 142, 174, 50, 29673, 24469, 50, 29689, 24472, 142, 135, 38113, 35531, 174, 50, 29698, 24480, 50, 29687, 24483, 142, 11, 63163, 163, 41, 77027, 161, 10455, 23497, 12, 75689, 50, 29701, 24497, 142, 174, 28, 10970, 175, 24523, 28, 10974, 116, 63788, 35200, 74467, 22, 63201, 100, 175, 27580, 169, 91564, 40756, 84, 15, 155, 41, 76963, 84, 12, 67454, 84, 50, 29763, 24532, 142, 28, 11001, 135, 60237, 62535, 165, 155, 116, 63756, 35232, 74499, 22, 63233, 104, 155, 175, 24479, 155, 161, 30554, 521, 175, 17916, 104, 104, 47, 50, 29799, 24562, 142, 93, 78, 12038, 109, 44334, 127, 12, 79096, 78, 12023, 79, 12046, 119, 30506, 155, 111, 41236, 84, 12, 77600, 84, 50, 29790, 24584, 175, 28505, 111, 41237, 175, 32207, 41, 77792, 11, 63271, 12, 74842, 50, 29820, 24599, 142, 135, 63284, 59717, 155, 111, 45420, 84, 175, 27826, 111, 45333, 12, 79039, 50, 29838, 24616, 142, 47, 163, 155, 3, 28, 11087, 155, 135, 8625, 16102, 161, 1580, 29466, 51, 39966, 3, 8, 50, 29829, 24636, 50, 29832, 24639, 78, 12089, 3, 6, 161, 54126, 42636, 83, 48380, 104, 3, 6, 11, 63331, 163, 41, 76896, 11, 63336, 12, 74968, 28, 11122, 135, 60366, 62658, 155, 111, 41229, 84, 161, 12162, 23170, 174, 128, 89, 128, 47, 50, 29879, 24681, 142, 93, 175, 26052, 128, 12, 83127, 128, 78, 12138, 21, 128, 145, 145, 175, 17333, 155, 41, 76967, 84, 12, 71101, 84, 30, 64438, 175, 27854, 50, 29910, 24711, 50, 29906, 24713, 78, 12164, 62, 12, 74825, 165, 155, 111, 41268, 84, 12, 69321, 84, 50, 29923, 24730, 142, 155, 135, 44256, 52700, 28, 11198, 78, 12193, 21, 128, 128, 115, 14, 128, 50, 29951, 24748, 142, 27, 41, 76969, 47, 27, 41, 67942, 28, 11216, 116, 59661, 40577, 74722, 100, 12, 82758, 175, 8178, 10, 28736, 52595, 50, 29979, 24773, 142, 97, 39732, 124, 161, 58479, 37760, 175, 26137, 28, 11246, 116, 59671, 40623, 74771, 12, 75257, 78, 12258, 175, 27853, 41, 76913, 16, 70241, 29, 73681, 103, 56979, 155, 41, 76897, 84, 12, 71695, 84, 28, 11275, 116, 59706, 40532, 74781, 12, 75164, 175, 8126, 175, 20668, 10, 3937, 46059, 98, 50, 30023, 24828, 50, 30041, 24831, 142, 127, 47, 19, 155, 41, 77219, 175, 26003, 19, 155, 41, 77212, 84, 50, 30043, 24848, 142, 135, 22682, 14476, 41, 77310, 165, 27, 147, 35015, 2519, 108, 155, 41, 77281, 84, 12, 77846, 175, 32046, 50, 30081, 24871, 142, 135, 22659, 14503, 98, 175, 31031, 128, 50, 30088, 24884, 142, 155, 135, 33559, 58132, 50, 30112, 24892, 142, 145, 27, 41, 77237, 47, 147, 35055, 2111, 163, 111, 37870, 28, 11366, 116, 61087, 40503, 74878, 12, 75121, 175, 7773, 175, 20827, 161, 36301, 64314, 12, 75032, 78, 12373, 175, 27980, 41, 76887, 28, 11391, 161, 55114, 41082, 75, 38279, 84, 50, 30203, 24993, 96, 18408, 69, 155, 41, 84862, 84, 12, 72038, 50, 30166, 24948, 50, 30152, 24951, 50, 30170, 24956, 142, 127, 47, 163, 155, 111, 42769, 84, 50, 30166, 24965, 142, 11, 63645, 163, 41, 76960, 11, 63650, 12, 74842, 50, 30179, 24978, 142, 135, 30836, 6780, 155, 111, 42805, 84, 161, 11974, 23038, 174, 50, 30185, 24993, 50, 30214, 24996, 142, 97, 39055, 118, 72508, 174, 50, 30223, 25005, 142, 27, 41, 76979, 16, 70446, 130, 67179, 160, 16296, 155, 41, 76963, 84, 12, 83610, 84, 28, 11486, 116, 60935, 40895, 75010, 12, 76521, 50, 30225, 25033, 142, 4, 56197, 155, 41, 76949, 84, 50, 30255, 25045, 142, 155, 135, 33526, 57591, 50, 30269, 25051, 142, 145, 27, 155, 41, 80209, 84, 50, 30279, 25061, 142, 41, 76691, 50, 30277, 25069, 142, 155, 135, 64748, 40776, 116, 51064, 46859, 75021, 22, 63764, 124, 10, 28161, 54140, 50, 30303, 25085, 12, 76901, 175, 24466, 142, 12, 81622, 6, 161, 53545, 42061, 83, 48830, 104, 3, 84, 28, 11582, 60, 68309, 76, 73916, 46, 3, 84, 50, 30334, 25113, 142, 11, 63793, 163, 3, 104, 104, 155, 182, 53441, 155, 161, 47734, 53207, 3, 155, 135, 52713, 44676, 30, 65183, 9, 50, 30330, 25141, 175, 25477, 50, 30335, 25143, 62, 12, 77048, 16, 70562, 130, 67264, 160, 16383, 111, 38911, 47, 50, 30351, 25159, 142, 116, 61342, 40752, 75099, 175, 28127, 84, 128, 30, 65173, 9, 50, 30365, 25172, 175, 25510, 50, 30370, 25178, 62, 12, 76988, 182, 53500, 19, 155, 111, 41236, 84, 12, 73429, 175, 20535, 78, 12641, 175, 28094, 84, 128, 12, 76808, 175, 28276, 145, 155, 135, 52628, 44755, 30, 65461, 9, 50, 30405, 25212, 175, 25550, 50, 30410, 25218, 62, 12, 76865, 78, 12670, 155, 41, 79011, 84, 12, 70262, 84, 50, 30439, 25233, 142, 116, 15231, 18628, 75170, 31, 84, 47, 50, 30447, 25244, 142, 50, 30454, 25248, 142, 98, 128, 30, 65517, 9, 50, 30449, 25264, 175, 25370, 50, 30454, 25262, 62, 12, 77259, 16, 70693, 29, 74118, 151, 32400, 163, 155, 41, 79009, 84, 12, 72866, 175, 20703, 78, 12737, 175, 27990, 128, 89, 128, 87, 120021, 119978, 163, 155, 41, 79011, 84, 12, 72879, 84, 47, 28, 11764, 28, 11773, 135, 42986, 50865, 98, 128, 47, 50, 30530, 25312, 142, 28, 11792, 156, 60779, 40451, 155, 38, 56300, 129993, 28927, 175, 21038, 78, 12780, 175, 25408, 50, 30525, 25341, 62, 12, 76816, 105, 51919, 36194, 175, 32409, 78, 12789, 62, 46, 78, 12860, 90, 37082, 171, 24641, 111, 39944, 12, 76833, 91, 27, 147, 36531, 4043, 163, 41, 69788, 50, 30563, 25366, 142, 30, 65267, 175, 22617, 78, 12823, 175, 25455, 50, 30569, 25377, 62, 12, 77021, 16, 70803, 130, 67480, 20, 49154, 155, 41, 79329, 84, 12, 70827, 84, 47, 50, 30590, 25399, 142, 50, 30600, 25402, 142, 50, 30603, 25406, 142, 28, 11864, 28, 11867, 143, 128, 14, 128, 50, 30617, 25417, 50, 30620, 25420, 142, 41, 79253, 50, 30626, 25426, 142, 155, 135, 52916, 45043, 28, 11901, 78, 12893, 21, 12, 76969, 47, 28, 11893, 115, 127, 128, 104, 107, 128, 12, 73522, 50, 30650, 25472, 22, 64142, 175, 17596, 111, 38827, 30, 63891, 175, 19975, 78, 12921, 175, 25291, 50, 30661, 25469, 62, 12, 73526, 165, 54, 83, 49207, 44, 111, 47511, 50, 30680, 25482, 142, 50, 30703, 25487, 142, 163, 41, 79076, 47, 150, 60731, 35678, 169, 112801, 21316, 170, 50, 30699, 25501, 142, 50, 30705, 25506, 142, 163, 41, 79001, 175, 27402, 163, 41, 71993, 116, 34475, 63257, 75451, 149, 41, 79009, 28, 11994, 170, 165, 155, 175, 22837, 155, 161, 53477, 41969, 83, 49265, 104, 128, 50, 30733, 25539, 142, 116, 43360, 55442, 75477, 6, 175, 17480, 78, 13006, 31, 84, 50, 30746, 25555, 22, 64244, 135, 30286, 4365, 46, 28, 12023, 41, 66661, 37, 24643, 50, 30788, 25570, 142, 28, 12033, 50, 30769, 25575, 142, 89, 46, 147, 36245, 3813, 155, 111, 41740, 84, 12, 88594, 84, 28, 12048, 41, 66625, 28, 12052, 12, 73651, 6, 63, 84, 28, 12053, 3, 6, 116, 45731, 49730, 75561, 22, 64299, 100, 3, 6, 135, 24606, 2017, 46, 78, 13083, 146, 32718, 3, 84, 50, 30845, 25625, 142, 11, 64305, 163, 3, 84, 150, 39683, 33167, 155, 135, 65058, 39298, 3, 28, 12109, 28, 12098, 135, 24825, 1984, 3, 9, 78, 13097, 75, 38967, 84, 155, 78, 13104, 3, 104, 50, 30853, 25660, 50, 30857, 25665, 3, 74, 50, 30862, 25683, 6, 135, 38847, 61653, 155, 135, 36618, 59729, 169, 118877, 15083, 46, 50, 30887, 25684, 159, 84, 78, 13147, 175, 30217, 182, 54010, 135, 50066, 42161, 46, 50, 30902, 25709, 6, 135, 50058, 42121, 46, 78, 13160, 175, 30335, 78, 13170, 146, 32810, 84, 28, 12189, 28, 12181, 135, 24711, 1946, 152, 41, 78977, 28, 12182, 155, 135, 44825, 51317, 28, 12199, 78, 13193, 175, 27216, 41, 79000, 28, 12196, 155, 135, 9973, 16486, 28, 12201, 28, 12221, 95, 84, 28, 12217, 60, 68952, 76, 74564, 46, 12, 77179, 28, 12223, 78, 13220, 173, 111, 41412, 50, 30969, 25779, 175, 30877, 84, 28, 12248, 78, 13231, 106, 41, 78980, 50, 30989, 25792, 175, 25183, 83, 49516, 8, 44, 111, 42805, 28, 12253, 28, 12238, 150, 38054, 36396, 155, 135, 5493, 30010, 28, 12262, 28, 12281, 133, 155, 135, 51411, 43167, 33, 53091, 76, 74623, 110, 175, 31392, 12, 77301, 78, 13313, 97, 39807, 70, 68592, 155, 111, 41236, 84, 12, 77788, 84, 28, 12295, 155, 135, 3826, 28442, 169, 119037, 14667, 128, 175, 31481, 48, 53916, 55800, 84, 155, 38, 55805, 129470, 32537, 9, 50, 31048, 25859, 175, 24947, 50, 31054, 25861, 62, 12, 76868, 83, 49597, 27, 155, 41, 79267, 84, 12, 82038, 84, 47, 50, 31122, 25879, 142, 148, 81490, 57126, 17937, 37664, 116, 27391, 6950, 75824, 6, 50, 31135, 25893, 142, 78, 13342, 45, 128, 175, 24331, 48, 16200, 13464, 84, 155, 5, 117453, 23762, 30, 64168, 175, 32082, 78, 13361, 62, 12, 80041, 105, 52490, 38980, 8, 50, 31116, 25925, 175, 21430, 78, 13385, 175, 19646, 30, 64146, 8, 50, 31128, 25968, 50, 31131, 25940, 50, 31134, 25955, 62, 12, 80179, 50, 31140, 25980, 159, 84, 15, 27, 91, 54, 108, 111, 43316, 175, 23886, 30, 63853, 175, 30573, 50, 31165, 25965, 78, 13415, 62, 12, 80140, 91, 155, 41, 79011, 84, 12, 84198, 84, 78, 13428, 41, 74232, 28, 12445, 116, 43739, 56073, 75920, 175, 23346, 111, 44858, 155, 64, 65815, 111, 43419, 155, 64, 65827, 111, 47670, 155, 64, 65835, 111, 47649, 155, 64, 65843, 111, 47694, 155, 112, 110000, 25037, 111, 47732, 84, 12, 81626, 50, 31243, 26024, 78, 13474, 175, 22513, 41, 79073, 84, 78, 13481, 175, 20837, 41, 79020, 50, 31233, 26040, 142, 67, 51117, 12, 76780, 165, 174, 78, 13524, 56, 68384, 174, 28, 12515, 161, 33725, 60709, 75, 39366, 84, 50, 31277, 26063, 175, 6792, 169, 83071, 43693, 174, 50, 31297, 26072, 161, 11415, 17200, 175, 24129, 78, 13528, 175, 6238, 124, 28, 12553, 135, 37213, 62071, 124, 50, 31305, 26091, 142, 124, 28, 12548, 135, 59694, 35637, 124, 10, 54327, 20756, 175, 25289, 161, 3849, 25363, 175, 18436, 161, 45533, 56707, 175, 32719, 161, 45670, 56908, 12, 76851, 28, 12589, 135, 37232, 62096, 155, 135, 24671, 837, 148, 77237, 52963, 14478, 60599, 99, 129, 108817, 1839, 124, 3, 9, 78, 13589, 75, 39449, 84, 50, 31340, 26147, 78, 13598, 3, 150, 63720, 59131, 155, 135, 42435, 50824, 78, 13618, 92, 46, 3, 174, 47, 54, 155, 3, 22, 64858, 49, 28, 12635, 3, 154, 12, 74981, 28, 12646, 12, 74995, 175, 28378, 150, 29334, 27787, 161, 14725, 21528, 14, 100, 175, 8518, 128, 12, 74762, 16, 71616, 29, 75074, 20, 49991, 155, 111, 41228, 84, 12, 76700, 84, 182, 54532, 155, 116, 64073, 35151, 76151, 6, 67, 51293, 104, 46, 50, 31417, 26226, 177, 155, 41, 81071, 84, 28, 12689, 116, 51183, 46100, 76170, 6, 67, 51313, 100, 84, 50, 31437, 26245, 177, 155, 41, 81055, 84, 28, 12706, 116, 15896, 19904, 76189, 6, 67, 51333, 104, 28, 12724, 116, 62119, 33124, 76199, 6, 67, 51344, 100, 84, 28, 12734, 135, 19082, 11260, 155, 135, 8986, 16975, 78, 13732, 92, 84, 128, 12, 75253, 161, 12755, 23757, 111, 45263, 50, 31494, 26302, 6, 135, 34575, 59005, 155, 111, 41333, 84, 165, 46, 28, 12759, 161, 43891, 63966, 48, 5018, 6752, 84, 28, 12782, 161, 38748, 50665, 77, 28, 12775, 116, 39154, 60218, 76265, 31, 84, 128, 12, 74834, 91, 111, 34932, 28, 12797, 53, 55292, 59847, 155, 182, 54656, 155, 148, 78312, 53329, 43207, 25755, 175, 16621, 28, 12815, 155, 135, 41905, 49869, 50, 31558, 26357, 142, 78, 13813, 21, 84, 28, 12831, 155, 135, 62599, 38393, 83, 50101, 98, 128, 12, 74913, 16, 71798, 29, 75256, 151, 33511, 172, 41, 69638, 28, 12841, 155, 111, 41777, 84, 116, 6439, 27035, 76332, 149, 41, 81265, 50, 31594, 26405, 6, 50, 31597, 26403, 142, 63, 84, 28, 12870, 41, 81306, 28, 12874, 155, 135, 27870, 3583, 78, 13872, 92, 128, 116, 64613, 36009, 76363, 6, 135, 64613, 40301, 43, 41, 81313, 28, 12889, 128, 15, 27, 155, 111, 41756, 84, 12, 85766, 84, 47, 150, 33126, 40762, 28, 12905, 135, 26019, 1190, 145, 27, 41, 81077, 165, 155, 111, 41780, 84, 12, 70361, 84, 78, 13921, 114, 17329, 46, 105, 53043, 34201, 175, 20119, 78, 13930, 62, 12, 74860, 50, 31682, 26482, 50, 31685, 26485, 142, 76, 75297, 127, 50, 31691, 26492, 142, 135, 25999, 1170, 152, 41, 81045, 175, 21805, 175, 30867, 89, 41, 80961, 28, 12974, 161, 7505, 20028, 175, 30853, 138, 84, 78, 13971, 175, 17767, 28, 12977, 128, 91, 111, 45458, 28, 12987, 175, 25900, 78, 13985, 175, 17354, 28, 12995, 128, 46, 28, 13001, 116, 57466, 37268, 76476, 31, 128, 150, 29560, 27921, 47, 50, 31779, 26553, 142, 78, 14009, 92, 10, 12206, 41957, 14, 170, 128, 28, 13039, 116, 56650, 44252, 76529, 31, 84, 47, 28, 13040, 28, 13004, 156, 51341, 48246, 155, 116, 13372, 17797, 76544, 6, 175, 10279, 107, 47, 28, 13025, 28, 13024, 156, 51390, 48519, 155, 116, 13325, 17786, 76546, 6, 175, 10326, 107, 28, 13061, 5, 95247, 58960, 28, 13064, 28, 13071, 28, 13081, 113, 44055, 67326, 104, 28, 13069, 38, 59795, 117128, 28939, 9, 50, 31821, 26628, 175, 24182, 50, 31826, 26634, 62, 12, 66785, 16, 72057, 130, 68782, 160, 17876, 155, 111, 41276, 84, 12, 74306, 84, 40, 38352, 65099, 41933, 78, 14103, 157, 108, 155, 41, 81890, 84, 28, 13125, 135, 62212, 39975, 46, 78, 14128, 58, 27, 155, 41, 73589, 84, 78, 14136, 12, 66779, 22, 65370, 155, 135, 43847, 50301, 28, 13143, 3, 22, 65381, 135, 30113, 7093, 127, 47, 163, 3, 28, 13164, 135, 40487, 61716, 163, 155, 3, 12, 74387, 105, 53281, 33222, 8, 50, 31908, 26720, 175, 19954, 78, 14174, 175, 29142, 30, 52082, 8, 50, 31920, 26742, 50, 31923, 26740, 50, 31926, 26742, 62, 12, 74460, 161, 14224, 25232, 155, 41, 81059, 84, 12, 77119, 84, 50, 31958, 26764, 159, 84, 175, 24681, 30, 52151, 175, 19575, 50, 31952, 26760, 78, 14212, 62, 12, 75036, 161, 14259, 25325, 147, 36927, 4431, 164, 41, 68838, 78, 14224, 41, 81315, 28, 13245, 116, 43511, 56941, 76720, 175, 26326, 111, 41322, 155, 64, 66610, 111, 41094, 155, 64, 66622, 111, 40973, 155, 64, 66630, 111, 41058, 155, 64, 66638, 111, 41055, 155, 112, 108700, 27689, 111, 40997, 84, 12, 74957, 50, 32019, 26820, 78, 14286, 175, 27349, 41, 81057, 84, 78, 14293, 175, 27737, 41, 80996, 50, 32045, 26836, 142, 67, 51913, 12, 75172, 165, 174, 78, 14297, 56, 69180, 174, 28, 13307, 161, 34649, 53257, 75, 40162, 84, 78, 14309, 182, 55177, 155, 116, 38373, 58352, 76797, 6, 135, 34431, 58894, 104, 174, 78, 14328, 182, 55192, 155, 148, 87743, 46991, 867, 52904, 175, 26808, 48, 9792, 11645, 84, 155, 116, 1385, 29781, 76828, 22, 65582, 175, 27691, 175, 11092, 28, 13361, 155, 135, 54138, 45723, 50, 32107, 26907, 142, 145, 128, 50, 32124, 26913, 28, 13380, 135, 30999, 6259, 174, 50, 32116, 26922, 78, 14390, 175, 10404, 50, 32127, 26929, 78, 14397, 175, 22309, 78, 14394, 175, 26480, 50, 32134, 26940, 142, 116, 58309, 37608, 76883, 22, 65637, 1, 174, 50, 32156, 26952, 142, 119, 32881, 41, 81248, 50, 32157, 26960, 50, 32157, 26963, 142, 47, 163, 155, 111, 42801, 84, 50, 32167, 26973, 142, 11, 65653, 163, 41, 80992, 11, 65658, 12, 74922, 50, 32180, 26986, 142, 135, 56880, 48774, 174, 28, 13454, 116, 51863, 47739, 76934, 22, 65689, 104, 28, 13463, 116, 9557, 21593, 76938, 175, 29831, 156, 39555, 60673, 155, 116, 51812, 47686, 76948, 6, 135, 56850, 48488, 104, 104, 110, 12, 74824, 28, 13488, 155, 135, 62645, 38707, 116, 64283, 35588, 76979, 22, 65727, 124, 10, 38973, 5549, 50, 32238, 27044, 142, 24, 84, 28, 13506, 161, 53020, 38960, 75, 40376, 12, 80595, 28, 13515, 161, 34697, 53465, 75, 40382, 84, 28, 13523, 116, 2399, 31195, 77006, 175, 29410, 175, 17800, 28, 13541, 135, 7342, 32452, 98, 28, 13539, 161, 34721, 53537, 75, 40409, 84, 175, 28475, 50, 32290, 27093, 142, 89, 128, 175, 23583, 128, 12, 80612, 128, 28, 13559, 28, 13556, 9, 78, 14556, 175, 9866, 75, 40432, 84, 155, 78, 14566, 75, 40441, 84, 155, 78, 14573, 75, 40450, 84, 104, 122, 128, 145, 145, 46, 50, 32416, 27149, 96, 20692, 136, 155, 111, 41244, 84, 12, 69787, 84, 12, 80991, 78, 14653, 155, 111, 41266, 84, 78, 14612, 171, 26472, 41, 73416, 175, 11391, 28, 13616, 78, 14618, 21, 128, 28, 13630, 128, 30, 43895, 12, 69342, 28, 13637, 135, 17693, 9797, 67, 52255, 135, 34996, 60388, 46, 83, 50918, 27, 111, 35968, 175, 25212, 41, 80806, 28, 13651, 135, 44033, 53084, 170, 28, 13663, 135, 8021, 31961, 128, 104, 155, 38, 12702, 69940, 28985, 9, 50, 32408, 27233, 175, 17015, 50, 32414, 27230, 62, 12, 81268, 105, 53800, 33622, 175, 22722, 78, 14679, 175, 23504, 50, 32428, 27235, 62, 46, 28, 13703, 135, 63197, 38383, 41, 78945, 28, 13726, 170, 50, 32458, 27252, 159, 84, 12, 80944, 91, 54, 32, 164, 155, 41, 79011, 84, 12, 73659, 84, 50, 32480, 27269, 142, 161, 44854, 64021, 48, 38818, 40536, 84, 50, 32491, 27280, 142, 116, 47153, 52176, 77235, 22, 65977, 104, 50, 32498, 27291, 142, 116, 59243, 38043, 77228, 31, 84, 28, 13760, 155, 41, 79005, 84, 50, 32514, 27307, 142, 161, 35196, 56340, 48, 64814, 62702, 84, 50, 32525, 27318, 142, 116, 47215, 52158, 77277, 22, 66012, 100, 84, 78, 14777, 58, 27, 128, 16, 72821, 29, 76196, 151, 34469, 163, 41, 89659, 50, 32550, 27345, 6, 135, 18116, 10158, 135, 26918, 2105, 90, 39054, 46, 28, 13815, 134, 51196, 41, 79140, 50, 32568, 27364, 6, 135, 18129, 10113, 28, 13832, 63, 84, 50, 32585, 27386, 6, 135, 35702, 59938, 46, 165, 54, 8, 19, 41, 72903, 116, 35485, 64108, 77334, 6, 135, 59720, 34876, 163, 41, 79267, 47, 28, 13863, 169, 106044, 99369, 128, 28, 13863, 135, 59739, 35021, 28, 13869, 135, 47314, 55714, 181, 41, 79206, 8, 27, 155, 41, 79329, 84, 12, 70763, 84, 78, 14880, 175, 27033, 28, 13897, 129, 71289, 44268, 46, 78, 14889, 175, 27027, 28, 13891, 129, 126867, 21763, 46, 28, 13906, 155, 41, 79267, 84, 28, 13919, 41, 79261, 78, 14943, 155, 111, 41746, 84, 78, 14986, 134, 51342, 155, 111, 41748, 84, 12, 71313, 84, 175, 11431, 135, 54447, 46528, 152, 41, 78959, 175, 32062, 128, 175, 11432, 135, 11584, 19508, 152, 41, 79037, 175, 23004, 128, 28, 13955, 41, 78996, 16, 72922, 29, 76391, 103, 59687, 155, 111, 41972, 84, 12, 65579, 84, 175, 11468, 135, 54404, 46585, 152, 41, 78977, 175, 32101, 128, 78, 14976, 58, 41, 79020, 47, 150, 38198, 45931, 169, 116271, 122163, 170, 78, 15012, 76, 76410, 4, 58790, 111, 48113, 175, 11500, 135, 11396, 19448, 152, 41, 79073, 175, 22808, 128, 50, 32763, 27570, 6, 12, 81650, 128, 104, 155, 38, 41923, 99252, 29452, 175, 24882, 75, 40880, 84, 50, 32767, 27574, 50, 32771, 27590, 50, 32774, 27582, 62, 12, 69361, 78, 15049, 175, 9418, 90, 39291, 46, 28, 14070, 134, 51433, 41, 66859, 50, 32827, 27603, 61, 47305, 136, 41, 87703, 50, 32810, 27620, 6, 135, 18380, 8374, 28, 14059, 63, 84, 28, 14069, 135, 59508, 36632, 28, 14089, 135, 47367, 56905, 181, 155, 41, 79772, 84, 175, 26957, 28, 14106, 129, 126829, 21569, 155, 41, 66966, 84, 28, 14100, 135, 47420, 56916, 28, 14100, 161, 8101, 17069, 12, 69201, 9, 78, 15104, 75, 40968, 84, 50, 32855, 27662, 78, 15113, 3, 50, 32862, 27668, 6, 135, 31234, 7488, 174, 3, 9, 78, 15125, 75, 40990, 84, 50, 32876, 27683, 78, 15134, 3, 105, 54260, 41572, 175, 30045, 78, 15144, 175, 22913, 175, 26793, 30, 61800, 175, 23335, 78, 15151, 175, 22923, 50, 32901, 27708, 62, 46, 105, 54325, 45830, 9, 78, 15164, 75, 41040, 84, 155, 50, 32917, 27723, 175, 22975, 50, 32921, 27728, 62, 46, 105, 54347, 45789, 175, 23305, 75, 41051, 84, 155, 50, 32937, 27745, 175, 22992, 50, 32940, 27747, 62, 46, 105, 54373, 45751, 175, 27292, 78, 15209, 175, 23006, 50, 32954, 27761, 62, 46, 105, 54394, 45675, 9, 50, 32963, 27778, 175, 22988, 50, 32968, 27775, 62, 46, 105, 54416, 45636, 175, 17442, 78, 15232, 62, 46, 105, 54391, 46644, 9, 50, 32986, 27794, 175, 23013, 50, 32991, 27798, 62, 46, 105, 54399, 45685, 175, 26781, 78, 15264, 175, 22803, 50, 33005, 27812, 62, 46, 105, 54418, 45795, 175, 23155, 78, 15271, 175, 22785, 50, 33019, 27826, 62, 46, 105, 54437, 45867, 9, 50, 33028, 27844, 175, 22799, 175, 21233, 30, 58573, 175, 17633, 78, 15293, 62, 46, 105, 54466, 47798, 175, 27258, 78, 15308, 175, 18088, 155, 78, 15310, 75, 41182, 84, 155, 78, 15317, 75, 41175, 84, 155, 78, 15324, 75, 41179, 84, 155, 50, 33077, 27892, 175, 22872, 50, 33076, 27883, 62, 46, 105, 54488, 47883, 9, 50, 33085, 27893, 175, 22854, 175, 26312, 30, 61365, 175, 20553, 78, 15356, 175, 22896, 50, 33100, 27907, 62, 46, 105, 54494, 47280, 175, 23060, 78, 15367, 175, 22910, 50, 33114, 27921, 62, 46, 105, 54529, 36623, 175, 20589, 75, 41237, 84, 155, 50, 33130, 27940, 175, 22675, 50, 33133, 27940, 62, 46, 105, 54544, 36705, 9, 50, 33142, 27956, 175, 22657, 50, 33147, 27954, 62, 46, 105, 54583, 36677, 175, 23525, 78, 15412, 175, 22671, 50, 33161, 27968, 62, 46, 105, 54596, 64809, 175, 31491, 75, 41297, 84, 155, 78, 15431, 75, 41291, 84, 155, 78, 15438, 75, 41295, 84, 155, 78, 15445, 75, 41316, 84, 155, 50, 33198, 28004, 175, 22738, 50, 33198, 28005, 62, 46, 105, 54595, 58055, 9, 78, 15461, 75, 41330, 84, 155, 50, 33214, 28020, 175, 24876, 155, 78, 15477, 75, 41339, 84, 155, 50, 33230, 28046, 175, 22770, 50, 33230, 28037, 62, 46, 105, 54661, 58219, 175, 17704, 78, 15494, 62, 46, 105, 54688, 58291, 175, 17715, 78, 15503, 62, 46, 105, 54653, 57870, 175, 17722, 78, 15512, 62, 7, 12, 67489, 50, 33265, 28076, 6, 135, 31901, 8181, 174, 3, 6, 155, 135, 32944, 58289, 115, 7, 135, 61984, 37176, 27, 3, 50, 33286, 28102, 50, 33288, 28095, 62, 46, 3, 50, 33295, 28109, 50, 33297, 28104, 62, 46, 3, 22, 66798, 104, 174, 3, 8, 50, 33309, 28116, 50, 33312, 28119, 78, 15570, 3, 155, 116, 53232, 40771, 78061, 6, 155, 135, 62675, 38711, 28, 14603, 155, 135, 10468, 18956, 115, 51, 43479, 104, 46, 148, 119145, 13127, 114798, 62551, 99, 175, 25410, 41, 76727, 175, 24424, 28, 14612, 155, 135, 19340, 10566, 115, 10, 10732, 44521, 155, 135, 13354, 22019, 78, 15623, 175, 28700, 71, 89, 7, 84, 50, 33392, 28197, 159, 84, 78, 15650, 175, 20837, 182, 56526, 135, 52691, 44786, 46, 50, 33407, 28214, 6, 135, 52683, 44746, 46, 78, 15659, 175, 24211, 78, 15665, 146, 35307, 84, 28, 14682, 28, 14682, 135, 28356, 3547, 152, 41, 76682, 28, 14665, 155, 135, 41304, 49714, 28, 14696, 78, 15688, 175, 23583, 41, 76696, 28, 14715, 155, 135, 10420, 19365, 28, 14694, 28, 14714, 95, 84, 175, 21659, 12, 75006, 28, 14700, 78, 15720, 173, 111, 41289, 50, 33472, 28277, 6, 135, 28343, 3466, 46, 78, 15730, 146, 35367, 84, 28, 14749, 78, 15741, 106, 41, 77026, 50, 33477, 28297, 6, 28, 14728, 63, 84, 150, 8275, 3998, 116, 56763, 36815, 78229, 57, 10, 20847, 54419, 14, 175, 27889, 41, 76928, 175, 20699, 78, 15753, 175, 32641, 108, 41, 77039, 28, 14756, 28, 14770, 133, 12, 75197, 161, 30521, 11263, 175, 32082, 155, 135, 14158, 22439, 161, 14794, 25802, 175, 32091, 135, 28025, 3136, 145, 89, 7, 84, 28, 14785, 60, 71544, 76, 77153, 46, 12, 75101, 87, 123073, 122974, 164, 41, 71287, 28, 14828, 128, 104, 104, 155, 182, 56682, 155, 161, 44748, 64701, 48, 62849, 60219, 84, 155, 38, 44571, 118740, 20756, 175, 32126, 75, 41694, 84, 50, 33575, 28387, 50, 33577, 28384, 50, 33581, 28403, 62, 12, 74974, 50, 33594, 28399, 175, 26576, 41, 77215, 84, 28, 14856, 67, 53479, 91, 19, 41, 77230, 28, 14864, 67, 53487, 12, 74860, 165, 46, 50, 33613, 28425, 6, 135, 56214, 47836, 155, 111, 41749, 84, 161, 19649, 7900, 46, 50, 33642, 28440, 6, 135, 15287, 23042, 155, 111, 41779, 84, 161, 17566, 5723, 46, 50, 33736, 28484, 61, 48146, 69, 111, 45320, 37, 27539, 150, 40792, 45510, 78, 15921, 92, 46, 78, 15926, 175, 20257, 23, 41, 77219, 175, 20260, 117, 12, 74987, 78, 15923, 46, 78, 15944, 66, 114955, 28431, 84, 78, 15939, 146, 35585, 84, 28, 14944, 78, 15954, 106, 41, 77195, 16, 73945, 29, 77385, 160, 19720, 111, 41352, 50, 33716, 28523, 6, 78, 15959, 57, 46, 28, 14969, 60, 71708, 76, 77326, 46, 12, 74882, 28, 14998, 80, 64285, 68942, 41, 76956, 50, 33732, 28539, 6, 78, 15998, 12, 74857, 50, 33740, 28555, 6, 78, 15998, 57, 46, 28, 14996, 128, 104, 104, 155, 182, 56873, 155, 161, 44946, 64635, 48, 63013, 59552, 84, 155, 38, 44885, 118550, 21262, 9, 50, 33760, 28575, 175, 21569, 78, 16033, 62, 12, 70485, 50, 33772, 28578, 175, 22587, 41, 77039, 84, 28, 15047, 67, 53662, 91, 19, 41, 72165, 78, 16041, 12, 70313, 6, 135, 27718, 4953, 4, 59760, 155, 3, 50, 33815, 28608, 142, 155, 135, 3399, 29339, 3, 6, 138, 84, 155, 116, 63286, 42544, 78598, 22, 67310, 135, 59741, 38546, 3, 22, 67316, 155, 135, 41897, 56471, 28, 15094, 3, 50, 33853, 28643, 142, 90, 40342, 144, 13, 54950, 174, 3, 6, 50, 33853, 28650, 142, 50, 33852, 28654, 142, 122, 3, 54, 32, 54, 19, 155, 3, 28, 15127, 155, 135, 37204, 61129, 115, 3, 84, 50, 33887, 28675, 142, 11, 67355, 163, 3, 150, 63177, 56538, 155, 135, 44836, 53417, 78, 16154, 3, 84, 28, 15162, 155, 135, 62007, 36273, 3, 50, 33899, 28701, 142, 155, 135, 35229, 63199, 28, 15180, 3, 175, 20006, 155, 111, 41238, 84, 78, 16168, 175, 21910, 155, 111, 41333, 175, 27149, 41, 77728, 11, 67405, 12, 74990, 50, 33929, 28733, 142, 135, 43491, 55195, 155, 111, 41415, 84, 175, 23700, 111, 41243, 175, 19978, 155, 111, 41273, 84, 50, 33964, 28754, 50, 33978, 28757, 142, 135, 36745, 61915, 127, 47, 163, 155, 111, 41233, 84, 50, 33981, 28771, 142, 11, 67451, 163, 41, 76896, 11, 67456, 12, 74838, 50, 33994, 28784, 142, 135, 4365, 28524, 155, 111, 41469, 84, 161, 16280, 27288, 127, 175, 22592, 116, 48751, 59563, 78747, 22, 67492, 124, 10, 37846, 3718, 50, 34017, 28811, 142, 24, 84, 28, 15277, 161, 50811, 37641, 75, 42144, 12, 77998, 28, 15286, 161, 36496, 56310, 75, 42150, 84, 28, 15294, 116, 13878, 24768, 78769, 175, 31685, 175, 19619, 28, 15304, 135, 1409, 26029, 98, 28, 15310, 161, 36488, 56286, 75, 42177, 84, 28, 15318, 155, 135, 20027, 12156, 116, 2494, 24078, 78825, 22, 67557, 89, 128, 175, 22506, 128, 12, 78005, 128, 28, 15333, 28, 15343, 9, 78, 16329, 175, 12281, 75, 42206, 84, 155, 78, 16339, 75, 42215, 84, 155, 78, 16346, 75, 42224, 84, 104, 122, 128, 145, 145, 46, 47, 54, 165, 108, 111, 41562, 12, 74835, 15, 54, 111, 37949, 78, 16377, 175, 23303, 78, 16373, 21, 128, 28, 15389, 128, 175, 9050, 182, 57252, 155, 161, 43281, 65270, 48, 18757, 21121, 84, 155, 5, 122606, 21263, 30, 55960, 175, 18609, 78, 16398, 62, 12, 86020, 105, 55527, 61947, 8, 50, 34153, 28968, 50, 34156, 28976, 175, 26902, 175, 30864, 30, 55958, 8, 50, 34166, 28973, 50, 34169, 28993, 50, 34172, 28991, 62, 12, 86263, 16, 74412, 29, 77856, 20, 52847, 41, 80063, 50, 34202, 28993, 159, 84, 175, 26925, 30, 55983, 175, 17678, 50, 34205, 29004, 78, 16460, 62, 12, 86263, 47, 155, 41, 76897, 84, 12, 77890, 84, 78, 16467, 41, 88129, 28, 15481, 116, 38458, 50990, 78964, 175, 28433, 111, 42947, 155, 64, 68853, 111, 53668, 155, 64, 68868, 111, 53987, 155, 64, 68874, 111, 53979, 155, 64, 68883, 111, 53922, 155, 64, 68891, 111, 53867, 155, 64, 68897, 111, 54169, 155, 64, 68904, 111, 54164, 155, 64, 68912, 111, 54179, 155, 64, 68920, 111, 54224, 155, 112, 111032, 30197, 111, 54234, 84, 12, 89932, 50, 34292, 29088, 78, 16554, 175, 25593, 41, 77025, 84, 78, 16561, 175, 25981, 41, 76956, 50, 34313, 29104, 142, 67, 54181, 12, 76764, 165, 174, 50, 34313, 29114, 161, 16102, 27102, 174, 28, 15576, 161, 36791, 55599, 75, 42432, 84, 50, 34336, 29129, 161, 32441, 10544, 175, 11927, 169, 94330, 87722, 124, 10, 10778, 46921, 28, 15613, 135, 64175, 39049, 124, 10, 45226, 11710, 28, 15604, 135, 34137, 58955, 124, 10, 8184, 33517, 47, 50, 34407, 29166, 142, 148, 85272, 44966, 108149, 39702, 116, 22052, 1651, 79114, 6, 135, 28874, 4843, 175, 11844, 124, 12, 89550, 78, 16632, 150, 5761, 12692, 155, 135, 55217, 46408, 50, 34410, 29199, 142, 135, 13603, 22071, 3, 92, 165, 155, 116, 4136, 16443, 79184, 22, 67896, 135, 9405, 18200, 3, 50, 34410, 29215, 142, 47, 163, 155, 3, 22, 67910, 135, 26849, 2767, 174, 3, 6, 95, 114, 20092, 163, 3, 6, 155, 135, 51804, 43449, 50, 34444, 29241, 142, 145, 3, 50, 34442, 29248, 142, 155, 135, 31730, 6379, 3, 50, 34448, 29255, 62, 46, 78, 16741, 3, 108, 41, 76524, 28, 15716, 155, 135, 54787, 46363, 93, 50, 34478, 29284, 175, 17286, 41, 70951, 78, 16740, 76, 78136, 55, 59571, 155, 41, 70753, 84, 12, 71903, 84, 50, 34506, 29305, 6, 135, 16189, 23582, 46, 37, 28377, 50, 34496, 29306, 142, 28, 15756, 155, 135, 40284, 65391, 50, 34527, 29316, 142, 145, 155, 135, 42744, 50638, 30, 57239, 9, 50, 34518, 29330, 175, 21473, 50, 34523, 29331, 62, 12, 76877, 8, 27, 15, 126, 155, 111, 41228, 84, 12, 86168, 84, 78, 16799, 58, 27, 128, 145, 145, 46, 30, 56945, 30, 56913, 30, 56899, 78, 16811, 162, 78, 16820, 79, 16884, 96, 22837, 41, 92471, 28, 15835, 155, 135, 54765, 46321, 115, 84, 50, 34586, 29382, 175, 17181, 41, 71025, 165, 54, 41, 73374, 50, 34611, 29404, 6, 135, 15523, 23996, 46, 28, 15844, 135, 45846, 54199, 155, 135, 37368, 61949, 78, 16882, 92, 41, 70756, 91, 27, 155, 111, 41197, 84, 12, 74516, 28, 15898, 135, 45836, 54153, 155, 135, 14184, 22017, 28, 15891, 28, 15886, 14, 145, 12, 77224, 141, 83, 53170, 27, 111, 40613, 28, 15907, 155, 135, 60803, 35941, 78, 16900, 92, 84, 141, 165, 27, 155, 41, 71139, 84, 12, 66991, 84, 78, 16913, 175, 26286, 141, 12, 77285, 141, 78, 16939, 97, 43503, 70, 71885, 41, 77648, 28, 15950, 155, 135, 60783, 35905, 78, 16959, 92, 84, 141, 78, 17030, 79, 17043, 61, 49164, 111, 45488, 78, 16957, 175, 26441, 141, 16, 74941, 130, 71570, 70, 71990, 41, 68421, 28, 15989, 116, 523, 21075, 79464, 6, 135, 46060, 54057, 135, 29090, 4261, 104, 28, 15971, 135, 13982, 22380, 27, 41, 70842, 182, 57869, 155, 87, 70439, 70370, 104, 46, 78, 17007, 97, 43575, 160, 20711, 155, 41, 70753, 84, 12, 65585, 84, 28, 16000, 155, 135, 61269, 36563, 161, 3261, 24159, 175, 23707, 30, 55743, 9, 50, 34762, 29571, 175, 21237, 50, 34767, 29575, 62, 12, 76884, 83, 53311, 27, 91, 54, 172, 111, 41981, 116, 55987, 35828, 79524, 57, 10, 8899, 42505, 128, 145, 155, 135, 6565, 32359, 169, 82870, 92609, 124, 78, 17072, 21, 84, 15, 128, 28, 16089, 155, 135, 61100, 35080, 116, 30805, 10365, 79568, 6, 135, 14205, 20621, 124, 10, 25617, 57849, 98, 32, 128, 104, 104, 155, 182, 57956, 155, 161, 43985, 63926, 48, 35533, 35896, 84, 155, 38, 43798, 116947, 21257, 175, 10446, 50, 34847, 29675, 50, 34850, 29657, 50, 34853, 29682, 62, 12, 76440, 50, 34858, 29687, 175, 23675, 41, 70767, 84, 28, 16144, 67, 54750, 91, 19, 41, 71582, 28, 16152, 67, 54758, 12, 76892, 47, 46, 50, 34897, 29689, 6, 41, 71612, 150, 23728, 26560, 28, 16159, 14, 12, 76923, 150, 23720, 26568, 158, 46, 182, 58041, 155, 161, 82764, 61438, 175, 15548, 76, 78525, 104, 155, 116, 11244, 31420, 79669, 6, 155, 135, 19877, 11132, 34, 84, 155, 116, 28953, 8255, 79681, 6, 155, 135, 51470, 45053, 34, 84, 155, 116, 57823, 45307, 79693, 6, 155, 135, 36179, 60310, 34, 84, 155, 116, 51111, 38637, 79705, 6, 155, 135, 5249, 29278, 34, 84, 155, 161, 76632, 34670, 150, 2270, 13279, 155, 135, 49300, 42733, 175, 16252, 76, 78591, 97, 43741, 110, 84, 12, 79140, 6, 9, 182, 58106, 155, 161, 87227, 63760, 48, 60452, 60106, 84, 155, 161, 126572, 17243, 3, 22, 68493, 155, 135, 36973, 63054, 50, 35013, 29814, 142, 145, 27, 3, 50, 35029, 29823, 142, 7, 47, 163, 155, 3, 91, 54, 147, 39980, 7490, 27, 3, 9, 78, 17282, 75, 43150, 84, 155, 78, 17289, 3, 150, 59975, 53344, 155, 135, 46174, 54579, 78, 17317, 92, 46, 3, 9, 78, 17304, 75, 43165, 84, 78, 17310, 3, 50, 35087, 29866, 142, 47, 163, 155, 3, 124, 10, 8996, 42798, 145, 84, 50, 35072, 29880, 142, 96, 23347, 27, 41, 70832, 28, 16350, 161, 80427, 38105, 75, 43246, 84, 16, 75287, 29, 78778, 20, 53682, 155, 111, 54194, 84, 12, 87978, 175, 19597, 128, 175, 27332, 142, 124, 10, 9085, 42999, 98, 28, 16383, 116, 56614, 33368, 79911, 12, 80264, 28, 16391, 161, 95070, 56324, 75, 43290, 84, 28, 16399, 116, 12896, 27670, 79874, 6, 155, 135, 23982, 15409, 33, 57226, 104, 28, 16409, 135, 503, 25087, 135, 32889, 57707, 80, 59927, 73864, 41, 71075, 175, 11143, 161, 118691, 25086, 12, 76884, 175, 11164, 10, 34492, 957, 28, 16432, 135, 284, 24854, 135, 19602, 11412, 124, 161, 78934, 39535, 175, 21429, 28, 16450, 155, 135, 35499, 60188, 115, 128, 12, 89999, 128, 28, 16459, 47, 9, 78, 17450, 175, 21482, 75, 43365, 84, 104, 122, 128, 145, 174, 50, 35231, 30016, 142, 50, 35232, 30023, 142, 101, 41, 71069, 28, 16487, 161, 80829, 37975, 75, 43359, 84, 147, 40191, 7183, 15, 19, 41, 92101, 12, 74569, 28, 16504, 155, 135, 32823, 57768, 47, 50, 35250, 30051, 142, 115, 161, 119830, 31266, 26, 25419, 128, 50, 35276, 30062, 28, 16525, 135, 378, 24936, 174, 50, 35285, 30071, 142, 64, 69886, 27, 41, 70832, 28, 16540, 161, 80746, 37914, 75, 43410, 84, 16, 75503, 130, 72247, 160, 21068, 155, 111, 54173, 84, 12, 74085, 28, 16560, 155, 135, 19221, 10330, 161, 86783, 64796, 51, 45465, 128, 28, 16572, 161, 80650, 37946, 75, 43437, 12, 87811, 78, 17593, 182, 58439, 155, 116, 20929, 291, 80068, 22, 68819, 155, 111, 44916, 84, 114, 20996, 104, 155, 5, 87033, 42253, 104, 155, 5, 122174, 11219, 104, 174, 50, 35366, 30150, 142, 47, 73, 41, 70802, 28, 16618, 161, 80696, 38356, 75, 43493, 84, 87, 125401, 125366, 108, 155, 41, 92294, 84, 12, 88504, 175, 22300, 50, 35396, 30178, 142, 145, 89, 128, 50, 35379, 30185, 50, 35404, 30188, 142, 174, 50, 35385, 30193, 78, 17644, 175, 23525, 50, 35419, 30200, 50, 35397, 30203, 142, 135, 45613, 53725, 174, 50, 35432, 30211, 50, 35408, 30214, 142, 135, 25636, 1780, 174, 50, 35443, 30222, 142, 41, 72585, 165, 165, 19, 41, 66466, 30, 54923, 30, 55032, 30, 54912, 78, 17692, 162, 83, 53973, 27, 91, 163, 111, 36906, 78, 17724, 175, 13727, 50, 35474, 30253, 142, 145, 174, 141, 16, 75744, 29, 79140, 151, 37392, 19, 41, 69074, 141, 141, 78, 17723, 182, 58589, 155, 116, 20539, 393, 80209, 22, 68969, 104, 155, 116, 36373, 56905, 80244, 22, 68977, 104, 155, 116, 223, 20616, 80254, 175, 24559, 150, 12267, 4389, 155, 135, 38728, 62618, 50, 35526, 30305, 142, 145, 155, 135, 38503, 62532, 169, 76246, 67173, 41, 72803, 91, 27, 15, 126, 111, 43330, 132, 175, 18678, 50, 35526, 30328, 142, 145, 89, 128, 175, 19731, 128, 30, 42492, 12, 72293, 124, 50, 35545, 30343, 142, 49, 3, 50, 35547, 30349, 50, 35552, 30353, 142, 174, 50, 35551, 30357, 142, 3, 28, 16822, 155, 135, 18459, 10588, 161, 125106, 17840, 150, 18018, 30728, 155, 135, 36870, 61794, 3, 84, 50, 35584, 30391, 6, 155, 135, 29500, 4836, 150, 14439, 1994, 135, 25302, 539, 3, 50, 35599, 30406, 6, 28, 16857, 155, 135, 56590, 48226, 3, 155, 148, 90359, 82007, 92505, 9399, 175, 26482, 161, 77002, 40878, 175, 20637, 116, 3863, 23860, 80353, 6, 155, 135, 44572, 52878, 50, 35642, 30428, 142, 110, 84, 175, 32282, 28, 16904, 116, 54050, 32860, 80377, 175, 19487, 128, 78, 17914, 175, 28989, 50, 35671, 30449, 78, 17921, 175, 15231, 50, 35661, 30456, 78, 17928, 175, 17644, 78, 17940, 175, 29833, 50, 35689, 30467, 142, 116, 54658, 33953, 80417, 22, 69162, 1, 174, 50, 35702, 30479, 142, 119, 36408, 27, 41, 73194, 28, 16956, 161, 80370, 35458, 75, 43817, 84, 47, 27, 41, 71763, 12, 66836, 50, 35697, 30502, 175, 21305, 111, 41749, 175, 12393, 41, 73184, 11, 69189, 12, 74974, 50, 35739, 30517, 142, 135, 25780, 1222, 174, 50, 35733, 30525, 50, 35723, 30528, 142, 135, 59090, 34368, 174, 50, 35744, 30536, 142, 27, 41, 73114, 28, 16995, 161, 80313, 35403, 75, 43868, 84, 83, 54282, 111, 46765, 12, 66907, 28, 17016, 155, 135, 60284, 35576, 169, 90415, 84480, 84, 28, 17035, 116, 53437, 33233, 80520, 100, 12, 86678, 28, 17028, 161, 80218, 35434, 75, 43903, 84, 28, 17045, 155, 135, 7632, 32082, 115, 128, 28, 17044, 116, 53318, 33272, 80549, 12, 74904, 50, 35817, 30600, 175, 21339, 111, 41749, 175, 12299, 41, 72928, 11, 69287, 12, 74842, 50, 35837, 30615, 142, 135, 40884, 61893, 155, 111, 41759, 84, 175, 21424, 111, 41751, 175, 12512, 41, 72928, 11, 69310, 12, 75690, 50, 35860, 30638, 142, 135, 50956, 43432, 155, 111, 41837, 84, 175, 21417, 111, 41845, 175, 12537, 41, 72864, 11, 69333, 12, 75774, 50, 35883, 30661, 142, 135, 48938, 53703, 155, 111, 41747, 84, 161, 114931, 29229, 127, 175, 13851, 116, 52292, 40013, 80642, 22, 69371, 124, 10, 35449, 1897, 50, 35905, 30688, 142, 24, 84, 28, 17162, 116, 53308, 33106, 80653, 175, 19741, 128, 78, 18160, 175, 28707, 50, 35927, 30707, 78, 18167, 175, 14973, 50, 35923, 30714, 78, 18174, 175, 17902, 78, 18182, 175, 30091, 78, 18199, 175, 19303, 50, 35936, 30729, 142, 119, 36658, 41, 73680, 50, 35937, 30737, 175, 19706, 111, 41275, 175, 22486, 41, 73696, 11, 69424, 12, 74934, 50, 35972, 30752, 142, 135, 25987, 3051, 174, 50, 35959, 30760, 50, 35963, 30763, 142, 135, 37908, 64128, 174, 50, 35990, 30771, 50, 35974, 30774, 142, 135, 9097, 19768, 174, 50, 35980, 30782, 50, 35985, 30785, 142, 135, 4845, 31811, 175, 23064, 41, 73633, 84, 12, 72900, 175, 13702, 116, 50410, 38373, 80761, 22, 69492, 124, 10, 19056, 51189, 50, 36010, 30811, 142, 124, 161, 78521, 34308, 12, 67237, 50, 36042, 30821, 175, 20302, 30, 59655, 12, 67268, 9, 78, 18277, 75, 44140, 84, 155, 78, 18284, 3, 22, 69529, 116, 54287, 33298, 80792, 22, 69535, 1, 174, 3, 117, 151, 37991, 19, 41, 78700, 47, 50, 36084, 30858, 142, 115, 155, 135, 30232, 6309, 30, 52119, 9, 50, 36062, 30871, 175, 19945, 50, 36068, 30875, 62, 12, 74913, 91, 27, 165, 54, 163, 41, 72316, 78, 18335, 41, 73212, 28, 17354, 116, 39398, 52834, 80829, 175, 30405, 111, 41296, 155, 64, 70719, 111, 41133, 155, 64, 70728, 111, 41110, 155, 64, 70735, 111, 41115, 155, 64, 70742, 111, 41132, 155, 64, 70750, 111, 41033, 155, 64, 70758, 111, 41039, 155, 112, 112869, 31798, 111, 41025, 84, 12, 74976, 50, 36157, 30942, 142, 155, 135, 38931, 63665, 50, 36180, 30950, 142, 98, 47, 50, 36213, 30956, 142, 93, 78, 18408, 37, 30036, 50, 36156, 30965, 142, 50, 36184, 30969, 142, 135, 47416, 55701, 145, 174, 28, 17439, 116, 40539, 52873, 80915, 175, 24950, 135, 57270, 48712, 93, 50, 36186, 30989, 50, 36186, 30992, 142, 155, 135, 38162, 62483, 115, 127, 135, 59266, 34462, 41, 73205, 16, 76427, 130, 73143, 119, 36937, 41, 80365, 28, 17473, 116, 55037, 34321, 80961, 100, 12, 75125, 50, 36223, 31024, 50, 36224, 31027, 142, 135, 13894, 22339, 174, 28, 17493, 161, 81837, 34983, 75, 44353, 84, 50, 36242, 31043, 142, 155, 135, 50684, 42277, 115, 128, 28, 17515, 116, 54939, 34347, 80993, 12, 74893, 28, 17523, 116, 54931, 34339, 81012, 12, 74997, 28, 17531, 161, 96211, 49331, 75, 44391, 84, 28, 17539, 116, 14837, 27021, 81014, 6, 155, 135, 20753, 12452, 33, 58370, 175, 24769, 135, 59159, 34313, 28, 17553, 135, 3452, 28022, 98, 28, 17563, 116, 40663, 53005, 81052, 175, 24818, 135, 26549, 1706, 93, 28, 17575, 155, 135, 37186, 62266, 33, 58414, 128, 28, 17580, 155, 135, 34620, 58545, 115, 128, 12, 72371, 128, 28, 17593, 47, 9, 78, 18583, 175, 18933, 78, 18600, 175, 21407, 155, 78, 18595, 75, 44471, 84, 104, 122, 128, 145, 145, 115, 155, 135, 20712, 13171, 30, 51635, 9, 50, 36356, 31165, 175, 19471, 50, 36361, 31169, 62, 12, 72652, 165, 47, 19, 41, 67708, 50, 36396, 31180, 142, 155, 135, 58511, 34665, 78, 18636, 92, 128, 145, 155, 135, 18659, 10819, 30, 51560, 175, 20987, 78, 18648, 62, 12, 72778, 16, 76621, 130, 73315, 70, 73528, 155, 111, 42772, 84, 12, 91273, 84, 50, 36435, 31219, 142, 155, 135, 30906, 6681, 115, 128, 145, 27, 84, 12, 75315, 15, 155, 41, 72609, 84, 12, 70489, 84, 47, 30, 52904, 175, 20905, 78, 18694, 62, 12, 75308, 105, 57829, 33697, 9, 78, 18702, 175, 15947, 78, 18713, 175, 32070, 32, 126, 41, 74552, 12, 78326, 47, 50, 36472, 31273, 142, 28, 17728, 50, 36476, 31277, 142, 49, 28, 17737, 116, 47413, 59843, 81223, 31, 84, 28, 17745, 161, 97368, 51446, 175, 26667, 104, 182, 59616, 155, 87, 95611, 95349, 175, 18661, 135, 58374, 34790, 116, 53627, 33068, 81249, 6, 135, 36278, 61146, 124, 10, 57429, 28099, 78, 18770, 21, 84, 28, 17790, 53, 51698, 56855, 104, 28, 17784, 87, 111373, 111355, 104, 28, 17794, 161, 82298, 62594, 75, 44647, 84, 28, 17802, 53, 3674, 6234, 104, 16, 76798, 130, 73475, 103, 63892, 155, 111, 41228, 84, 12, 80283, 84, 78, 18817, 12, 78268, 50, 36560, 31367, 62, 46, 78, 18819, 3, 47, 28, 17838, 28, 17826, 135, 15759, 23777, 145, 3, 28, 17853, 60, 74584, 76, 80198, 46, 3, 9, 78, 18841, 75, 44709, 84, 50, 36592, 31399, 78, 18850, 3, 124, 50, 36622, 31409, 142, 124, 10, 17877, 51232, 98, 3, 104, 46, 28, 17872, 155, 3, 6, 28, 17870, 63, 84, 3, 46, 78, 18888, 66, 118421, 29841, 84, 3, 104, 28, 17899, 155, 135, 49601, 41026, 50, 36660, 31447, 142, 155, 135, 27839, 3126, 50, 36644, 31452, 142, 145, 145, 3, 150, 60465, 51762, 155, 135, 47628, 56129, 78, 18913, 3, 22, 70159, 28, 17935, 50, 36670, 31473, 142, 3, 9, 78, 18925, 75, 44785, 84, 155, 78, 18932, 3, 50, 36708, 31488, 142, 47, 163, 155, 3, 174, 78, 18954, 182, 59815, 155, 161, 83304, 63215, 3, 165, 155, 161, 117469, 30983, 48, 2247, 3752, 84, 46, 3, 47, 50, 36751, 31518, 142, 28, 17976, 78, 18970, 21, 3, 9, 78, 18975, 75, 44841, 84, 155, 78, 18982, 3, 104, 50, 36732, 31539, 50, 36734, 31541, 78, 18992, 3, 28, 18010, 135, 31177, 6352, 179, 145, 3, 28, 18016, 155, 135, 33930, 58751, 115, 3, 6, 28, 18018, 63, 84, 28, 18025, 116, 4991, 17298, 81508, 6, 135, 10209, 18100, 155, 111, 41780, 84, 83, 55314, 104, 28, 18042, 161, 70812, 42893, 83, 55321, 104, 116, 144, 20985, 81531, 177, 155, 41, 70811, 84, 28, 18059, 161, 103750, 9810, 83, 55338, 100, 175, 26113, 28, 18073, 47, 50, 36836, 31616, 142, 28, 18084, 135, 36558, 59569, 145, 78, 19076, 168, 84, 175, 18894, 12, 76739, 128, 12, 72760, 83, 55368, 111, 37232, 28, 18100, 155, 41, 70884, 175, 16092, 135, 56456, 48046, 78, 19098, 21, 84, 28, 18118, 155, 41, 70883, 175, 15914, 78, 19113, 21, 175, 26315, 78, 19121, 175, 29690, 28, 18139, 128, 12, 73687, 37, 30751, 50, 36923, 31678, 142, 28, 18137, 129, 75221, 65052, 46, 50, 36884, 31731, 171, 30988, 88, 155, 111, 41740, 84, 12, 67773, 84, 5, 106166, 27801, 50, 36931, 31704, 142, 78, 19156, 92, 108, 41, 70752, 28, 18172, 12, 73656, 28, 18176, 10, 15306, 49039, 128, 12, 72740, 5, 101930, 31793, 50, 36956, 31729, 142, 78, 19179, 92, 172, 155, 111, 41205, 84, 78, 19187, 58, 41, 71585, 28, 18206, 128, 78, 19266, 90, 43548, 114, 22639, 152, 111, 53111, 50, 36961, 31757, 6, 150, 42213, 36570, 135, 8543, 18143, 63, 84, 11, 70446, 78, 19229, 173, 41, 71573, 50, 36976, 31787, 6, 155, 135, 29136, 5877, 28, 18245, 28, 18246, 155, 111, 41229, 84, 161, 74251, 40864, 89, 46, 83, 55529, 111, 45410, 5, 102390, 32205, 50, 37032, 31805, 142, 78, 19262, 92, 172, 41, 71591, 28, 18276, 128, 150, 26774, 17035, 161, 89539, 57521, 14, 170, 47, 116, 53792, 33429, 81761, 149, 41, 70767, 161, 89108, 57699, 12, 72878, 161, 67039, 47187, 85, 78, 19289, 92, 128, 150, 33606, 43458, 155, 135, 58985, 33223, 169, 66638, 81477, 175, 20602, 169, 66635, 81486, 175, 20607, 169, 66740, 81491, 84, 37, 30965, 28, 18393, 169, 82992, 98006, 46, 37, 31003, 150, 687, 10287, 169, 119363, 125765, 46, 37, 30968, 150, 694, 10262, 169, 89690, 91989, 46, 37, 30993, 150, 641, 10269, 169, 79553, 69609, 46, 50, 37163, 31928, 6, 135, 55071, 46728, 46, 37, 31042, 150, 656, 10252, 169, 105125, 107437, 46, 50, 37131, 31977, 6, 135, 54981, 46934, 46, 37, 31003, 150, 739, 10363, 169, 73598, 75282, 46, 37, 31056, 150, 746, 10338, 169, 125290, 118811, 46, 78, 19448, 66, 91251, 53965, 84, 40, 43661, 28746, 1601, 161, 117759, 30001, 99, 46, 139, 36607, 155, 50, 37156, 32019, 6, 10, 55909, 24228, 104, 46, 78, 19426, 146, 69072, 84, 78, 19444, 146, 39080, 84, 50, 37219, 32038, 6, 10, 12638, 46492, 46, 78, 19464, 150, 3814, 9295, 135, 5, 25022, 28, 18487, 63, 84, 78, 19455, 66, 98392, 14018, 84, 182, 60366, 46, 78, 19463, 66, 101750, 15345, 84, 78, 19477, 66, 108539, 4477, 84, 78, 19521, 66, 87541, 57532, 84, 78, 19536, 66, 89415, 59407, 84, 8, 54, 32, 19, 155, 41, 71151, 84, 12, 68017, 84, 78, 19555, 66, 115862, 29147, 84, 78, 19507, 66, 110436, 1516, 84, 40, 43751, 42915, 53498, 78, 19517, 175, 25707, 78, 19546, 66, 102523, 15082, 84, 40, 43799, 42929, 53448, 78, 19556, 175, 25701, 78, 19563, 66, 130279, 22123, 84, 40, 43812, 42951, 53462, 78, 19573, 175, 25719, 37, 31223, 150, 840, 10692, 169, 86698, 93353, 12, 93248, 50, 37298, 32105, 6, 135, 27998, 3124, 174, 3, 84, 50, 37310, 32115, 142, 11, 70795, 3, 142, 78, 19577, 92, 46, 3, 28, 18585, 155, 135, 33486, 58179, 115, 3, 104, 50, 37329, 32136, 50, 37332, 32139, 3, 50, 37337, 32172, 22, 70834, 135, 27122, 2971, 127, 47, 163, 3, 28, 18620, 155, 135, 33586, 57511, 115, 3, 22, 70853, 179, 124, 174, 3, 22, 70859, 155, 135, 59350, 34044, 115, 3, 6, 161, 78619, 35881, 75, 45492, 84, 28, 18642, 155, 135, 50902, 42303, 50, 37398, 32191, 142, 145, 128, 78, 19664, 175, 18644, 50, 37416, 32201, 78, 19671, 175, 15367, 50, 37417, 32208, 78, 19678, 175, 17284, 78, 19663, 175, 29649, 78, 19688, 175, 19773, 50, 37417, 32223, 142, 119, 38152, 27, 41, 93078, 28, 18693, 161, 78018, 36338, 75, 45564, 84, 16, 77639, 29, 81136, 160, 23464, 41, 67088, 12, 91480, 78, 19700, 175, 29618, 175, 24609, 111, 57615, 175, 12909, 41, 93088, 11, 70938, 12, 91242, 50, 37481, 32266, 142, 135, 28521, 3581, 161, 94846, 52745, 114, 23136, 175, 30719, 119, 38206, 27, 41, 93169, 83, 56016, 83, 56017, 164, 155, 41, 93155, 84, 12, 91221, 84, 28, 18756, 116, 52223, 64279, 82251, 100, 12, 81386, 78, 19768, 175, 29797, 28, 18773, 155, 135, 57367, 33681, 161, 98829, 16061, 175, 28642, 111, 57613, 175, 15790, 155, 111, 57617, 84, 50, 37540, 32329, 78, 19801, 175, 21088, 155, 111, 57655, 84, 50, 37551, 32340, 142, 11, 71020, 163, 41, 93280, 11, 71025, 12, 91318, 50, 37564, 32353, 142, 135, 21796, 14244, 155, 111, 57628, 84, 78, 19810, 124, 10, 47636, 16354, 78, 19832, 175, 20503, 161, 77910, 36206, 75, 45698, 84, 28, 18847, 155, 135, 47240, 55815, 115, 128, 28, 18849, 116, 52034, 63740, 82344, 12, 91338, 78, 19852, 175, 29723, 28, 18859, 155, 135, 58289, 33327, 116, 32040, 20269, 82343, 22, 71099, 124, 10, 34105, 169, 50, 37631, 32416, 142, 135, 27651, 3179, 135, 38568, 63217, 175, 16390, 28, 18889, 116, 52090, 63636, 82388, 12, 91426, 50, 37634, 32436, 175, 28522, 111, 57725, 175, 15638, 41, 93344, 11, 71123, 12, 91642, 50, 37666, 32451, 142, 135, 38536, 63121, 155, 111, 57639, 84, 175, 28497, 111, 57615, 175, 15677, 41, 93280, 11, 71146, 12, 91562, 50, 37689, 32474, 142, 135, 52824, 44764, 155, 111, 57573, 84, 175, 28472, 111, 57629, 175, 15684, 41, 93280, 11, 71169, 12, 91222, 50, 37712, 32497, 142, 135, 46718, 55019, 155, 111, 57587, 84, 161, 116775, 31513, 174, 28, 18971, 155, 135, 58305, 33375, 116, 5344, 9700, 82453, 22, 71211, 124, 10, 34121, 25, 50, 37726, 32528, 142, 24, 84, 28, 18995, 116, 51436, 63586, 82499, 12, 91580, 28, 19003, 116, 32888, 45292, 82504, 175, 22822, 175, 30696, 175, 24365, 175, 26690, 175, 19208, 128, 12, 81057, 128, 78, 20008, 175, 14492, 175, 27204, 75, 45899, 84, 104, 122, 128, 145, 145, 46, 12, 91381, 16, 78012, 130, 74718, 103, 64767, 41, 79037, 78, 20043, 175, 21352, 78, 20045, 21, 128, 28, 19046, 128, 175, 12429, 78, 20056, 12, 76067, 84, 50, 37827, 32605, 142, 11, 71285, 163, 3, 28, 19084, 135, 21073, 13057, 135, 32181, 7308, 3, 84, 28, 19087, 5, 101223, 30978, 104, 50, 37831, 32629, 142, 3, 84, 150, 3172, 8905, 155, 135, 64342, 39563, 33, 59921, 84, 3, 6, 28, 19106, 9, 78, 20096, 3, 175, 30172, 13, 57360, 174, 78, 20128, 175, 30147, 13, 58767, 174, 50, 37886, 32665, 50, 37879, 32668, 142, 175, 31588, 78, 20144, 175, 17966, 50, 37890, 32678, 50, 37896, 32686, 142, 175, 18539, 50, 37892, 32687, 50, 37905, 32695, 142, 90, 44394, 175, 18544, 50, 37907, 32698, 50, 37913, 32701, 142, 175, 31675, 78, 20166, 175, 17929, 78, 20179, 175, 19874, 175, 22942, 78, 20193, 175, 19876, 90, 44423, 51, 48056, 174, 50, 37939, 32726, 50, 37943, 32729, 142, 13, 57238, 174, 50, 37953, 32736, 50, 37961, 32739, 142, 13, 57448, 174, 50, 37948, 32746, 50, 37962, 32749, 142, 175, 31691, 78, 20226, 175, 18041, 50, 37957, 32759, 50, 37983, 32762, 142, 50, 37975, 32766, 142, 124, 50, 37973, 32771, 142, 124, 174, 28, 19238, 161, 79587, 33681, 75, 46110, 84, 150, 18640, 25246, 47, 30, 47768, 175, 23475, 78, 20240, 62, 12, 66614, 37, 31872, 50, 38021, 32806, 142, 47, 50, 38031, 32811, 142, 115, 155, 135, 25285, 32151, 30, 47773, 9, 50, 38009, 32822, 175, 17794, 50, 38015, 32821, 62, 12, 66595, 165, 27, 155, 41, 94115, 84, 12, 71352, 84, 47, 50, 38064, 32845, 142, 115, 155, 135, 32348, 24937, 30, 47775, 9, 50, 38042, 32854, 175, 17829, 50, 38048, 32860, 62, 12, 66750, 16, 78281, 130, 74976, 20, 56660, 111, 35435, 78, 20316, 41, 68714, 28, 19328, 116, 33059, 46625, 82813, 175, 32282, 111, 57852, 155, 64, 72698, 111, 33033, 155, 64, 72704, 111, 33034, 155, 112, 114782, 99567, 111, 33268, 84, 12, 66710, 47, 150, 54523, 65078, 30, 48040, 175, 22574, 78, 20357, 62, 12, 91208, 78, 20372, 109, 52689, 174, 165, 54, 155, 111, 57652, 84, 12, 71197, 84, 47, 50, 38128, 32931, 142, 93, 128, 50, 38142, 32939, 142, 49, 28, 19404, 161, 79391, 33589, 75, 46253, 84, 50, 38159, 32954, 142, 155, 135, 6647, 14451, 50, 38153, 32962, 142, 145, 155, 135, 60480, 52511, 30, 48045, 9, 50, 38161, 32976, 175, 17722, 50, 38166, 32974, 62, 12, 91595, 16, 78407, 130, 75106, 70, 75289, 155, 41, 93283, 84, 12, 69161, 84, 50, 38209, 32999, 28, 19464, 174, 128, 30, 47981, 9, 50, 38195, 33016, 175, 17756, 50, 38200, 33008, 62, 12, 66867, 16, 78435, 130, 75136, 103, 65468, 155, 111, 57588, 84, 12, 90708, 84, 50, 38237, 33031, 28, 19500, 174, 50, 38249, 33039, 28, 19494, 135, 32671, 24445, 174, 50, 38243, 33048, 78, 20498, 175, 19570, 111, 59185, 84, 28, 19519, 11, 71730, 163, 41, 93664, 11, 71735, 12, 91320, 28, 19524, 135, 39133, 47354, 155, 111, 59155, 84, 161, 118355, 31053, 174, 50, 38298, 33082, 78, 20531, 175, 19868, 111, 34406, 84, 78, 20538, 12, 67071, 34, 84, 104, 89, 3, 50, 38293, 33095, 142, 155, 135, 35925, 44291, 3, 155, 78, 20551, 48, 56223, 57545, 84, 174, 78, 20577, 139, 37744, 155, 78, 20563, 48, 51902, 61911, 84, 174, 78, 20582, 139, 37756, 174, 78, 20599, 37, 32205, 174, 50, 38349, 33134, 78, 20583, 174, 50, 38345, 33140, 50, 38339, 33143, 142, 135, 41650, 33623, 155, 111, 59155, 84, 50, 38350, 33154, 142, 135, 16996, 24684, 174, 78, 20628, 175, 32514, 50, 38362, 33166, 142, 116, 64938, 52486, 83115, 22, 71863, 175, 31613, 116, 35597, 47809, 83115, 22, 71871, 47, 163, 155, 111, 59157, 175, 31645, 155, 111, 59243, 84, 50, 38388, 33195, 50, 38394, 33198, 142, 135, 40624, 48598, 127, 47, 163, 155, 111, 59255, 84, 50, 38405, 33212, 142, 11, 71892, 163, 41, 93344, 11, 71897, 12, 93172, 50, 38418, 33225, 142, 155, 135, 4759, 12514, 115, 155, 111, 59191, 84, 161, 117361, 32153, 104, 50, 38441, 33242, 175, 12301, 135, 23569, 32619, 30, 47480, 175, 21534, 78, 20707, 62, 12, 73494, 16, 78709, 130, 75363, 70, 75472, 111, 38224, 47, 50, 38494, 33272, 142, 115, 155, 135, 16514, 25563, 30, 48819, 9, 50, 38472, 33282, 175, 17523, 50, 38478, 33284, 62, 12, 73544, 109, 53058, 54, 172, 41, 80448, 78, 20744, 41, 71930, 28, 19762, 116, 34639, 46997, 83239, 175, 32686, 111, 57724, 155, 64, 73147, 111, 34705, 155, 64, 73156, 111, 34763, 155, 64, 73167, 111, 34325, 155, 64, 73176, 111, 34384, 155, 64, 73185, 111, 34373, 155, 64, 73196, 111, 34791, 155, 64, 73203, 111, 37795, 155, 64, 73209, 111, 37806, 155, 64, 73216, 111, 37821, 155, 64, 73224, 111, 37503, 155, 112, 115298, 100019, 111, 37497, 84, 12, 73718, 28, 19829, 161, 97488, 51638, 75, 46679, 84, 50, 38593, 33380, 142, 50, 38597, 33384, 121, 76, 82194, 174, 84, 50, 38591, 33392, 161, 118162, 30866, 174, 50, 38619, 33399, 161, 118171, 30869, 174, 78, 20868, 37, 32480, 174, 50, 38615, 33409, 50, 38608, 33414, 142, 47, 163, 155, 111, 57619, 84, 50, 38618, 33424, 142, 11, 72102, 163, 41, 95456, 11, 72107, 12, 93610, 50, 38631, 33437, 142, 135, 39924, 47661, 155, 111, 57691, 84, 50, 38646, 33446, 50, 38659, 33451, 142, 135, 7114, 14944, 127, 47, 163, 155, 111, 57719, 175, 30724, 155, 111, 57719, 175, 29590, 135, 32979, 41159, 127, 47, 163, 155, 111, 57623, 175, 30772, 155, 111, 57623, 175, 29606, 135, 55856, 64071, 127, 47, 163, 155, 111, 57655, 175, 30756, 155, 111, 57655, 175, 29622, 135, 39858, 47715, 127, 47, 163, 155, 111, 57623, 175, 30804, 41, 95328, 11, 72190, 12, 93610, 50, 38718, 33518, 142, 135, 63904, 55397, 155, 111, 57598, 84, 50, 38728, 33534, 142, 174, 78, 20991, 56, 75868, 174, 50, 38735, 33539, 150, 1924, 8345, 155, 135, 58546, 50253, 50, 38759, 33551, 142, 135, 51718, 60207, 175, 23751, 78, 21009, 175, 29236, 90, 45264, 51, 48898, 51, 48902, 174, 78, 21027, 175, 29633, 90, 45276, 51, 48909, 51, 48914, 174, 78, 21045, 12, 92160, 50, 38800, 33587, 142, 155, 135, 47252, 39129, 3, 104, 155, 78, 21043, 75, 46912, 84, 155, 78, 21050, 3, 9, 78, 21051, 75, 46913, 84, 155, 78, 21058, 3, 165, 155, 161, 74682, 37025, 48, 22321, 20869, 84, 3, 6, 161, 67832, 47916, 150, 58814, 50089, 155, 135, 7537, 15454, 3, 50, 38846, 33638, 142, 155, 135, 57191, 65217, 116, 51802, 64463, 83590, 22, 72339, 124, 3, 9, 78, 21099, 75, 46971, 84, 3, 6, 155, 135, 2019, 9880, 28, 20120, 3, 84, 50, 38883, 33668, 142, 11, 72348, 163, 3, 78, 21123, 150, 8735, 1257, 155, 135, 36133, 43873, 3, 50, 38938, 33689, 142, 50, 38944, 33693, 142, 45, 3, 10, 111790, 12598, 175, 16531, 161, 100535, 15083, 175, 27230, 48, 33574, 34216, 84, 155, 116, 18404, 30496, 83659, 175, 21066, 28, 20180, 161, 79127, 34349, 75, 47033, 84, 78, 21180, 175, 18851, 128, 78, 21178, 175, 21010, 50, 38929, 33734, 78, 21185, 175, 13824, 50, 38941, 33741, 78, 21192, 175, 18817, 50, 38943, 33748, 142, 41, 96185, 50, 38965, 33754, 50, 38952, 33757, 142, 155, 135, 19494, 27215, 148, 79806, 67869, 121436, 36421, 99, 145, 174, 78, 21236, 155, 41, 96159, 84, 78, 21235, 64, 73602, 41, 66240, 50, 38996, 33785, 142, 41, 96146, 16, 79210, 130, 75905, 70, 76227, 155, 111, 57628, 84, 12, 77715, 84, 50, 39002, 33804, 50, 39018, 33807, 142, 67, 58885, 174, 78, 21267, 37, 32890, 50, 39024, 33821, 142, 148, 90313, 82423, 112772, 60871, 116, 17907, 29730, 83766, 22, 72518, 175, 15255, 174, 28, 20289, 116, 47403, 34990, 83778, 22, 72531, 104, 28, 20308, 116, 8869, 4957, 83787, 22, 72538, 153, 84, 28, 20318, 135, 13876, 4158, 27, 41, 96148, 28, 20326, 161, 76449, 34643, 75, 47198, 84, 91, 83, 57602, 164, 41, 81058, 12, 93687, 28, 20342, 116, 25350, 21216, 83826, 22, 72572, 135, 8596, 1635, 153, 84, 28, 20357, 135, 30644, 20986, 27, 41, 95390, 28, 20365, 161, 76382, 34678, 75, 47227, 84, 16, 79335, 130, 76075, 160, 25376, 111, 46488, 12, 93614, 28, 20383, 161, 76392, 34660, 75, 47244, 84, 28, 20395, 155, 135, 7904, 14634, 115, 128, 28, 20399, 116, 25599, 23851, 83874, 6, 135, 21894, 29916, 104, 28, 20400, 135, 28783, 20495, 27, 41, 95374, 16, 79381, 130, 76084, 70, 76416, 155, 111, 57628, 84, 12, 71467, 84, 28, 20431, 116, 52596, 62090, 83926, 100, 12, 71867, 50, 39179, 33975, 142, 87, 129947, 129987, 104, 28, 20446, 161, 76329, 34011, 75, 47314, 84, 28, 20458, 155, 135, 25417, 17227, 50, 39201, 33997, 142, 145, 128, 78, 21456, 175, 20741, 28, 20470, 116, 52525, 62113, 83968, 12, 93688, 28, 20466, 155, 135, 55806, 63614, 116, 23487, 26026, 83962, 22, 72712, 124, 10, 98154, 64122, 98, 50, 39227, 34032, 142, 155, 41, 95668, 84, 28, 20509, 155, 135, 55769, 63575, 161, 112577, 6561, 175, 13657, 22, 72738, 145, 24, 84, 28, 20513, 116, 49886, 62064, 84022, 12, 93643, 28, 20521, 161, 90982, 52348, 75, 47401, 84, 28, 20529, 116, 33131, 45170, 84012, 175, 28607, 175, 22741, 28, 20539, 135, 40408, 48471, 98, 28, 20545, 161, 90910, 52292, 75, 47428, 84, 28, 20553, 155, 135, 31409, 23526, 116, 4680, 8888, 84042, 22, 72795, 89, 128, 175, 16532, 128, 12, 71884, 128, 28, 20589, 28, 20592, 9, 78, 21567, 175, 14951, 75, 47457, 84, 155, 78, 21577, 75, 47466, 84, 155, 78, 21584, 75, 47475, 84, 104, 122, 128, 145, 145, 46, 12, 93361, 165, 54, 32, 19, 111, 45514, 175, 15385, 28, 20614, 78, 21613, 21, 128, 78, 21630, 131, 21766, 4, 70955, 111, 60206, 28, 20631, 128, 175, 14052, 182, 62495, 155, 161, 83355, 60016, 48, 16500, 19016, 84, 155, 5, 109156, 15493, 30, 54359, 175, 23851, 78, 21640, 62, 12, 65954, 89, 155, 135, 12205, 3183, 169, 128930, 120886, 3, 84, 28, 20669, 155, 135, 55457, 64319, 3, 78, 21667, 175, 16409, 50, 39411, 34218, 62, 46, 105, 60814, 56297, 175, 25529, 175, 12838, 50, 39439, 34230, 78, 21680, 62, 46, 105, 60824, 61005, 175, 22939, 75, 47550, 84, 155, 50, 39441, 34248, 175, 16440, 50, 39444, 34251, 62, 46, 105, 60854, 56745, 175, 17228, 78, 21712, 175, 16422, 175, 32680, 30, 55014, 9, 50, 39463, 34273, 175, 22916, 50, 39468, 34275, 62, 46, 105, 60866, 58330, 9, 50, 39477, 34294, 175, 16478, 175, 32194, 30, 54907, 175, 20935, 175, 27760, 105, 60875, 57958, 9, 50, 39494, 34308, 175, 16497, 175, 19379, 105, 60880, 33639, 175, 20538, 78, 21760, 62, 12, 91216, 78, 21844, 13, 58650, 96, 29678, 41, 76036, 50, 39542, 34327, 142, 128, 174, 182, 62671, 46, 78, 21794, 150, 55536, 50931, 135, 57879, 49451, 46, 50, 39540, 34356, 6, 135, 58744, 50808, 46, 78, 21825, 150, 55521, 50818, 135, 27801, 20401, 155, 111, 57677, 84, 30, 46782, 175, 47721, 75, 47680, 84, 155, 50, 39567, 34380, 175, 49078, 50, 39570, 34378, 62, 12, 91335, 50, 39616, 34406, 4, 65544, 69, 155, 41, 97379, 84, 12, 93345, 84, 28, 20858, 28, 20860, 28, 20853, 135, 2866, 10287, 104, 128, 46, 40, 46127, 53255, 33401, 150, 40586, 32897, 43, 41, 97441, 150, 40580, 32891, 12, 91228, 165, 46, 50, 39620, 34455, 6, 135, 29824, 22417, 155, 111, 57621, 84, 161, 88080, 62846, 46, 50, 39661, 34470, 6, 135, 23730, 32369, 155, 111, 57651, 84, 161, 119586, 32374, 46, 50, 39661, 34485, 6, 135, 55379, 63756, 155, 111, 57613, 84, 161, 91376, 51604, 46, 12, 91630, 47, 27, 32, 54, 172, 155, 41, 97507, 84, 12, 81767, 175, 37832, 28, 20946, 28, 20951, 165, 155, 116, 5926, 9391, 84429, 31, 84, 155, 161, 126915, 15716, 83, 58232, 175, 51514, 155, 161, 98352, 21228, 83, 58240, 104, 107, 28, 20974, 28, 20979, 133, 128, 30, 46771, 30, 46968, 30, 46774, 78, 21990, 162, 16, 79891, 29, 83406, 151, 41679, 19, 111, 39543, 47, 28, 21023, 165, 129, 123103, 3461, 84, 141, 47, 15, 54, 19, 155, 111, 57596, 84, 12, 71032, 84, 105, 61152, 34150, 175, 50589, 155, 78, 22011, 75, 47871, 84, 155, 50, 39764, 34572, 175, 49021, 50, 39768, 34574, 62, 12, 91221, 78, 22082, 97, 48612, 20, 58444, 111, 37866, 28, 21045, 28, 21050, 78, 22042, 31, 128, 46, 141, 141, 12, 74405, 78, 22125, 79, 22126, 119, 40548, 155, 111, 58124, 84, 12, 93597, 84, 50, 39811, 34627, 6, 155, 41, 97721, 84, 28, 21078, 135, 57643, 49167, 50, 39821, 34628, 142, 166, 41, 97696, 28, 21098, 12, 91369, 50, 39832, 34639, 142, 46, 78, 22091, 150, 55684, 51119, 155, 135, 6523, 14416, 28, 21117, 135, 57673, 49261, 145, 46, 50, 39862, 34665, 22, 73350, 28, 21122, 155, 111, 58135, 84, 8, 14, 46, 47, 50, 39893, 34675, 142, 28, 21138, 156, 66038, 45712, 155, 161, 130371, 11854, 12, 74444, 104, 104, 155, 182, 63009, 155, 161, 83857, 38006, 3, 28, 21162, 135, 38059, 47653, 28, 21152, 3, 104, 155, 161, 65710, 54267, 83, 58443, 104, 3, 28, 21181, 161, 76047, 64005, 75, 48033, 84, 3, 50, 39942, 34729, 142, 155, 135, 55977, 62727, 3, 34, 84, 104, 155, 3, 41, 97469, 15, 111, 42621, 50, 39949, 34756, 6, 116, 12725, 198, 84706, 22, 73443, 155, 135, 57008, 61782, 28, 21224, 135, 53070, 57575, 78, 22218, 21, 124, 10, 120329, 23235, 42, 84, 16, 80220, 130, 76912, 160, 25978, 111, 39054, 28, 21234, 135, 45893, 40015, 41, 98201, 50, 40036, 34795, 119, 40724, 69, 155, 41, 97379, 84, 12, 66153, 84, 50, 40005, 34812, 6, 161, 75831, 65014, 175, 43460, 10, 120419, 23273, 42, 84, 50, 40031, 34816, 142, 155, 135, 56000, 62812, 28, 21295, 78, 22273, 57, 78, 22274, 21, 84, 128, 175, 51323, 48, 43941, 42368, 84, 155, 38, 46302, 119963, 12573, 175, 40400, 78, 22295, 175, 34692, 50, 40043, 34864, 50, 40046, 34856, 50, 40049, 34863, 62, 12, 91371, 50, 40056, 34876, 6, 135, 17661, 27588, 4, 66030, 155, 41, 98221, 84, 28, 21336, 67, 59954, 91, 19, 41, 98210, 28, 21328, 67, 59962, 12, 91388, 165, 46, 47, 47, 167, 155, 41, 98211, 84, 12, 70448, 84, 28, 21365, 135, 4550, 15906, 155, 135, 61279, 49328, 28, 21361, 10, 104092, 6671, 78, 22364, 57, 10, 66563, 34967, 78, 22368, 57, 10, 86788, 57233, 116, 14448, 3890, 84870, 57, 49, 128, 175, 42623, 48, 65111, 61682, 84, 155, 5, 108955, 15256, 30, 84920, 175, 40996, 78, 22395, 62, 12, 75863, 105, 61527, 51356, 175, 46273, 50, 40161, 34958, 78, 22407, 175, 32865, 175, 37347, 30, 84973, 175, 44138, 50, 40194, 34971, 78, 22448, 62, 12, 76184, 50, 40189, 35009, 159, 84, 16, 80401, 29, 83856, 103, 67152, 111, 45936, 175, 32903, 30, 84891, 175, 43700, 50, 40194, 34998, 78, 22448, 62, 12, 76207, 165, 27, 155, 41, 97471, 84, 12, 76119, 84, 78, 22462, 41, 78066, 28, 21479, 116, 35205, 48707, 84954, 175, 34532, 111, 57562, 155, 64, 74844, 111, 57490, 155, 64, 74852, 111, 57509, 155, 64, 74867, 111, 40109, 155, 64, 74874, 111, 40094, 155, 64, 74882, 111, 40007, 155, 64, 74889, 111, 40001, 155, 64, 74897, 111, 39946, 155, 64, 74907, 111, 37749, 155, 112, 116958, 101487, 111, 38027, 84, 12, 71655, 50, 40274, 35078, 142, 135, 24196, 32640, 27, 41, 97686, 28, 21548, 161, 77818, 63626, 75, 48403, 84, 147, 45242, 12752, 27, 171, 34357, 41, 74619, 12, 71427, 28, 21566, 161, 77700, 63672, 75, 48418, 84, 28, 21570, 155, 135, 62309, 53934, 165, 155, 148, 96066, 88002, 130193, 45172, 175, 35149, 48, 64589, 63076, 84, 145, 128, 78, 22592, 175, 44350, 50, 40335, 35139, 142, 135, 36853, 44645, 27, 41, 97683, 91, 54, 165, 167, 155, 111, 59188, 84, 12, 73055, 84, 50, 40356, 35160, 142, 156, 96986, 52698, 104, 50, 40364, 35168, 142, 135, 36752, 44666, 116, 8361, 4403, 85119, 22, 73866, 135, 345, 8346, 104, 78, 22636, 139, 39817, 155, 78, 22636, 48, 45415, 48075, 84, 155, 78, 22644, 48, 51873, 49164, 84, 155, 78, 22652, 48, 14011, 15365, 84, 155, 78, 22660, 48, 13883, 15508, 84, 174, 78, 22678, 139, 39850, 12, 93351, 84, 47, 50, 40429, 35226, 142, 28, 21682, 3, 22, 73920, 135, 147, 9056, 174, 3, 47, 50, 40467, 35244, 142, 115, 155, 3, 150, 6193, 651, 155, 135, 43938, 34924, 78, 22704, 3, 154, 92, 46, 78, 22709, 146, 42360, 84, 28, 21724, 28, 21734, 135, 19025, 26920, 152, 41, 97409, 28, 21736, 155, 135, 34251, 42695, 28, 21736, 78, 22732, 175, 46978, 41, 97384, 28, 21750, 155, 135, 3139, 12088, 28, 21754, 28, 21756, 95, 84, 28, 21760, 60, 78491, 76, 84114, 46, 12, 97183, 28, 21766, 78, 22777, 173, 111, 41119, 50, 40520, 35317, 6, 135, 18949, 26908, 46, 78, 22784, 146, 42425, 84, 28, 21779, 78, 22789, 106, 41, 97182, 50, 40534, 35337, 6, 28, 21798, 63, 84, 78, 22809, 175, 50807, 98, 28, 21823, 60, 78550, 76, 84163, 46, 12, 97421, 28, 21805, 155, 135, 4177, 13094, 93, 30, 85736, 175, 43989, 78, 22828, 62, 12, 97515, 50, 40585, 35376, 142, 135, 19139, 27078, 41, 97172, 50, 40643, 35422, 171, 34745, 88, 155, 111, 57612, 84, 12, 72579, 84, 50, 40597, 35414, 22, 74088, 155, 135, 13099, 4143, 115, 46, 28, 21866, 50, 40618, 35411, 142, 65, 41, 95294, 28, 21885, 116, 4998, 8975, 85360, 31, 84, 78, 22883, 175, 41043, 28, 21897, 128, 15, 27, 41, 95277, 78, 22894, 175, 42497, 28, 21894, 128, 128, 104, 28, 21893, 116, 2864, 14549, 85388, 31, 84, 28, 21916, 156, 71994, 44054, 155, 116, 51472, 64167, 85399, 31, 84, 155, 38, 28229, 69215, 12600, 9, 78, 22918, 175, 51651, 50, 40676, 35476, 78, 22932, 62, 12, 97429, 78, 23012, 180, 28959, 64, 75300, 155, 111, 57620, 84, 12, 72352, 84, 28, 21965, 161, 91295, 45511, 75, 48806, 84, 28, 21957, 161, 76827, 63785, 75, 48814, 84, 28, 21981, 116, 19527, 32655, 85456, 6, 116, 10038, 5319, 85475, 22, 74213, 100, 104, 78, 22982, 175, 41145, 28, 21984, 5, 130240, 25319, 104, 28, 21990, 161, 92503, 48105, 48, 53963, 54401, 84, 78, 23001, 175, 41650, 84, 28, 22004, 135, 26314, 18364, 155, 135, 36797, 44737, 50, 40768, 35561, 142, 98, 78, 23018, 58, 41, 95542, 50, 40764, 35578, 159, 84, 78, 23027, 175, 47157, 175, 39106, 50, 40775, 35582, 6, 135, 59953, 51988, 46, 78, 23040, 175, 47115, 92, 46, 78, 23056, 146, 42695, 84, 28, 22051, 28, 22059, 135, 18912, 26855, 152, 41, 95627, 28, 22066, 155, 135, 34428, 42774, 28, 22073, 78, 23079, 175, 45363, 41, 95724, 78, 23076, 175, 49294, 28, 22087, 95, 84, 28, 22083, 60, 78834, 76, 84445, 46, 12, 97465, 28, 22107, 78, 23091, 173, 111, 58182, 50, 40843, 35653, 175, 41780, 84, 28, 22129, 78, 23105, 106, 41, 95597, 50, 40863, 35666, 175, 47608, 116, 25866, 21979, 85609, 6, 155, 135, 57831, 49293, 33, 62955, 163, 155, 41, 95356, 84, 175, 35294, 28, 22153, 78, 23142, 21, 155, 41, 95391, 84, 47, 150, 42310, 82906, 28, 22151, 155, 135, 45004, 36573, 33, 62984, 35, 27, 155, 41, 95422, 84, 28, 22164, 28, 22167, 50, 40930, 35716, 142, 100, 175, 41328, 12, 97468, 128, 104, 155, 38, 906, 90975, 13064, 8, 50, 40925, 35732, 50, 40929, 35735, 50, 40932, 35741, 62, 12, 73301, 78, 23191, 175, 42957, 78, 23205, 12, 73277, 75, 49063, 84, 50, 40948, 35755, 78, 23206, 3, 175, 49320, 116, 49278, 61445, 85700, 22, 74457, 135, 25364, 17812, 89, 174, 78, 23228, 175, 35286, 175, 52237, 116, 41433, 37350, 85735, 22, 74472, 124, 10, 94385, 62724, 50, 40986, 35791, 142, 135, 42608, 33004, 124, 10, 84476, 52298, 50, 41001, 35802, 142, 89, 12, 97298, 50, 41023, 35809, 175, 45547, 111, 58140, 175, 47804, 163, 41, 95328, 11, 74497, 12, 97366, 50, 41020, 35825, 142, 135, 41950, 34239, 155, 111, 57570, 84, 175, 45555, 111, 57612, 175, 47780, 163, 41, 96160, 11, 74521, 12, 97398, 50, 41044, 35849, 142, 135, 64361, 56579, 155, 111, 57634, 84, 175, 45531, 111, 57660, 175, 47756, 163, 41, 96224, 11, 74545, 12, 97462, 50, 41068, 35873, 142, 135, 33678, 42267, 155, 111, 57619, 84, 161, 121687, 1609, 175, 44593, 41, 96223, 84, 12, 66613, 84, 28, 22367, 155, 135, 54806, 61846, 116, 47907, 35361, 85851, 22, 74592, 124, 10, 96146, 62146, 50, 41125, 35911, 142, 24, 84, 28, 22376, 161, 74431, 65365, 75, 49243, 12, 77243, 28, 22387, 116, 36144, 48596, 85875, 175, 42526, 175, 38783, 175, 40981, 175, 38666, 175, 46144, 128, 12, 76843, 128, 28, 22409, 28, 22413, 9, 78, 23397, 175, 49949, 75, 49273, 84, 104, 122, 128, 145, 145, 46, 78, 23410, 147, 46116, 13690, 126, 155, 41, 95395, 84, 12, 81606, 84, 12, 97365, 16, 81365, 29, 84870, 103, 68164, 111, 37634, 78, 23436, 175, 47018, 78, 23439, 21, 128, 28, 22453, 128, 175, 53189, 182, 64323, 155, 161, 85242, 37203, 48, 36018, 38103, 84, 155, 5, 107845, 14186, 30, 84888, 175, 42186, 78, 23465, 62, 12, 76752, 105, 62595, 51869, 8, 50, 41220, 36027, 175, 43355, 78, 23482, 175, 38198, 30, 84914, 8, 50, 41232, 36043, 50, 41235, 36042, 50, 41238, 36048, 62, 12, 76702, 50, 41245, 36055, 159, 84, 78, 23535, 79, 23583, 119, 42018, 41, 68858, 175, 33975, 30, 84859, 175, 47720, 50, 41263, 36070, 78, 23519, 62, 12, 76751, 16, 81491, 130, 78187, 160, 27303, 155, 41, 95655, 84, 12, 74403, 84, 78, 23538, 41, 74294, 28, 22547, 116, 94809, 41615, 86038, 175, 33456, 111, 65354, 155, 64, 75923, 111, 35064, 155, 64, 75938, 111, 35178, 155, 64, 75945, 111, 35217, 155, 64, 75952, 111, 35212, 155, 64, 75959, 111, 35277, 155, 64, 75966, 111, 35295, 155, 64, 75978, 111, 43092, 155, 64, 75986, 111, 43169, 155, 112, 120066, 100435, 111, 43175, 84, 12, 76600, 50, 41355, 36154, 78, 23605, 175, 36707, 41, 95649, 84, 78, 23612, 175, 35283, 41, 95660, 50, 41364, 36170, 142, 67, 61247, 12, 97508, 165, 174, 28, 22648, 161, 92970, 46264, 75, 49490, 84, 78, 23656, 182, 64506, 155, 116, 85296, 40401, 86127, 6, 135, 47322, 39414, 104, 174, 78, 23649, 182, 64521, 12, 68376, 9, 78, 23656, 75, 49517, 84, 50, 41407, 36214, 78, 23665, 3, 50, 41421, 36221, 142, 155, 135, 32771, 41273, 3, 46, 50, 41438, 36285, 6, 28, 22691, 14, 46, 78, 23746, 175, 47723, 28, 22688, 155, 135, 56668, 65276, 78, 23756, 92, 84, 50, 41492, 36307, 6, 28, 22683, 14, 46, 78, 23725, 175, 47773, 28, 22762, 155, 135, 56646, 65226, 78, 23735, 92, 84, 50, 41530, 36329, 6, 28, 22774, 14, 46, 78, 23778, 175, 47751, 28, 22756, 155, 135, 56688, 65232, 78, 23788, 92, 84, 139, 40990, 155, 78, 23746, 75, 251807, 84, 155, 78, 23753, 75, 251814, 84, 155, 78, 23760, 75, 251821, 84, 46, 12, 91238, 16, 81760, 29, 85184, 20, 60126, 111, 39246, 50, 41566, 36328, 142, 28, 22787, 133, 155, 135, 60937, 52618, 175, 35610, 78, 23787, 92, 175, 35615, 78, 23807, 175, 46016, 78, 23810, 175, 46607, 78, 23802, 175, 35619, 175, 35629, 78, 23810, 92, 104, 1, 135, 40711, 48198, 175, 33714, 135, 57993, 49607, 145, 128, 12, 91155, 78, 23861, 76, 85278, 134, 60348, 155, 111, 57612, 84, 12, 96872, 84, 50, 41628, 36390, 142, 28, 22863, 133, 155, 135, 46348, 38529, 165, 155, 116, 95046, 41749, 86382, 22, 75094, 135, 65207, 56599, 135, 57951, 49661, 155, 135, 33399, 41431, 78, 23875, 92, 104, 175, 34030, 78, 23877, 175, 48177, 78, 23875, 175, 47614, 78, 23880, 175, 34034, 175, 34044, 78, 23899, 92, 104, 1, 175, 35942, 135, 34793, 42060, 145, 128, 12, 91248, 161, 121230, 1158, 111, 43007, 30, 87982, 30, 87998, 30, 87969, 78, 23915, 162, 50, 41678, 36481, 134, 60310, 69, 155, 111, 57844, 84, 12, 78777, 84, 50, 41674, 36480, 142, 155, 135, 65209, 56587, 50, 41685, 36488, 142, 150, 5917, 129495, 155, 135, 44926, 36168, 50, 41733, 36499, 142, 47, 26, 31850, 113, 53168, 78070, 84, 141, 78, 23958, 64, 76325, 155, 111, 57620, 84, 12, 95635, 175, 44706, 169, 69181, 71535, 84, 141, 141, 128, 12, 91159, 78, 24027, 155, 111, 57726, 84, 78, 24078, 55, 66816, 155, 111, 57612, 84, 12, 70118, 84, 30, 87651, 30, 87943, 30, 87672, 78, 24002, 162, 32, 27, 155, 41, 93279, 84, 12, 98056, 84, 78, 24055, 175, 52525, 50, 41765, 36571, 142, 155, 135, 8325, 342, 50, 41776, 36579, 142, 129, 77952, 52531, 145, 174, 141, 47, 111, 39620, 150, 45521, 89785, 155, 135, 54224, 62028, 169, 130187, 124479, 84, 47, 50, 41844, 36604, 142, 93, 141, 141, 128, 78, 24081, 146, 43711, 84, 78, 24066, 146, 43716, 84, 12, 77411, 50, 41819, 36624, 78, 24074, 174, 150, 15609, 119404, 155, 135, 12581, 4336, 38, 63913, 121153, 54046, 175, 43845, 78, 24090, 62, 12, 91337, 78, 24130, 13, 60975, 61, 57035, 155, 41, 93667, 84, 12, 66977, 84, 50, 41856, 36662, 78, 24112, 127, 175, 51353, 128, 49, 47, 155, 30, 73194, 12, 76886, 28, 23150, 155, 135, 42775, 34730, 115, 3], ["\u6823\u681D\u6814\u6816\u6818\u681C\u6822\u681A\u681A", "\u7D51\u7D78\u7D6D\u7D63\u7D71\u7D6F", "\u91D2\u91DE\u91D0\u91DE\u91CE\u91E2\u91DE\u91E2", "\u4AFA\u4AFB\u4B25\u4B31\u4B23\u4B31\u4B21\u4B35\u4B31\u4B35", 0.6, 0.1, 0.7, "\u7947\u7979\u797A\u796A\u7983", "\u5A6D\u5A78\u5A47\u5A79\u5A7A\u5A6A\u5A83", "\u525D\u5265\u525E\u5254\u5258\u5266", "\uA3D4\uA3CE\uA3D8\uA3D2\uA3E0\uA3D5", "\u083E", "\u4E0A", 0.5, 0.2, "\u3F6E\u3F7A\u3F7A\u3F72", "\uEF68\uEF54\uEF60\uEF6A\uEF5B", "\u404C", "\uBFBB", "\uB12B\uB151\uB149\uB13F\uB120\uB14E\uB14F\uB14D\uB151", "\u2A54\u2A7A\u2A83\u2A6F\u2A7B\u2A79\u2A75\u2A32\u2A74\u2A88\u2A89\u2A7B\u2A84\u2A88\u2A8D\u2A3A\u2A8F\u2A8B\u2A3D\u2A87\u2A93\u2A85\u2A93\u2A83\u2A97\u2A89\u2A45\u2A94\u2A96\u2A96\u2A56\u2A93\u2A9F\u2A91\u2A9F\u2A8F\u2A91\u2A9C\u2A96\u2A52\u2A9C\u2AA2\u2AA8\u2AAA\u2A98\u2AA6\u2A9C\u2A9F\u2A69\u2A46\u2A86\u2AAC\u2A5F\u2AAF\u2AB3\u2AA6\u2AA8\u2AB6\u2A65\u2ABA\u2AB6\u2A68\u2AAB\u2AAF\u2A6B\u2AB5\u2AC1\u2AB3\u2AC1\u2AB1\u2AB3\u2ABE\u2AB8\u2A80\u2A75\u2AC4\u2AC6\u2AC6\u2A86\u2ABB\u2ACD\u2ACE\u2ABE\u2AD7\u2A7F\u2ACF\u2AC3\u2ACC\u2AC8\u2AC7\u2AD9\u2AD9\u2A87\u2AD5\u2ADE\u2ADD\u2ADF\u2A8C\u2AD5\u2ACF\u2AE5\u2AD5\u2A91\u2AD3\u2A93\u2ACF\u2AC8\u2AEF\u2AE4\u2ADA\u2AE8\u2AE6\u2AA9\u2AE5\u2AF1\u2AE3\u2AF1\u2AE1\u2AF5\u2AF1\u2AF5\u2AE1\u2AAD\u2AAF\u2AA7\u2AF5\u2AEE\u2AFE\u2AF3\u2AFB\u2AF1\u2ABC", 0.3, "\uAAB8\uAAB7\uAAC3\uAAC4", "\u3B49\u3B41\u3B55\u3B52", 0.9, "\uEAE1\uEAD5\uEAE5\uEAE7\uEAE5\uEAE2", "\u3DD4\u3DD6\u3DD5\u3DCD\u3DD3\u3DCD", "\uDF62\uDF5E\uDF43\uDF65\uDF64\uDF5C\uDF62\uDF5C", "\u45A5\u459F\u459D\u4598\u459B", "\u3B16\u3B2A\u3B33\u3B2F\u3B2E\u3B40", "\u34E5\u34F2\u34F2\u34F8\u34FA\u34F9\u34FD\u34EC\u34FE\u34FA\u34FE", "\u5484\u5478\u5485\u547E", "\u185C\u1871\u1881", "\u9380\u9393\u93A3", "\u0C2C\u0C39\u0C37\u0C36", "\u5101\u5133\u5129\u5138\u5131\u512A\u5134\u513B\u513B", "\uE7A3\uE76E\uE786\uE782\uE79E\uE7B3\uE7C7\uE795\uE776\uE7BC\uE7C3\uE778\uE790\uE78C\uE78B\uE7D0\uE786\uE78C\uE7D3\uE78B\uE78B\uE783\uE783\uE79B\uE797\uE7A1\uE7CB\uE7C1\uE7CE\uE7D2\uE7C8\uE7C8\uE78E\uE7A5\uE7A8\uE7DA\uE7DB\uE7CB\uE7E4\uE790", "", "\uBE29\uBE1B\uBE2A\uBE2C", "\uE981\uE995\uE997\uE99E\uE998\uE997\uE9A9", "\uA383\uA390\uA390\uA396\uA398\uA397\uA39B\uA38A\uA39C", "\u6D26\u6D36\u6D37\u6D34\u6D42", "\uB559\uB54D\uB556\uB552\uB551\uB563", "\u26D7\u26E7\u26E1\u26D7\u26E9\u26DF\u26E6\u26E6", "\uE27F\uE2A1\uE2AF\uE2A7\uE2B5\uE2A5\uE2A5\uE262\uE2A6\uE2B3\uE2B3\uE2B9\uE2BB\uE2BA\uE2BE\uE2AD\uE2BF\uE2BB\uE2BF\uE2C1\uE26F\uE2BD\uE2B2\uE2CB\uE273\uE2C3\uE2C3\uE2C2\uE2D0\uE278\uE2CB\uE2BF\uE2CF\uE2D1\uE2CF\uE2CC\uE27F\uE2CF\uE2C3\uE2CC\uE2C8\uE2C7\uE2D9\uE286\uE2D6\uE2DA\uE289\uE2DF\uE2D9\uE2D0\uE2D2\uE2D4\uE2D8\uE2DE\uE2D6\uE2D6", "\u9B8E\u9BA2\u9BA4\u9BA4\u9BB2\u9BA6\u9BB0\u9BA6\u9BA9\u9B8A\u9BB8\u9BB9\u9BB7\u9BBB", "\u8B11\u8B06\u8B08\u8B13\u8AC1\u8B0A\u8B04\u8B17\u8B13\u8ACD\u8B1B\u8AC8\u8B0B\u8B0F\u8B10\u8B1A\u8ACD\u8B17\u8B1D\u8B19\u8B25\u8B1B\u8B14\u8B20\u8B1E\u8B29\u8B1C\u8B1C\u8AD9\u8AE7\u8ADB\u8B2F\u8B32\u8B2E\u8B24\u8B32\u8AE9\u8AEB\u8AE3\u8B2C\u8B26\u8B39\u8B35\u8AEF\u8B3D\u8AEA\u8B2D\u8B31\u8B32\u8B3C\u8AEF\u8B33\u8B32\u8B3E\u8B3F\u8B39\u8B39", 0.8, "\u7BE2\u7C10\u7C11\u7C0F\u7C09\u7C06\u7C14", "\u0824\u0827\u0825\u082B\u0827\u082D\u0833\u082B\u0821", "\u158D\u1579\u1585\u158F\u1580\u156B\u1583", "\uB5C9\uB5BC\uB5CC\uB5A9\uB5CC\uB5CA\uB5D0\uB5CC\uB5D2\uB5D8\uB5D0\uB5C6\uB5B1\uB5C9", "\uD351\uD350\uD360\uD33D\uD360\uD35E\uD364\uD360\uD366\uD36C\uD364\uD35A\uD345\uD35D", "\u4F4C\u4F54\u4F5A\u4F51", "\u00C7\u00C8\u00DA\u00DD\u00DB\u00E1\u00DD\u00CE\u00CF", "\u1B03\u1B26\u1B22\u1B18\u1B26\u1AD5\u1B1B\u1B2F\u1B28\u1B2B\u1B1F\u1B2E\u1B2F\u1B26\u1B2D\u1B2D\u1AE0\u1B2E\u1B37\u1B36\u1B38\u1AE5\u1B2B\u1B30\u1B3C\u1B31\u1B2F\u1B3D\u1AEC\u1B2F\u1B33\u1AEF\u1B3E\u1B46\u1B3E\u1B3F\u1AF4\u1B44\u1B48\u1AF7\u1B39\u1AF9\u1B40\u1B50\u1B4A\u1B40\u1B52\u1B48\u1B4F\u1B4F", "\uFFE7\uFFF7\uFFEB\uFFE8\uFFFC\uFFEE", "\u935D\u9359\u9351\u935D\u934B\u934D\u9358\u9352", "\u1391\u139E\u139E\u1397\u139B\u139A\u13A9\u13A7\u1397\u1399\u13A4\u139E", "\u8965\u8967\u8969\u896D\u8973\u896B\u8957\u897A\u8978\u897A\u8970\u897E\u8981\u8987", "\uA4CE\uA4D5\uA4CA\uA4C0\uA4CE\uA4CC", "\u0147\u0141\u0154\u0131\u015A\u0152\u0135\u0158\u0156\u0158\u014E\u015C\u015F\u0165", "\uB9D7\uB9EA\uB9F1\uB9E7\uB9DD\uB9C4\uB9F0\uB9E2\uB9F0\uB9E0\uB9F4\uB9F0\uB9F4", "\uC1E5\uC1E6\uC208\uC21B\uC222\uC218\uC20E\uC1F5\uC221\uC213\uC221\uC211\uC225\uC221\uC225", "\u3E8E\u3E8A\u3E6F\u3E91\u3E90\u3E88\u3E8E\u3E88\u3E76\u3E84\u3E8B", "\u76B6\u76B7\u76EC\u76E8\u76CD\u76EF\u76EE\u76E6\u76EC\u76E6\u76D4\u76E2\u76E9", "\uFDCB\uFDD5\uFDDD\uFDD6\uFDCF\uFDDD\uFDCD\uFDCF\uFDDA\uFDD4", 0.4, 0.7432432432432432, "\u1A6A\u1A75\u1A7B\u1A84\u1A7E\u1A7B\u1A76", "\u5A51\u5A57\u5A4F\u5A45", "\uD098\uD09A\uD09E\uD09A\uD08F\uD09B", "\u6646\u6658\u664E", "\u50CB\u50C0\u50CB\u50C9\u50D2", "\uA226\uA222\uA212\uA222", "\uA692\uA695\uA694\uA692\uA688\uA692\uA689\uA68B\uA68B\uA67B\uA69D\uA68B\uA69D\uA6A0", "\uC93A\uC93D\uC93C\uC93A\uC930\uC93A\uC931\uC933\uC933\uC929\uC93A\uC937\uC93F\uC938", "\uBC14\uBC28\uBC16\uBC15\uBC28\uBC28\uBC1E\uBC24\uBC1E", "\u6A62\u6A6F\u6A6E\u6A72\u6A6F\u6A69\u6A79\u6A6B\u6A6B", "\u6607\u6611\u6615\u65E9\u6606\u6609\u660F", "\u17F0\u17F1\u17F4\u180B\u17F6\u17FF\u180B", "\u46B5\u46A9\u46B8\u46B5\u46B3\u46BE\u46AE", "\u0C96\u0C8B\u0C89\u0C93", "\u533B\u5369\u536A\u5368\u536C", "\uAA9D\uAABC\uAAC6\uAABE\uAACC\uAABC\uAAD0\uAACC\uAAD0\uAA7F\uAAC9\uAAD4\uAA82\uAAC4\uAAD0\uAAD7\uAACB\uAAC8\uAACC\uAAE2\uAA8A\uAADD\uAAE1\uAADB\uAADC\uAAD8\uAADE\uAAD8", "\u8067\u8060\u8070\u8065\u806D\u8063", "\uB5C0\uB5C2\uB5CA\uB5C4\uB5C7\uB5C2\uB5D6\uB5C8", "\uB246\uB239\uB243\uB24A", "\uDB05\uDB1A\uDB0D\uDB17\uDB1E", "\u0E0C\u0E12\u0E1D\u0E1B\u0E0D\u0E21\u0E11\u0E17\u0DF5\u0E29\u0E15\u0E18\u0E24\u0E29\u0E1F\u0E26\u0E26", "\u9EAC\u9EAE\u9EBF\u9EC3\u9EBF\u9EC4", 0.675, "\u8DD6\u8DEB\u8DE9\u8DA5\u8DEF\u8DFB\u8DED\u8DFB\u8DEB\u8DFF\u8DFB\u8DFF\u8DAE\u8DF3\u8DFF\u8DF6\u8E05\u8DB3\u8E02\u8E04\u8E0A\u8DB7\u8E08\u8E0B\u8E09\u8E11\u8E05\u8E01\u8E03\u8DBF\u8E01\u8DC1\u8DC9", "\u6F2A\u6F24\u6F72\u6F6B\u6F7B\u6F70\u6F78\u6F6E", "\uDF7F\uDF73\uDF82\uDF85\uDF7D\uDF86\uDF61\uDF75\uDF82\uDF7B", "\u9DB0\u9DA8\u9DBC\u9DB9\u9D92\u9DB6\u9DAB", "\uCBFD\uCC09\uCBFB\uCC09\uCBF9\uCC0D\uCC09\uCC0D\uCBBC\uCC0F\uCC03\uCC12\uCC15\uCC0D\uCC16\uCBC3\uCC0D\uCC18\uCBC6\uCC15\uCC17\uCC1D\uCBCA\uCC0C\uCC1A\uCBCD\uCC1D\uCC11\uCC1A\uCC16\uCC15\uCC27", "\u23BB\u23BA\u23C2\u2396\u23BA\u23AF", "\u1E72\u1E71\u1E85\u1E75\u1E7B\u1E60\u1E84\u1E79", "\uE854\uE858\uE85E\uE852\uE85E\uE85F\uE86D\uE841\uE865\uE85A", "\u2BBD\u2BC3\u2BD2\u2BC4\u2BD2\u2BAD\u2BD1\u2BC6", "\u8D54\u8D53\u8D5B\u8D28\u8D52\u8D59\u8D58\u8D50\u8D4D\u8D5C", "\uE5DF\uE5E5\uE5E4\uE5DA", "\u41B1\u41BE\u41BD\u41C1\u41BE\u41B8\u41C8\u41BE\u41C5\u41C5", "\u5563\u5561\u5562\u5568", "\u32F5\u32E9\u32F8\u32EB\u32FB", "\u42C4\u42CF\u42AB\u42BF\u42AD", "\uCB81\uCBCB\uCBD6\uCB84\uCBD3\uCBD5\uCBDB\uCB88\uCBD2\uCBDE\uCBD0\uCBDE\uCBCE\uCBD0\uCBDB\uCBD5", "\u52F2\u52F8\u5303\u5301\u52FE\u52F4\u530D\u52E3\u52F7\u5304\u52FD", "\u0282\u02A1\u02AB\u02A3\u02B1\u02A1\u02B5\u02B1\u02B5\u028A\u02BA\u02B4\u02AA\u02BC\u02B2\u02B9\u02B9", "\uD442\uD44D\uD422\uD441\uD44B\uD443\uD451\uD441\uD455\uD451\uD455\uD42A\uD45A\uD454\uD44A\uD45C\uD452\uD459\uD459", "\uBD9F\uBD94\uBDA6\uBDA0", 1.1, "\uCD63\uCD7A\uCD76\uCD66\uCD76", "\uD7CC\uD7FF\uD806\uD7FC\uD7F2\uD7D9\uD805\uD7F7\uD805\uD7F5\uD809\uD805\uD809", "\u23EA\u23FD\u2404\u23FA\u23F0", "\u950D\u9530\u952E\u952D\u952A\u9535\u9528", "\uF306\uF325\uF32F\uF327\uF335\uF325\uF339\uF335\uF339", 1.56, "\uDBD6\uDBEB\uDBDF\uDBE8\uDBE4\uDBE3\uDBF5\uDBA2\uDBCA\uDBE9\uDBF3\uDBEB\uDBF9\uDBE9\uDBFD\uDBF9\uDBFD\uDBE9", "\u608B\u6086\u609B\u6096", "\u6CF7\u6CFD\u6CF4\u6CF6\u6D0A\u6CE2\u6CFA", "\uFA2D\uFA21\uFA33\uFA23\uFA31\uFA33\uFA26", "\uDB59\uDB59\uDB5B", "\uF742\uF72E\uF73A\uF744\uF735\uF744", "\u729D\u72A0\u7294\u72A6", "\u9BA3", "\u0BC1\u0BC7\u0BC1\u0BD3\u0BA3\u0BD7", "\u5F31\u5F33\u5F2F\u5F31", "\uD6D8\uD6DD\uD6C9\uD6D5", "\u850F\u8519\u8510", "\uDCA8\uDCA7\uDCAF\uDC57\uDCAB\uDCAD\uDC9B\uDCAF\uDCA1\uDCAA\uDCA3\uDCAD\uDCB4\uDC61\uDCB9\uDCAC\uDCB8\uDCAD\uDCB5\uDCBC\uDCBC\uDC69\uDCAD\uDCAC\uDCC0\uDCB0\uDCB6\uDC6F\uDCBF\uDCC3\uDC72\uDCB9\uDCBD\uDCC3\uDCB7\uDCC3\uDCC4\uDCD2", "\u5427\u5438\u542C\u5429\u5434", "\u94F1\u94FE\u94FE\u9505\u94FB\u9501\u9509\u94FA", "\u8108\u8115\u8114\u8118\u8115\u810F\u811F\u8111", "\u49A2\u49A6\u49AC\u49A8\u49B3\u49A9", "\u89A6\u89A5\u89B9\u89A9\u89AF", "\uA7BE\uA7C2\uA7C3\uA7BD\uA7C0\uA7BB\uA7C7\uA77C\uA7C0\uA7BF\uA7D3\uA7C3\uA7C9\uA782\uA7C4\uA7D8\uA7D9\uA7CB\uA7D4\uA7D8\uA7DD", "\u54D5\u54D7\u54DF\u54D9\u54DC\u54D7\u54EB\u54DD\u54D2\u54E3\u54E0\u54E8\u54E1", "\u23A7\u23C6\u23D4\u23D5\u23D7\u23DD\u238A\u23CE\u23CD\u23D9\u23DA\u238F\u23D1\u2391\u23D5\u23DF\u23D5\u23E8\u23E9\u2397\u23D9\u23EC\u239A\u23DC\u239C\u23E3\u23F3\u23ED\u23E3\u23F5\u23EB\u23F2\u23F2", "\u551C\u5517\u552C", "\uFAC4\uFAC0\uFAA2\uFAC5\uFABD\uFAC2\uFABF\uFACB\uFAC1\uFACF\uFABF", "\u2B34\u2B36\u2B38\u2B34\u2B49\u2B41\u2B4A", "\u557D\u557E\u55B3\u55AF\u5591\u55B4\u55AC\u55B1\u55AE\u55BA\u55B0\u55BE\u55AE\u556A\u55B8\u55C1\u55C0\u55C2\u556F\u55C2\u55B6\u55C6\u55C8\u55C6\u55C3\u5576\u55B8\u5578\u55C9\u55CC\u55C4\u55C9\u55C6\u55D2\u55C8\u55D6\u55C6\u5582\u55D9\u55C5\u55D1\u55DB\u55CC\u5596", "\u554D\u556F\u556E\u5566\u556C\u5566", "\u0E1B\u0E43\u0E3C\u0E32\u0E36\u0E44", "\u5C1E\u5C2B\u5C2B\u5C31\u5C2E\u5C2C\u5C26", "\u3D8E\u3D92\u3D8B", "\uAF46\u2FDC\u2FD7\u2FDC\u2FDF\u2FE0\u2FDC\u2FDE\u2FDB\u2FDF", "\uE464\uBF11\uF356\uBD4C\uC2B8", "\uDB29\uDB1D\uDB2A\uDB2F\uDB24\uDB2E\uDB22", "\uF9AE\uF9B7\uF9BD", "\u75CE\u75C0\u75D4\u75C9", "\u1E60\u1E66\u1E68\u1E6C\u1E65\u1E61\u1E73\u1E76\u1E74\u1E69\u1E6C\u1E7B\u1E7C", "\u0BFA\u0C0E\u0BFC\u0BFB", "\uB1FC\uB1F8\uB1FF\uB1F2\uB1F4\uB1BA\uB1F1\uB1FE\uB1FF\uB1FC\uB1FB\uB1F8", "\u0ABB\u0AE8\u0AE9\u0AE6\u0AE5\u0AE2\u0AC8\u0AE0\u0AF2", "\u348A\u3498", "\uC287\uC297\uC29F\uC297\uC29C\uC298\uC257\uC295\uC29F", "\u6BDD\u6BE3\u6BE5\u6BEB\u6BDF\u6BD3\u6BE5\u6BED\u6BE7\u6BE6\u6BF3\u6BF2", "\u9C89\u9C8B\u9C9E\u9C8D\u9C58\u9C8F\u9C74\u9C92", "\u2342\u2365\u2366\u2373\u237A\u2374\u237B", "\uC876\uC895\uC889", "\uD7B4\uD7B7\uD7B5\uD7AA\uD7AD\uD7BC\uD7BD", "\uDD2D\uDD37\uDD40", "\u8F7C\u8F9C\u8FA2\u8F79\u8FA5\u8FAC\u8F85\u8F9A\u8FA6\u8FA7", "\u8236\u8238\u826D\u8273\u8275\u827B\u826F\u8263\u8275\u827D\u8277\u8276\u8283\u8282\u8275\u827A\u8279\u827C\u8282\u8280\u824A\u8287\u8291\u828E\u828E", "\uA8CF\uA8F2\uA8FE\uA8EE\uA8F2\uA8F3\uA8E9\uA8B8\uA8BF\uA8B9\uA8BC\uA8AD\uA8B6\uA8DB\uA8F9\uA8FF\uA907\uA90B\uA8CF\uA8B5\uA8EB\uA8D2\uA8B8\uA8DA\uA908\uA8FF\uA90E\uA90C\uA907\uA903\uA8C0\uA8D2\uA8D4\uA8DE\uA8C4\uA91F\uA90E\uA8D4\uA90B\uA917\uA8E5\uA8CB\uA8FB\uA8FB\uA8F3\uA8FF\uA8FC\uA906\uA905\uA8D3\uA8F5\uA8EE\uA8E6\uA8E7\uA8E8\uA8D9\uA8FC\uA930\uA925\uA929\uA922\uA8EE\uA911\uA90C\uA913\uA8F4\uA8F2\uA8F6\uA8FF\uA8F7\uA8FF\uA8FA\uA900\uA8F9\uA8FC\uA8FD\uA901\uA8F8\uA8F0\uA912\uA942\uA943\uA940\uA93A\uA92D\uA93C\uA93A\uA924\uA943\uA94F\uA90B\uA912\uA911\uA912\uA90E\uA912\uA902\uA90B\uA92F\uA92D\uA93A\uA934\uA934\uA915\uA90A\uA957\uA955\uA958\uA953\uA90F\uA937\uA956\uA955\uA95E\uA963\uA91E\uA916\uA94D\uA95D\uA96B\uA96D\uA964\uA96B\uA96B\uA92D\uA934\uA92E\uA931\uA922\uA950\uA973\uA967\uA96F\uA973\uA96D\uA929\uA95D\uA96C\uA972\uA96E\uA980\uA978\uA93F\uA946\uA945\uA946\uA942\uA946", "\u5AEC\u5AEE\u5B1F\u5AF3\u5B20\u5B20\u5AEF\u5B22\u5B24\u5B26\u5B29\u5AF4\u5AFC\u5AFB\u5AF9\u5AFB", "\u5235\u5237\u5239\u523B\u523D\u523F\u5241\u526B\u5245\u523D\u5279\u527E\u5279\u5286\u528B\u527B\u527B\u5289\u527C\u5289\u527C\u527E\u5291\u528E\u527D\u528E\u527F\u5290\u5293\u5292\u5286\u5288", "\uCBC7\uCBC8\uCBC9\uCBCA\uCBCB\uCBCC\uCBCD\uCBCE", "\uC01B\uC018\uC017\uC037\uC01F\uC014\uC004\uC01C\uC019\uC02A\uC049\uC020\uC02D\uC024\uC03E\uC010\uC022\uC030\uC025\uC023\uC023\uC034\uC039\uC026\uC027\uC01B\uC02F\uC037\uC02B\uC02F\uC02F\uC02F\uC057\uC040\uC03B\uC033\uC059\uC044\uC038\uC037\uC061\uC043\uC04C\uC02A\uC02F\uC04F\uC064\uC053\uC065\uC079\uC036\uC030\uC050\uC052\uC070\uC03B\uC079\uC03F\uC04F\uC057\uC05A\uC07A\uC072\uC071\uC065\uC089\uC067\uC073\uC055\uC07E\uC06B\uC083\uC081\uC078\uC059\uC086\uC051\uC06A\uC04E\uC069\uC088\uC08A\uC06D\uC052\uC06A\uC05A\uC088\uC072\uC09C\uC0A1\uC093\uC092\uC09B\uC08F\uC0A4\uC082\uC05E\uC061\uC09A\uC092\uC09F\uC07A\uC086\uC07D\uC082\uC08F\uC067\uC093\uC088\uC088\uC07F\uC095\uC086\uC0AD\uC090\uC0A4\uC099\uC072\uC0B7\uC089\uC0AE\uC0B0\uC08E\uC08C\uC08C\uC099\uC07D\uC085\uC0BF\uC095\uC0C6\uC0CA\uC08A\uC0BA\uC08A\uC0AB\uC0AF\uC0B9\uC091\uC0AA\uC0CE\uC0CD\uC0CB\uC0A6\uC08E\uC098\uC0C5\uC092\uC099\uC099\uC0D7\uC090\uC0C0\uC0AA\uC0DC\uC0D2\uC0E0\uC0A2\uC0D4\uC0CF\uC0D7\uC0DD\uC0A2\uC0D4\uC0B5\uC0C7\uC0DE\uC0AE\uC0AF\uC0E0\uC0CD\uC0E9\uC0E8\uC0C0\uC0E8\uC0EC\uC0D8\uC0EC\uC0B1\uC0BA\uC0EE\uC0FA\uC0CC\uC0FE\uC0F5\uC0BD\uC0C1\uC0FE\uC0BF\uC0E0\uC0D9\uC0F6\uC0DE\uC0DC\uC100\uC102\uC0C2\uC0C2\uC0EC\uC0E0\uC0D8\uC0E6\uC0D0\uC105\uC0F3\uC103\uC0EA\uC0CC\uC105\uC116\uC0E9\uC0E5\uC0E3\uC0F4\uC0E5\uC0E7", "\u4A4D\u4A4E\u4A4F\u4A50\u4A51\u4A67\u4A6B\u4A6E\u4A71\u4A77\u4A4A\u4A7B\u4A81\u4A6F\u4A7A\u4A78\u4A73\u4A51\u4A7D\u4A78\u4A8D\u4A62\u4A63\u4A64\u4A65\u4A66\u4A44", "\uC698\uC6BC\uC6BD\uC6BE\uC6BF\uC6C0\uC6D9\uC6E3\uC6DA\uC6B7\uC6E8\uC6EE\uC6DC\uC6E7\uC6E5\uC6E0\uC6BE\uC6EA\uC6E5\uC6FA\uC6CF\uC6D0\uC6D1\uC6D2\uC6D3", "\u8127\u8124\u8123\u8143\u812B\u8120\u8110\u8128\u8125\u8136\u8155\u812C\u8139\u8130\u814A\u811C\u812E\u813C\u8131\u812F\u812F\u8140\u8145\u8132\u8133\u8127\u813B\u8143\u8137\u813B\u813B\u813B\u8163\u814C\u8147\u813F\u8165\u8150\u8143\u812C\u8177\u816A\u814B\u813A\u8147\u813F\u816B\u8163\u813D\u8151\u817D\u8162\u8159\u8153\u8187\u815E\u8147\u814A\u815B\u8162\u814A\u8180\u8187\u814F\u8164\u8162\u817F\u8170\u8192\u8188\u8196\u8175\u815A\u8178\u8188\u816C\u819A\u815D\u815F\u8179\u816F\u817A\u8195\u8195\u817A\u8189\u8184\u81A8\u8165\u8183\u816B\u8168\u816D\u8168\u8163\u8187\u816E\u8172\u818C\u81AF\u81AB\u81B2\u8183\u81B1\u81B0\u8197\u8196\u81BF\u81A8\u819B\u81AF\u81AC\u81BF\u81BB\u8197\u81C1\u81A3\u81C5\u8188\u819A\u81BF\u81AD\u81B5\u81C1\u81AF\u81C2\u818E\u818E\u81BE\u81B0\u8194\u81CF\u81C8\u81A2\u818F\u81D3\u81CB\u81C7\u81DB\u81CD\u81DD\u81A0\u81CE\u81CF\u81C1\u819D\u81B8\u81AF\u81E5\u81E5\u81DB\u81B6\u81E0\u81B7\u81DF\u81E0\u81C1\u81C2\u81CA\u81E2\u81AC\u81E7\u81E5\u81D4\u81C7\u81C8\u81F4\u81C5\u81E8\u81F7\u81CE\u81DB\u81C8\u81F0\u81DF\u81D8\u81F2\u81BC\u81C3\u81FC\u81C4\u81F6\u81F6\u81F3\u81E2\u8202\u81E2\u8207\u81ED\u81E6\u81EA\u81FC\u81DB\u81FF\u81FF\u81FF\u820E\u820A\u81D2\u81ED\u81CD\u8218\u8208\u8211\u820A\u81DC\u8213\u8203\u81F8\u8222\u81F5\u81F1\u81EF\u8200\u81F1\u81F3", "\uECA2\uEC9F\uEC9E\uECBE\uECA6\uEC9B\uEC8B\uECA3\uECA0\uECB1\uECD0\uECA7\uECB4\uECAB\uECC5\uEC97\uECA9\uECB7\uECAC\uECAA\uECAA\uECBB\uECC0\uECAD\uECAE\uECA2\uECB6\uECBE\uECB2\uECB6\uECB6\uECB6\uECDE\uECC7\uECC2\uECBA\uECE0\uECCB\uECBF\uECC5\uECCD\uECCD\uECC7\uECF4\uECEB\uECF5\uECB9\uECF4\uECB9\uECF9\uECDB\uECF4\uECF9\uECD0\uED01\uECFE\uED05\uECB9\uECD4\uECE3\uED04\uECEB\uECFE\uECD9\uED0B\uED0F\uECEB\uECCC\uECE3\uECDC\uECCA\uED00\uED00\uECE3\uED01\uECF5\uECD7\uECE5\uECDB\uECCF\uED1E\uED09\uED13\uED18\uED0C\uED17\uED02\uECF1\uED23\uED25\uED09\uECF6\uED2A\uED1F\uED24\uED20\uED00\uED07\uED28\uECF0\uECF2\uED26\uED1C\uED0F\uED05\uECF2\uED08\uED38\uED16\uED35\uED13\uED0E\uED0D\uED11\uED10\uED17\uED32\uED23\uED0C\uED19\uED47\uED1C\uED38\uED32\uED39\uED17\uED17\uED05\uED48\uED4D\uED51\uED3D\uED3C\uED22\uED10\uED34\uED29\uED29\uED24\uED21\uED2B\uED45\uED4F\uED53\uED55\uED30\uED58\uED57\uED38\uED23\uED20\uED5B\uED25\uED45\uED25\uED23\uED36\uED67\uED64\uED2A\uED40\uED21\uED38\uED43\uED46\uED74\uED74\uED56\uED71\uED2F\uED52\uED45\uED72\uED76\uED5D\uED34\uED72\uED5E\uED7A\uED56\uED41\uED5F\uED5B\uED7A\uED82\uED5C\uED3E\uED45\uED72\uED81\uED55\uED47\uED80\uED78\uED67\uED64\uED72\uED8A\uED81\uED61\uED94\uED60\uED81\uED88\uED95\uED91\uED59\uED9D\uED97\uED9D\uED70\uED6C\uED6A\uED7B\uED6C\uED6E", "\u7EE2\u7EE4\u7EDA\u7EDC\u7EA5\u7EEB\u7EED\u7EDC", "\uCDB9\uCDC3\uCDB9\uCDC9\uCDD1\uCDC9\uCDCE\uCDC4\uCDCB\uCDCB\uCDB1\uCDC2\uCDC8\uCDC6\uCDCF\uCDC8", "\uD0A2\uD09E\uD097\uD0A8\uD067", "\u315F\u3152\u3162\u313E\u3160\u3165\u315B\u3162\u3162\u3168", "\u0445\u044F\u0445\u0455\u045D\u0455\u045A", "\u1409\u1413\u1409", "\u6AE9\u6B09\u6AFC\u6ACF", "\u6FDD\u6FCF\u6FE1\u6FE3\u6FD6", "\uF5FA\uF5FD\uF5F3\uF5F5", "\u15CC\u15BE\u15C2\u15C3\u15C9\u15CF\u15C9", "\u2749\u273B\u273F", "\u7D5B\u7D69", "\u7324\u732B\u7333\u732C\u732A\u7338\u733B\u732D\u7341\u733E", "\u0F93\u0FB1\u0FC5", "\u588D\u588F\u588E\u589E\u58A6\u589E\u58A3", "\u146B\u1467\u145F\u146B\u145D\u143F\u1463\u1467\u1461\u1450\u1477\u146D\u1463", "\uFD93\uFD9D\uFD9A\uFD9A", "\u42B5\u42B7\u42B6\u42AE\u42B4\u42AE\u42B1\u42AF\u42C3", "\u1C08\u1C08\u1BFB\u1BC3\u1BCF", "\u8328\u8EA4\uB260\u8EA6\u8549\uC869", "\uCE7E\uCE72\uCE6F\uCE73\uCE56\uCE7A\uCE7E\uCE78\uCE67\uCE8E\uCE84\uCE7A", "\u4E4A\u1626\u4164\u1DAA\u144D\u576D\uC281\uC276\u2807\u2152\u1059\u1084\uC2CF\uC2CB\uC2C8\uC2C3\uC2CD\u4173\u1DB9", "\uDFD3\uDFD3", "\u9882\u9879\u9878\u9886\u9878\u9886\u9882", "\u25D7\u25EB\u25DD\u25E9", "\u1C05\u1C05\u1C18\u1C0B\u1C15\u1C09\u1C16\u1C0F", "\u0CE2\u0CF4\u0CEA\u0CFA", "\uDA65\uDA65\uDA78\uDA6E", "\u79A8\u799E\u79A3\u799C\u79A7\u79AE\u79AE", "\uB13B\uB147\uB13B\uB147", "\u023F\u0243\u01F1\u0233\u0239\u024C", "\u08E4\u08F0\u08E4\u08F0\u08A1", "\u83CC\u83D9\u83D9\u83CF\u83CE\u83E2", "\uC313\uC308\uC318", "\u5CEE\u5CFA\u5CEE\u5CFA\u5CAB\u5CB9\u5D03\u5CAE\u5CB1", "\u71CE\u71D1", "\uCCDC\uCCC9\uCC87\uCC95\uCCD5", "\uCAE7\uCAED\uCAE8\uCAEE", "\u2079", 1.8, 1.3, "\u4767\u4759\u476B\u476D\u4760\u4745\u476B\u4772", "\uF71B\uF71A\uF712\uF717", "\u0922\u0915\u0925\u0906\u091C\u0921\u091A\u0925\u092C\u092C", "\u290D\u2913\u290A\u290C\u2920", "\u479D\u479C\u478F\u479D\u4775\u4791\u47A6", "\uE6E2\uE6CE\uE6DA\uE6D8\uE6D4", "\uC93D\uC93B\uC940\uC93D\uC949", "\u2C71\u2C9E\u2C9E\u2C9F\u2C97\u2C96\u2CA8\u2C9E\u2CA5\u2CA5", "\uB7BE\uB7B9\uB7BA\uB7C6\uB784\uB7B9\uB7C5\uB7C3\uB7D1\uB7C1", "\uC32C\uC320\uC330\uC32F\uC337", "\u6D7A\u6D84\u6D82\u6D83\u6D87\u6D90\u6D6C\u6D80\u6D80\u6D86\u6D90\u6D84\u6D83\u6D95", "\u6DE1\u6DE0\u6DE8\u6DEA\u6DEE\u6DE2\u6DC7\u6DED\u6DF6\u6DE2\u6DEE\u6DEC\u6DE8\u6DC8\u6DF5\u6DF6\u6DF3\u6DF2\u6DEF\u6DFE", "\u680C\u680A\u6807\u680B\u680D\u681B\u681D", "\u3A29\u3A3D\u3A3A\u3A2C\u3A36\u3A2D", "\uE534\uE533\uE526\uE534\uE506\uE533\uE53A\uE534\uE53B", "\u58BE\u1F90\uCBF5", "\u39D8\u39CA\u39CE\u39BE\u39E0\u39DF", "\uD2B3", 1.2, "\u3D1D", "\uA641\uA635\uA641\uA63E\uA634\uA637\uA63A", "\u3CCA\u3CFF\u3D08\u3D20\u3CD9\u3D24\u3CD1\u3D05\u3D0E\u3D26\u3CE0\u3D2A\u3CD6\u3D0B\u3D14\u3D2C\u3CE6\u3D30\u3CDD", "\uAB21\uAB2F\uAB29\uAB2A\uAB2B\uAB2C\uAB27\uAB36", "\u4E89\u4E7C\u4E8C\u4E78\u4E7D\u4E8A\u4E8B\u4E88\u4E87\u4E84", "\uF756\uF763\uF764\uF761\uF760\uF75D\uF743\uF75B\uF76D", "\u08D8\u08CB\u08DB\u08AB\u08D8\u08D9\u08D6\u08D5\u08D2\u08C1\u08E8\u08DE\u08D4", "\u9367", "\u01F7\u01DD\u0202\u022E\u022D\u0222\u022B\u0231\u0201", "\u56DB", "\u1B7B\u1B6F\u1B7C\u1B81\u1B72\u1B81\u1B83", "\uB66B\uB66A\uB67A\uB679\uB67B", "\u4308\u4311", "\uE332\uE334", "\u2331\u2330\u2340", "\uA2E1\uA2DF\uA2DA", "\u1B40\u1B4D\u1B4E\u1B4B\u1B16\u1B0C\u1B0D\u1B13\u1B17\u1B0F\u1B13\u1B15\u1B16\u1B13\u1B1C\u1B17\u1B16\u1B1A\u1B1E\u1B1C\u1B26\u1B1E\u1B26\u1B27\u1B28\u1B29\u1B21\u1B65\u1B67", "\uDC9E\uDCAB\uDCAC\uDCA9\uDCA8\uDCA5", "\uE9EF\uE9E3\uE9F2\uE9F5\uE9ED\uE9F6", "\u5775\u5774\u5781\u5781\u5782\u5787\u577B\u578A\u577D\u578D", "\u2D53\u2D50\u2D54\u2D55\u2D64\u2D5C\u2D62\u2D6A\u2D69\u2D5C", "\uD151\uD15B\uD15D\uD163\uD156\uD160\uD167\uD161\uD158", "\uD1C9\uD1C6\uD1CF\uD1E6\uD1C9\uD1D0\uD1CB\uD1D4\uD1DA", "\u0473\u0489\u048E\u0487\u0492\u0499\u0499\u046B\u0499\u049A\u0498\u049C", "\u157A\u1586\u1589\u1587\u158D\u1589", "\u08AB\u0897\u08A3\u08A1\u089D\u0899\u089E\u08AB\u08A1\u08A3", "\uF31E\uF31A\uF301\uF31D\uF31E\uF314\uF322\uF2F4\uF313\uF326\uF319", "\uC6D3\uC6D2\uC6E2", 1.7, "\u6454\u6456\u6458\u6454\u6469\u6461\u646A\u646A", "\u396F\u3971\u3976\u396C\u3973\u3973\u3979", "\uD9CE\uD9E3\uD9F7\uD9EC", "\u0836\u082B\u0843", "\uDAB2\uDAAF\uDAB5", "\u128D\u1294\u1298\u1299\u129D", "\uF487\uF477\uF485\uF47C\uF488\uF487", 1.4, "\u9F67\u9F5B\u9F6A\u9F68\u9F68\u9F68\u9F6E\u9F61", "\u79BC\u79C9\u79BF\u79C1", "\uAD51\u38EC\u1938\u3A7C\u12EE\uAD21", "\u835D\u09B5\u0899\u9B5B\u9564\u84BC", "\u1E7A", "\u430E\u4314\u430A\u4314\u431E\u430E\u4310\u431F", "\u7D45\u08E0\uE92C\u1204\u08DB\u7D48", "\u4A32\u4A31", "\u996F\u9968\u9977\u9978\u9967\u996E\u996D", "\u620B\u60BB\uF37D\uED86\uDCDE", "\uB8DF\uB8E1\uB8CF\uB8E3\uB8E5\uB8E4\uB8B5\uB8E2\uB8D8\uB8DA", "\u9E96\u7EE2\u12FC", "\uB220\u4198\u08A3\uB221", "\u2B76\uC033\uB70A\u2B77", "\uD4F9\uD4B6", "\uD00F\u5BAA\u3BF6\u5D3A\u35AC\uCEC3\u6185\u5B8E\u4AE6", "\u76C1\u025C\uE2A8\u0B80\u0257\u7691", "\u3459\u333D\uC5FF\uC008\uAF60", "\uB0D2\uB0E0\uB0D6\uB0EC", "\u6E2E\u7367\u78EC\u74CC\uA3DA", "\u6675\u6677\u6695\u66B9\u66AE\u66AD\u66B9\u6690\u66B0\u66C3\u66BA\u66B5", "\u4E09\u4E07\u4E04\u4E02\u4E0E", "\u2EA7", "\u2DC9\u2DBB\u2DCE\u2DCF\u2DD4\u2DC2", "\u0B73\u0B74\u0B69\u0B65", "\u3C23\u3C13\u3C21\u3C18\u3C24\u3C23\u3C07\u3C19\u3C2D\u3C2E\u3C20\u3C2E\u3C2B", "\u79A0\u79A1\u79A2\u79A3\u79A4\u79A5\u79A6\u79A7", "\uAB59\uAB5A\uAB5B\uAB5C", "\u57AE\u57F3\u57F4\u57F5", "\uAD3A\uAD3B\uAD3C\uAD3D\uAD3E\uAD3F\uAD40\uAD41\uAD42\uAD43\uAD44\uAD45", "\u81CF\u81CE\u81DC\u81CE\u81D6\u81D6\u81D7\u81D7", "\u6B01\u6B05\u6B05\u6AF9\u6B0F\u6B0B\u6B08\u6B03\u6B0D\u6AE6\u6B0D\u6B03\u6B0A", "\u73E0\u73D5\u73E1\u73E2\u73D6\u73EC\u73E8\u73E5\u73E0\u73EA", "\u0554\u0573\u0566\u0574\u0530\u0545\u056C\u056B\u0575\u057C", "\u38D0\u38D4\u38C7\u38CB\u38C7\u38DD\u38D9\u38D6\u38D1\u38DB", "\uA10D\uA10C\uA0FF\uA10D\uA0E5\uA101", "\u2B51\u2B4D\u2B4A\u2B45\u2B4F", "\u5464\u1C40\u1A9B\u477F\u23C5\uC8E2\uC8DE\uC8DB\uC8D6\uC8E0", "\uEE31\uEE3B\uEE31\uEE3E\uEE34\uEE36\uEE31\uEE43\uEE3C\uEE44\uEE44\uEE3C", "\uD0DE\uD0EB\uD0E9\uD0E8\uD0BF\uD0E5\uD0DF\uD0F1\uD0C3\uD0F0\uD0E6\uD0E8", "\u0E37\u0E3D\u0E37\u0E49\u0E1B\u0E48\u0E3E\u0E40\u0E1D\u0E51", 1.5862068965517242, "\u11E6\u11F0\u11E6\u11F3\u11E9\u11EB\u11E6\u11E9\u11EE\u11FD", "\u2EAF\u2EB4\u2EC3", "\uBE01\uBE00\uBE00", "\uB436\uB452\uB44B\uB45C\uB421", "\uFC95\uFC99\uFC92\uFC95\uFC9B", "\u5BEA\u5BE0\u5BE5\u5BDE", "\u5259\u525A\u525B\u525C\u5231\u5232\u524A\u524B\u5250\u5251\u5257\u5258\u525F\u5260", "\uDC93\uDC7B\uDC94\uDC9C\uDC9C\uDC94\uDC50\uDC62\uDC66\uDC53\uDC65\uDC6A\uDC64\uDC6B\uDC66", "\u37DF\u37D4\u37D5\u37D6\u37E3\u37E2", "\u01BB\u01BB\u01C0\u01C2", "\u4324\u4331\u4332\u432F\u4333\u42FB\u42F1\u42F2\u4325\u4335\u4336\u432E\u4337\u4335\u4339\u4332\u4335\u433B\u42FC\u4300\u4308\u430A\u4300\u4336\u4342\u430F\u430F\u4307\u430B\u430A\u4309\u4347\u434B\u4344\u4347\u434D\u430F\u4344\u434E\u434C\u4349\u4353\u435A\u4316\u435D\u435C\u434F\u435D\u4338\u435C\u4355\u4358\u435E\u433F\u4361\u4365\u4361\u4356\u4362", "\uF1C4\uF1CE\uF1CB\uF1CB", "\u4170\u416E\u416B\u416F\u4171\u417F\u4157\u417D\u4176\u4180\u4185", "\u18DB\u18DA\u18CD\u18DB\u18B6\u18DA\u18D3\u18D6\u18DC\u18BD\u18DF\u18E3\u18DF\u18D4\u18E0", "\u07C2\u07B8\u07BD\u07B6\u07C5\u07C7\u07B5\u07C2\u07C6", "\uC3E2\uC3F3\uC3F1\uC3E4\uC3E8\uC3C6\uC3E9\uC3EA\uC3F7\uC3FE\uC3F8\uC3FF", "\uFD6A\uFD7B\uFD79\uFD6C\uFD70\uFD61\uFD7D\uFD7A\uFD75\uFD7F", "\uB3E1\uB3EB\uB3E9\uB3E6\uB3F0\uB3F7\uB3D8\uB3FE\uB3F6\uB3EC", "\u4AB5\u4ACC\u4AC2\u4ACB\u4AC4\u4AC8\u4ABB\u4AFC\u4B02\u4AFC\u4B0A\u4B0B\u4B03\u4B0B\u4AD5\u4AD1\u4AC5\u4B0C\u4AF4\u4B0D\u4B15\u4B15\u4B0D\u4AC9\u4ADB\u4ADF\u4ACC\u4AFD\u4B20\u4B1E\u4AD0\u4AFE\u4B13\u4B2B\u4AD7", "\uB13C\uB132\uB13A\uB13C\uB116\uB132", "\uB821\uB820\uB821\uB822\uB825", "\u05DF\u05DC\u05E3\u05E1\u05D3\u05D6", "\uE55A\uE55B\uE55B\uE55C\uE55D\uE561", "\uDBA9\uDBA6\uDBAD\uDBAB\uDB9D\uDBA0\uDB8C\uDB9E\uDBB1\uDBB2\uDBB7\uDBB0\uDBB4\uDBA7", "\uE801\uE818\uE814\uE7EA\uE7EA\uE826", "\uFB24\uFB23\uFB16\uFB24\uFAFF\uFB23\uFB1C\uFB1F\uFB25\uFB06\uFB1A\uFB27\uFB20", "\uBDD9\uBDE6\uBDE6\uBDED\uBDDF\uBDE9\uBDF0", "\uBFD3\uBFE7\uBFE8\uBFD6\uBFD9\uBFDF", "\uD067\uD06B\uD068\uD070\uD069\uD04A\uD068\uD07C\uD06A", "\u9540\u9544\u953D\u9540\u9546\u952D\u9553\u954B\u9541", "\uC1AF", "\uC3F5\uC3F8\uC3F9\uC406\uC40D\uC407\uC40E\uC3EF\uC415\uC40D\uC403", "\uC4F7\uC4FB\uC4F4\uC4F7\uC4FD\uC4D1\uC506\uC506\uC4FB\uC4D7\uC4FE\uC506\uC4FF\uC4FD\uC50B\uC4DB\uC50E\uC515\uC50A\uC50B\uC504\uC512\uC515\uC514\uC50C\uC507", "\u8FF9\u8FF9\u900C\u8FFF\u8FD1\u8FD0", "\u48BF\u48C1\u48D3\u48C7\u48C2\u48C5\u48B6\u48CB\u48C7", "\u0B12\u0B0B\u0B13\u0B13\u0B0B\u0AF5\u0B1D\u0B16", "\u9FDB\u9FE6\u9FB7\u9FDD\u9FDF\u9FE5\u9FD9\u9FED\u9FDF\u9FE7\u9FE1\u9FE0\u9FED\u9FEC", "\uB6C0", "\uAA56\uAA5D\uAA58\uAA5A\uAA4C\uAA55\uAA3F\uAA4F\uAA5D\uAA5F\uAA56\uAA5D\uAA5D", "\u27B2\u27B7\u27B1\u27B8\u27B3\u27B6", "\uEC7C\uEC91\uEC91\uEC86\uEC84\uEC8E\uEC95\uEC8B\uEC86\uEC85\uEC99\uEC8F\uEC96\uEC96", "\uB606\uB5FA\uB609\uB607\uB607\uB607\uB60D\uB600\uB5E0\uB5FE\uB612\uB600", "\u8C6D\u8C61\u8C70\u8C73\u8C6B\u8C74\u8C44\u8C71\u8C67\u8C69", "\uD565\uD566\uD567\uD568", "\uB3D9\uB3D7\uB3EB\uB3D9", "\uD7BB\uD7BF\uD7B8\uD7BB\uD7C1\uD7A7\uD7CA\uD7B9\uD7BA\uD7BD\uD7CC\uD7CD\uD7AD\uD7C1\uD7D0\uD7D3\uD7CB\uD7D4", "\uB989\uDF33\uD119\uBCAE\uC5D4\uE210\uE08B\uC966\uCC22\uBCB2", "\u8E16\u8E34\u8E48\u8E3A", "\u3CDF\u3CE1\u3CEA", "\u4A3D\u4A44\u4A39", "\u6792\u6786\u6795\u6798\u6790\u6799\u676A\u678C\u679B\u678C", "\uDFF4\uDFE8\uDFE5\uDFF8\uDFF5\uDFF5", "\uC396\uAF2B\uB851\uD48D\uD308\uBBE3\uB5C0\uE9B5\u5CEC", "\u8028\u8006\u7FED", "\u8676\u8675\u8685\u8671\u8687\u867D\u8678\u8681\u867C\u868C", "\u8245\u825C\u825D\u825E\u825F\u8260\u8261\u8262\u8263\u8264\u8265\u8266\u8267\u8284\u829B\u82AF\u82BC\u82C1\u82B2\u82C1\u82C3\u828E\u825B\u8272\u8273\u8274\u8275\u8276\u8277\u8278\u8279\u827A\u827B\u827C\u827D\u827E\u827F\u8280\u8281\u829E\u82AB\u82C9\u82C6\u82CA\u82CC\u82DA\u82B2\u82D8\u82D1\u82DB\u82E0\u82AC\u8279\u8290\u8291\u8292\u8293\u8294\u8295\u8296\u8297\u8298\u8299\u829A\u829B\u829C\u829D\u829E\u829F\u82A0\u82A1\u82A2\u82A3\u82C0\u82C8\u82F5\u82EB\u82ED\u82C7\u82F1\u82F0\u8300\u82E0\u82F7\u82FD\u82F7\u82FD\u82F7\u82CF\u82C3\u82D8\u8305\u82FB\u82FD\u82D7\u82A4\u82BB\u82BC\u82BD\u82BE\u82BF\u82C0\u82C1\u82C2\u82C3\u82C4\u82C5\u82C6\u82C7\u82C8\u82C9\u82CA\u82CB\u82CC\u82CD\u82CE\u82EB\u8304\u831A\u831F\u8318\u8327\u8329\u8317\u8324\u8328\u82F7", "\uC60F\uC603\uC629\uC63F\uC644\uC63D\uC64C\uC64E\uC63C\uC649\uC64D\uC61C\uC5E9\uC600\uC601\uC602\uC603\uC604\uC605\uC606\uC607\uC608\uC609\uC60A\uC60B\uC60C\uC60D\uC60E\uC60F\uC610\uC611\uC612\uC613\uC630\uC637\uC668\uC666\uC659\uC65D\uC63B\uC65E\uC65F\uC66C\uC673\uC66D\uC674\uC63F\uC63E\uC632\uC646\uC677\uC675\uC668\uC66C\uC64A\uC66D\uC66E\uC67B\uC682\uC67C\uC683\uC64E\uC61B\uC632\uC633\uC634\uC635\uC636\uC637\uC638\uC639\uC63A\uC63B\uC63C\uC63D\uC63E\uC63F\uC640\uC641\uC642\uC643\uC644\uC645\uC662\uC669\uC69A\uC698\uC68B\uC68F\uC680\uC69C\uC699\uC694\uC69E\uC66F\uC66E\uC662\uC676\uC6A7\uC6A5\uC698\uC69C\uC68D\uC6A9\uC6A6\uC6A1\uC6AB\uC67C\uC649\uC660\uC661\uC662\uC663\uC664\uC665\uC666\uC667\uC668\uC669\uC66A\uC66B\uC66C\uC66D\uC66E\uC66F\uC670\uC671\uC672\uC673\uC690\uC698\uC6C2\uC6C0\uC6BD\uC6C7\uC6CE\uC6AF\uC6D5\uC6CD\uC6C3\uC69D\uC683\uC69A\uC690\uC699\uC692\uC696\uC689\uC6CA\uC6D0\uC6CA\uC6D8\uC6D9\uC6D1\uC6D9\uC6A3\uC69F\uC693\uC6DA\uC6C2\uC6DB\uC6E3\uC6E3\uC6DB\uC697\uC6A9\uC6AD\uC69A\uC6CB\uC6EE\uC6EC\uC69E\uC6CC\uC6E1\uC6F9\uC6A5\uC6BF\uC6B3\uC6C8\uC6F2\uC6F0\uC6ED\uC6F7\uC6FE\uC6DF\uC705\uC6FD\uC6F3\uC6CD\uC69A\uC6B1\uC6B2\uC6B3\uC6B4\uC6B5\uC6B6\uC6B7\uC6B8\uC6B9\uC6BA\uC6BB\uC6BC\uC6BD\uC6BE\uC6BF\uC6C0\uC6C1\uC6C2\uC6C3\uC6C4\uC6E1\uC6F9\uC70F\uC717\uC719\uC6F3\uC70F\uC6EA\uC6DF\uC6DE\uC6DF\uC6E0\uC6E3\uC6EE\uC6E2\uC707\uC71D\uC725\uC727\uC701\uC71D\uC6F8\uC6C5\uC6DC\uC6DD\uC6DE\uC6DF\uC6E0\uC6E1\uC6E2\uC6E3\uC6E4\uC6E5\uC6E6\uC6E7\uC6E8\uC6E9\uC6EA\uC6EB\uC6EC\uC6ED\uC6EE\uC6EF\uC70C\uC724\uC741\uC748\uC746\uC738\uC73B\uC715\uC709\uC70A\uC70A\uC70B\uC70C\uC710\uC71A\uC70E\uC733\uC750\uC757\uC755\uC747\uC74A\uC724\uC6F1\uC708\uC709\uC70A\uC70B\uC70C\uC70D\uC70E\uC70F\uC710\uC711\uC712\uC713\uC714\uC715\uC716\uC717\uC718\uC719\uC71A\uC71B\uC738\uC750\uC76D\uC774\uC772\uC764\uC767\uC753\uC765\uC778\uC779\uC77E\uC777\uC77B\uC76E\uC749\uC75F\uC776\uC772\uC748\uC748\uC784\uC74E\uC742\uC767\uC784\uC78B\uC789\uC77B\uC77E\uC76A\uC77C\uC78F\uC790\uC795\uC78E\uC792\uC785\uC760\uC72D\uC744\uC745\uC746\uC747\uC748\uC749\uC74A\uC74B\uC74C\uC74D\uC74E\uC74F\uC750\uC751\uC752\uC753\uC754\uC755\uC756\uC757\uC774\uC78D\uC7A9\uC7A6\uC7A1\uC7AB\uC77C", "\u5F59\u5F4D\u5F73\u5F8F\u5F8C\u5F87\u5F91\u5F62\u5F2F\u5F46\u5F47\u5F48\u5F49\u5F4A\u5F4B\u5F4C\u5F4D\u5F4E\u5F4F\u5F50\u5F51\u5F52\u5F53\u5F54\u5F55\u5F56\u5F57\u5F58\u5F59\u5F76\u5F90\u5FAF\u5FA2\u5FB0\u5F8B\u5FAF\u5FA8\u5FAB\u5FB1\u5F92\u5FA6\u5FB3\u5FAC\u5F86", "\uF07D\uF071\uF098\uF0B7\uF0AA\uF0B8\uF093\uF0B7\uF0B0\uF0B3\uF0B9\uF09A\uF0AE\uF0BB\uF0B4\uF08E\uF05B\uF072\uF073\uF074\uF075\uF076\uF077\uF078\uF079\uF07A\uF07B\uF07C\uF07D\uF07E\uF07F\uF080\uF081\uF09E\uF092\uF0AC\uF0CA\uF0C7\uF0CB\uF0CD\uF0DB\uF0B3\uF0D9\uF0D2\uF0DC\uF0E1\uF0AD\uF07A\uF091\uF092\uF093\uF094\uF095\uF096\uF097\uF098\uF099\uF09A\uF09B\uF09C\uF09D\uF09E\uF09F\uF0A0\uF0BD\uF0C5\uF0F2\uF0F2\uF0F9\uF0EB\uF0F5\uF0FC\uF0C7\uF094\uF0AB\uF0AC\uF0AD\uF0AE\uF0AF\uF0B0\uF0B1\uF0B2\uF0B3\uF0B4\uF0B5\uF0B6\uF0B7\uF0B8\uF0B9\uF0BA\uF0BB\uF0BC\uF0BD\uF0BE\uF0DB\uF0E1\uF115\uF116\uF104\uF107\uF10D\uF0E4\uF11B\uF10D\uF11C\uF11E\uF0E7\uF0DB\uF0EE\uF122\uF123\uF111\uF114\uF11A\uF0F1\uF0BE\uF0D5\uF0D6\uF0D7\uF0D8\uF0D9\uF0DA\uF0DB\uF0DC\uF0DD\uF0DE\uF0DF\uF0E0\uF0E1\uF0E2\uF0E3\uF0E4\uF0E5\uF0E6\uF0E7\uF0E8\uF105\uF110\uF134\uF131\uF139\uF132\uF113\uF131\uF145\uF133\uF111\uF0DE\uF0F5\uF0F6\uF0F7\uF0F8\uF0F9\uF0FA\uF0FB\uF0FC\uF0FD\uF0FE\uF0FF\uF100\uF101\uF102\uF103\uF104\uF105\uF106\uF107\uF108\uF109\uF10A\uF10B\uF10C\uF129\uF142\uF150\uF162\uF158\uF157\uF167\uF13D\uF159\uF134", "\u520F\u522E\u5226\u522E\u522B\u5225\u5205\u5207\u5216", "\uA0AA\uA0AA\uA0AC", "\uB58F\uB583\uB5A9\uB5B7\uB5C9\uB5BF\uB5BE\uB5CE\uB5A4\uB5C0\uB59B\uB568\uB57F\uB580\uB581\uB582\uB583\uB584\uB585\uB586\uB587\uB588\uB589\uB58A\uB58B\uB58C\uB58D\uB58E\uB58F\uB590\uB591\uB592\uB593\uB594\uB595\uB596\uB5B3\uB5CD\uB5EB\uB5E6\uB5B9\uB5B0\uB5DE\uB5B4\uB5B7\uB5B6\uB5B3\uB5B4\uB5BA\uB5B8\uB5BD\uB5B9\uB5BC\uB5EA\uB5BD\uB5BF\uB5BC\uB5C8\uB5BC\uB5E3\uB601\uB5FC\uB5CF\uB59C\uB5B3\uB5B4\uB5B5\uB5B6\uB5B7\uB5B8\uB5B9\uB5BA\uB5BB\uB5BC\uB5BD\uB5BE\uB5BF\uB5C0\uB5C1\uB5C2\uB5C3\uB5C4\uB5C5\uB5C6\uB5E3\uB5D7\uB5EF\uB613\uB610\uB618\uB611\uB5F2\uB610\uB624\uB612\uB5F0\uB5BD\uB5D4\uB5D5\uB5D6\uB5D7\uB5D8\uB5D9\uB5DA\uB5DB\uB5DC\uB5DD\uB5DE\uB5DF\uB5E0\uB5E1\uB5E2\uB5E3\uB600\uB5F4\uB609\uB636\uB636\uB63D\uB62F\uB639\uB640\uB60B\uB5D8\uB5EF\uB5F0\uB5F1\uB5F2\uB5F3\uB5F4\uB5F5\uB5F6\uB5F7\uB5F8\uB5F9\uB5FA\uB617\uB60B\uB62F\uB643\uB650\uB655\uB646\uB655\uB657\uB622", "\u62ED\u62FA\u62FB\u62F8\u62FC\u62C4\u62BA\u62BB\u62EE\u62FE\u62FF\u62F7\u6300\u62FE\u6302\u62FB\u62FE\u6304\u62C5\u62C9\u62D1\u62D3\u62C9\u62FF\u630B\u62D8\u62D8\u62D0\u62D4\u62D3\u62D2\u6311\u6306\u6316\u62D6\u630B\u6315\u6313\u6310\u631A\u6321\u6306\u62FC\u62FC", "\uAE80\uAE75\uAE89\uAE79\uAE7F", "\u196A\u194B\u1964\u197A\u1975\u197E\u1979\u1989\u1972\u1955\u1940\u1975\u1991\u1946\u1945\u1979\u195A\u197B\u194F\u1975\u198B\u1986\u198F\u198A\u199A\u1983\u1966", "\u4FD5\u4FCB\u4FC6\u4FCF\u4FCA\u4FDA", "\u958E\u954C", "\u19CD\u1436\u30E5\u0105\uFF60\uADA5\uAD9B\uAD96\uAD9F\uAD9A\uADAA\uAD92", "\uA7D6\uA7BD", "\u793D\u78FC", "\uA3A7\uA3A6\uA3B6\uA3A2\uA3B7\uA3AE\uA3AD\uA3B5", "\uE25C\uE269\uE26A\uE267\uE26B\uE233\uE229\uE22A\uE273\uE25E\uE26E\uE272\uE269\uE265\uE267\uE231\uE235\uE23D\uE23F\uE235\uE26B\uE277\uE244\uE244\uE23C\uE23D\uE23F\uE23E\uE27A\uE285\uE23F\uE286\uE27D\uE27C\uE284\uE246\uE28B\uE28C\uE289\uE263\uE28B\uE28A\uE26A\uE28E\uE287\uE28A\uE290", "\uD96C\uD95F\uD95C\uD96E\uD960\uD966\uD94F\uD961\uD973\uD963\uD970\uD977", "\u3E7B\u3E6F\u3E7E\u3E7B\u3E82\u3E7A\u3E83\u3E53\u3E80\u3E76\u3E78", "\u17E1\u17D8\u17D7\u17DF", "\uA9F6\u7A16\u26B4\u26AB\u26AA\u26B2\u7F76\uB36B\u26A2", "\u7A42\u7A4C\u7A42\u7A52\u7A5A\u7A52\u7A57\u7A43\u7A55\u7A47\u7A59\u7A49", "\u3CF8\u3CF6\u3D0A", "\uD493\uD492\uD485\uD493\uD465\uD492\uD48D\uD493\uD46F\uD495\uD48E\uD498", "\u4D43\u4D3C\u4D44\u4D44\u4D3C", "\uCFB6\uCFC3\uCFC4\uCFC1\uCFC5\uCF8D\uCF83\uCF84\uCFCD\uCFB8\uCFC8\uCFCC\uCFC3\uCFBF\uCFC1\uCF8B\uCF8F\uCF97\uCF99\uCF8F\uCFC5\uCFD1\uCF9E\uCF9E\uCF96\uCF97\uCF99\uCF98\uCFD4\uCFDF\uCF99\uCFE0\uCFD7\uCFD6\uCFDE\uCFA0\uCFD3\uCFE3\uCFDD\uCFA4\uCFDE\uCFE6\uCFE5\uCFDE\uCFA9\uCFF0\uCFEF\uCFE2\uCFF0\uCFC2\uCFEF\uCFEA\uCFF0\uCFCC\uCFF2\uCFEB\uCFF5", "\uE7B0\uE7A2\uE7B4\uE7A4", "\u89DE\u89EB\u89E6\u89EC", "\uCB5A\uCB56\uCB5C\uCB4A\uCB56\uCB2E\uCB5B\uCB56\uCB5C", "\u3B30\u3B32\u3B38\u3B2E\u3B2C\u3B40", "\uCB38\uC5AE\u88C2\uD207\u39A5\u398C", "\u4D02\u4D0F\u4D12\u4D19\u4D13\u4D1A\u4CEC\u4D20", "\u3FC9\u3FCA\u3FCB\u3FCC\u3F81\u3FA2\u3FA3\u3F84\u3FBC\u3FBD", "\u8A05\u8A19\u8A12\u8A0C\u8A16\u8A0A\u89EA\u8A08\u8A1C\u8A0E", "\u5EAD\u5EAE\u5EA2\u5EDE", "\u79F2\uD59C\u095E\uE0B7", "\uD2A7\uCD1D", "\u11F6\u11EA\u11F9\u11F6\u11FD\u11F5\u11FE\u11D8\u11FF\u11F4", "\u69E9\u69F7\u69F8\u69F6\u69FA", "\uADE4\uD1E2\uD327\uA839\uD7D4\uD24A\u955E\uDEA3\uDB20\uD1F7\u4664", "\u6573\u6572\u6565\u6573\u6555\u6577\u6565\u6579\u657B\u657A\u6551\u6577\u6570\u657A", "\u300B\u3018\u3019\u3016\u301A\u2FE2\u2FD8\u2FD9\u3022\u300D\u301D\u3021\u3018\u3014\u3016\u2FE0\u2FE4\u2FEC\u2FEE\u2FE4\u301A\u3026\u2FF3\u2FF3\u2FEB\u2FEC\u2FEE\u2FED\u3029\u3034\u2FEE\u3035\u302C\u302B\u3033\u2FF5\u3028\u3038\u3032\u2FF9\u3033\u303B\u303A\u3033\u2FFE\u3045\u3044\u3037\u3045\u3027\u3049\u3037\u304B\u304D\u304C\u3023\u3049\u3042\u304C", "\uB7C8\uB7D5\uB7D7\uB7E1", "\u3267\u3272\u3253\u326A\u3269\u3271", "\u95A6\uA006\uA4D0\uC25D\u9910", "\uCB0B\uCB17\uCAFC\uCB13\uCB12\uCB1A", "\u8F1F\uB31D\uB462\u8974\uA2BC\u796F\u99F6\u8742\uBC5B\uB332\u279F", "\u428C\u4299\u4299\u42A0\u4296\u429C\u42A4\u429F\u42A6\u42A5\u4277\u4295\u42AE", "\uF5FF\uF5F6\uF5F5\uF5FD\uF5D4\uF5F2\uF60B", "\uC565\uC570\uC551\uC564\uC576\uC566\uC570", "\u8C09\uA996\u8049", "\u1811\uBF15\uBF0A\u4EC9\u3A6A", "\u90C4", "\u4DD1\u4DCF\u4DE3\u4DD5", "\u3C38\u3C3F\u3C3A\u3C1C\u3C42\u3C3A\u3C30", "\uFAB2\uFABF\uFAC0\uFABD\uFAC1\uFA89\uFA7F\uFA80\uFAC9\uFAB4\uFAC4\uFAC8\uFABF\uFABB\uFABD\uFA87\uFA8B\uFA93\uFA95\uFA8B\uFAC1\uFACD\uFA9A\uFA9A\uFA92\uFA93\uFA95\uFA94\uFAD0\uFADB\uFA95\uFADC\uFAD3\uFAD2\uFADA\uFA9C\uFAE5\uFAD4\uFAD2\uFAC4\uFADB\uFADA\uFAE2\uFAA4\uFAE9\uFAE0\uFADF\uFAE7", "\u502F\u5039\u502F\u503C\u5032\u5034", "\u0544\uDBF7\uEBD8\uDC68\u88D6\u0D82\uE963", "\u0898\uDF4B\uE64D\u1A42\u8D79", "\u62C1\u3974\u7C5E\u7335\uE7A2", "\u1D5C\u1D5B\u1D4E\u1D5C\u1D3F\u1D4D\u1D60\u1D59", "\u3D6F\u3DA3\u3DA4\u3DA5\u3DA6\u3DA7\u3DA8\u3DA9\u3D8D\uCA94\u9166\u3DCB", "\u91B2\u9176\u9194\u9195\u9196\u9197\u9198\u9199\u919A", "\u425F\u4253\u4250\u4254\u4250\u4257\u4261\u426A", "\u6158\u6157\u614A\u6158\u6133\u6151\u615C\u615E", "\u907D\u9081\u9087\u907B\u9087\u9088\u9096", "\uA0D0\uA0E4\uA0D6\uA0E2\uA0BD\uA0DF\uA0E8", "\u7C00\u7C02\u7BF0\u7C02\u7C05\u7BE6\u7BFC\u7C01\u7BFA", "\u1735\u75D9\u70A5\uA6AB\u9F28\u16E7", "\uA720\uA722\uA728\uA71E\uA71C\uA730\uA70B\uA72D\uA72C", "\u9E46\u9E48\u9E4E\u9E44\u9E42\u9E56\u9E24\u9E4B\u9E41\u9E48", 1.5, "\u464A\u464C\u464E\u464A\u465F\u4657\u4660\u464C\u4662\u4658\u465D\u4656\u4665\u4667\u4655\u4662\u4666\u4656\u4664\u465E\u4668", "\u9EF1\u9EF3\u9EF5\u9EF1\u9F06\u9EFE\u9F07\u9EF3\u9F0C\u9EF7\u9F00\u9F0C\u9EF8\u9F03\u9F09\u9F10\u9F02\u9F10\u9F15\u9F01\u9F0D", "\uF435\uF437\uF439\uF435\uF44A\uF442\uF44B\uF437\uF450\uF43B\uF444\uF450\uF43C\uF44A\uF448\uF44D\uF44A\uF456", "\uA594\uA596\uA598\uA594\uA5A9\uA5A1\uA5AA\uA596\uA5AF\uA59A\uA5A3\uA5AF\uA59B\uA59E\uA5A6\uA5A4\uA5A1\uA5A5", "\u7B7F\u7B92\u7B93\u7B8A\u7B89\u7B91", "\u62F8\u6300\u6308", "\uB2F9\uB2FA\uB2CD\uB301\uB302\uB2D0\uB30A\uB30B", "\u7732\u7736\u773A\u7743\u7735\u7743", 1.6, 0.273972602739726, 0.24, "\u5A10\u5565\u4518\u46C1\u84B9\uF1F7\u7EE3\u5BAD\u5AD3\u46C7\u84BF", "\uC2F3", "\uF09A\u01A8\uF15B", "\uE3A2\u229F\uE971", "\u42FE\u42DD", "\u48CF\u48CE\u48DE\u48B8\u48DB\u48DB\u48E2\u48D7", "\uCD6A\uCD32", "\uA04C\uA04B\uA05B\uA02C\uA04A\uA05E\uA050", "\u9861\u9825", "\u1BBF\u1BBE\u1BCE\u1BA3\u1BCB\u1BD2\u1BD0\u1BD2", "\u0796\u0755", "\u5F8E\u5F8D\u5F9D\u5F77\u5F94\u5F9A\u5FA2\u5FA2\u5F94\u5FA3", "\u21A6\u215F", "\uC74A\uC749\uC759\uC739\uC74C\uC74B\uC758\uC758\uC74F\uC75F", "\u2B57\u2B12", "\u2F16", "\uE4D0\uE4CF\uE4DF\uE4B9\uE4D6\uE4DA\uE4DB\uE4D9\uE4E4\uE4D7\uE4D6\uE4E3\uE4E3\uE4DA\uE4EA", "\uC98E\uC9E0\uC993\uC992", "\uEB5E\uEB72\uEB75\uEB54\uEB88\uEB81", "\uB54E\uB55C", "\u87A1\u87A0\u87B0\u8783\u87B3\u87AB\u87AC\u879A\u87A7\u87A4\u87B6", "\uF8FA\uF8FD\uF8EB\uF8FD\uF8FF\uF8FE", "\u3E13", "\uBC07", "\u8C50\u8C51", "\uBE6C", "\u1422", "\uB7CE\uB7D0\uB7D2\uB7D4\uB7D6\uB7D8\uB7A3\uB7A5\uB7A7\uB7A9\uB7AB\uB7AD\uB7AF\uB7B1\uB7B3\uB7B5", "\u178A", "\uE639", "\u0911\u9885\u9102\u878A\u7017\u07C5\u5A2B\u988B\u9108\u5743", "\uFB80"], function () {
+  typeof globalThis === "undefined" && (typeof window === "undefined" ? typeof global !== "undefined" ? globalThis = global : globalThis = this : globalThis = window);
+  typeof exports === "undefined" || (globalThis.exports = exports);
+  typeof require === "undefined" || (globalThis.require = require);
+  typeof module === "undefined" || (globalThis.module = module);
+  typeof __filename === "undefined" || (globalThis.__filename = __filename);
+  typeof __dirname === "undefined" || (globalThis.__dirname = __dirname);
+  return globalThis;
+}(), Object.call.bind(Array.bind), Array.apply.bind(Number.bind), Number.bind.bind(Object.bind), []);
